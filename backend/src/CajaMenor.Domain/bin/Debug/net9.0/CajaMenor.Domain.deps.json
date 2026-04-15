@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "CajaMenor.Domain/1.0.0": {
+        "dependencies": {
+          "CajaMenor.Shared": "1.0.0"
+        },
+        "runtime": {
+          "CajaMenor.Domain.dll": {}
+        }
+      },
+      "CajaMenor.Shared/1.0.0": {
+        "runtime": {
+          "CajaMenor.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CajaMenor.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CajaMenor.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@CajaMenor.API_HostAddress = http://localhost:5129
+
+GET {{CajaMenor.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

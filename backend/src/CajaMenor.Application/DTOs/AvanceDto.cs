@@ -43,4 +43,7 @@ public class ResumenAvancesDto
     public int Legalizados { get; set; }
     public decimal PorcentajePendientes { get; set; }
     public decimal PorcentajeLegalizados { get; set; }
+    /// <summary>Avances ya reembolsados (histórico); en el dashboard se excluyen de Total/Legalizados.</summary>
+    public int Reembolsados { get; set; }
+    public decimal ValorReembolsados { get; set; }
 }

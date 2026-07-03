@@ -12,3 +12,9 @@ export const getAvancesPendientes = (cajaId: number) =>
 
 export const crearAvance = (cajaId: number, dto: CrearAvanceDto) =>
   api.post<AvanceDto>(`/cajas/${cajaId}/avances`, dto).then(r => r.data)
+
+export const getSiguienteCodigoAvance = (cajaId: number) =>
+  api.get<{ codigo: string }>(`/cajas/${cajaId}/avances/siguiente-codigo`).then(r => r.data)
+
+export const eliminarAvance = (cajaId: number, avanceId: number) =>
+  api.delete(`/cajas/${cajaId}/avances/${avanceId}`).then(r => r.data)

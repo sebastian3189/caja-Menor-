@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { FileText, Plus, ArrowRight, AlertTriangle, Info, CheckCircle2, Filter, X, Paperclip, Trash2, Upload, ZoomIn, Pencil } from 'lucide-react'
+import { FileText, Plus, ArrowRight, AlertTriangle, Info, CheckCircle2, Filter, X, Paperclip, Trash2, Upload, ZoomIn, Pencil, ShieldCheck, ShieldOff, Download, Search, Lock } from 'lucide-react'
+import { Pagination } from '@/components/ui/Pagination'
 import { useAuthStore } from '@/store/authStore'
-import { getLegalizaciones, getResumenLegalizaciones, crearLegalizacion, editarLegalizacion, iniciarReembolso, subirRecibo, eliminarRecibo } from '@/api/legalizaciones'
+import { getLegalizaciones, getResumenLegalizaciones, crearLegalizacion, editarLegalizacion, iniciarReembolso, subirRecibos, eliminarRecibo, getSiguienteCodigoLegalizacion, exportarLegalizaciones } from '@/api/legalizaciones'
 import { getAvancesPendientes } from '@/api/avances'
+import { getDashboard } from '@/api/cajaMenor'
+import { descargarBlob, nombreConFecha } from '@/lib/download'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
@@ -46,6 +49,16 @@ function EstadoBadge({ estado }: { estado: LegalizacionDto['estadoReembolso'] })
   return <Badge variant={map[estado]}>{labels[estado]}</Badge>
 }
 
+/** El monto quedó validado por OCR cuando la suma de los recibos coincide con el monto legalizado. */
+function ocrValidado(leg: LegalizacionDto): boolean {
+  return leg.recibos.some(r => r.validadoOCR)
+}
+
+/** Lista para reembolsar: sin reembolso previo y con el monto ya validado por OCR. */
+function esReembolsable(leg: LegalizacionDto): boolean {
+  return leg.estadoReembolso === 'SinReembolso' && ocrValidado(leg)
+}
+
 export function LegalizacionesPage() {
   const { user } = useAuthStore()
   const cajaId = user?.cajaId!
@@ -54,11 +67,29 @@ export function LegalizacionesPage() {
   const [editingLeg, setEditingLeg] = useState<LegalizacionDto | null>(null)
   const [reciboLeg, setReciboLeg] = useState<LegalizacionDto | null>(null)
   const [vistaPrevia, setVistaPrevia] = useState<string | null>(null)
+  const [crearError, setCrearError] = useState<string | null>(null)
+  const [archivosStaged, setArchivosStaged] = useState<File[]>([])
+  const [previewsStaged, setPreviewsStaged] = useState<string[]>([])
+  const [batchError, setBatchError] = useState<{ message: string; valorOCR: number; montoLegalizado: number; diferencia: number } | null>(null)
   const isAdmin = user?.rol === 'Administrador'
 
   const [filtroEstado, setFiltroEstado] = useState('')
   const [filtroFechaDesde, setFiltroFechaDesde] = useState('')
   const [filtroFechaHasta, setFiltroFechaHasta] = useState('')
+  const [busqueda, setBusqueda] = useState('')
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState(10)
+  const [exportando, setExportando] = useState(false)
+
+  const handleExportar = async () => {
+    setExportando(true)
+    try {
+      const blob = await exportarLegalizaciones(cajaId)
+      descargarBlob(blob, nombreConFecha('Legalizaciones', 'xlsx'))
+    } finally {
+      setExportando(false)
+    }
+  }
 
   const { data: legalizaciones = [], isLoading } = useQuery({
     queryKey: ['legalizaciones', cajaId],
@@ -76,6 +107,18 @@ export function LegalizacionesPage() {
     enabled: showModal,
   })
 
+  const { data: dashboard } = useQuery({
+    queryKey: ['dashboard', cajaId],
+    queryFn: () => getDashboard(cajaId),
+  })
+
+  const { data: siguienteCodigo } = useQuery({
+    queryKey: ['siguiente-codigo-legalizacion', cajaId],
+    queryFn: () => getSiguienteCodigoLegalizacion(cajaId),
+    enabled: showModal && isAdmin,
+    refetchOnMount: 'always',
+  })
+
   const crearMutation = useMutation({
     mutationFn: (data: CrearLegalizacionForm) =>
       crearLegalizacion(cajaId, {
@@ -90,8 +133,13 @@ export function LegalizacionesPage() {
       queryClient.invalidateQueries({ queryKey: ['avances', cajaId] })
       queryClient.invalidateQueries({ queryKey: ['avances-pendientes', cajaId] })
       queryClient.invalidateQueries({ queryKey: ['dashboard', cajaId] })
+      queryClient.invalidateQueries({ queryKey: ['siguiente-codigo-legalizacion', cajaId] })
       setShowModal(false)
       reset()
+      setCrearError(null)
+    },
+    onError: (error: any) => {
+      setCrearError(error?.response?.data?.message ?? 'Error al crear la legalización.')
     },
   })
 
@@ -107,8 +155,8 @@ export function LegalizacionesPage() {
 
   const reembolsarTodasMutation = useMutation({
     mutationFn: () => {
-      const pendientes = legalizaciones.filter(l => l.estadoReembolso === 'SinReembolso')
-      return Promise.all(pendientes.map(l => iniciarReembolso(cajaId, l.id)))
+      const listos = legalizaciones.filter(esReembolsable)
+      return Promise.all(listos.map(l => iniciarReembolso(cajaId, l.id)))
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['legalizaciones', cajaId] })
@@ -118,14 +166,44 @@ export function LegalizacionesPage() {
     },
   })
 
-  const subirReciboMutation = useMutation({
-    mutationFn: ({ legId, archivo }: { legId: number; archivo: File }) =>
-      subirRecibo(cajaId, legId, archivo),
-    onSuccess: (recibo, { legId }) => {
+  const limpiarStaged = (limpiarError = true) => {
+    previewsStaged.forEach(p => { if (p) URL.revokeObjectURL(p) })
+    setArchivosStaged([])
+    setPreviewsStaged([])
+    if (limpiarError) setBatchError(null)
+  }
+
+  const agregarArchivos = (files: File[]) => {
+    const nuevasPreviews = files.map(f => f.type.startsWith('image/') ? URL.createObjectURL(f) : '')
+    setArchivosStaged(prev => [...prev, ...files])
+    setPreviewsStaged(prev => [...prev, ...nuevasPreviews])
+    setBatchError(null)
+  }
+
+  const quitarArchivo = (index: number) => {
+    const preview = previewsStaged[index]
+    if (preview) URL.revokeObjectURL(preview)
+    setArchivosStaged(prev => prev.filter((_, i) => i !== index))
+    setPreviewsStaged(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const subirRecibosMutation = useMutation({
+    mutationFn: ({ legId, archivos }: { legId: number; archivos: File[] }) =>
+      subirRecibos(cajaId, legId, archivos),
+    onSuccess: (nuevosRecibos, { legId }) => {
       queryClient.setQueryData<LegalizacionDto[]>(['legalizaciones', cajaId], prev =>
-        prev?.map(l => l.id === legId ? { ...l, recibos: [...l.recibos, recibo] } : l) ?? []
+        prev?.map(l => l.id === legId ? { ...l, recibos: [...l.recibos, ...nuevosRecibos] } : l) ?? []
       )
-      setReciboLeg(prev => prev?.id === legId ? { ...prev, recibos: [...prev.recibos, recibo] } : prev)
+      setReciboLeg(prev => prev?.id === legId ? { ...prev, recibos: [...prev.recibos, ...nuevosRecibos] } : prev)
+      limpiarStaged()
+    },
+    onError: (error: any) => {
+      if (error?.response?.status === 422) {
+        setBatchError(error.response.data)
+      } else {
+        setBatchError({ message: 'Error al subir las facturas. Intente de nuevo.', valorOCR: 0, montoLegalizado: 0, diferencia: 0 })
+      }
+      limpiarStaged(false) // limpia archivos pero mantiene el error visible
     },
   })
 
@@ -144,10 +222,23 @@ export function LegalizacionesPage() {
     if (filtroEstado && l.estadoReembolso !== filtroEstado) return false
     if (filtroFechaDesde && new Date(l.fechaLegalizacion) < new Date(filtroFechaDesde)) return false
     if (filtroFechaHasta && new Date(l.fechaLegalizacion) > new Date(filtroFechaHasta + 'T23:59:59')) return false
+    if (busqueda) {
+      const q = busqueda.toLowerCase()
+      const match = l.codigoLegalizacion.toLowerCase().includes(q)
+        || l.descripcion.toLowerCase().includes(q)
+        || (l.codigoAvance?.toLowerCase().includes(q) ?? false)
+        || l.tipoLegalizacion.toLowerCase().includes(q)
+      if (!match) return false
+    }
     return true
   })
-  const hayFiltros = filtroEstado || filtroFechaDesde || filtroFechaHasta
-  const pendientesCount = legalizaciones.filter(l => l.estadoReembolso === 'SinReembolso').length
+  const hayFiltros = filtroEstado || filtroFechaDesde || filtroFechaHasta || busqueda
+  const pendientesCount = legalizaciones.filter(esReembolsable).length
+
+  // Paginación cliente
+  const totalPaginas = Math.max(1, Math.ceil(legalizacionesFiltradas.length / pageSize))
+  const paginaActual = Math.min(page, totalPaginas)
+  const legalizacionesPagina = legalizacionesFiltradas.slice((paginaActual - 1) * pageSize, paginaActual * pageSize)
 
   const editarMutation = useMutation({
     mutationFn: ({ id, data }: { id: number; data: EditarLegalizacionForm }) => {
@@ -167,8 +258,28 @@ export function LegalizacionesPage() {
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<CrearLegalizacionForm>({ resolver: zodResolver(legalizacionSchema) })
+
+  useEffect(() => {
+    if (siguienteCodigo) setValue('codigoLegalizacion', siguienteCodigo.codigo)
+  }, [siguienteCodigo, setValue])
+
+  useEffect(() => {
+    setPage(1)
+  }, [busqueda, filtroEstado, filtroFechaDesde, filtroFechaHasta, pageSize])
+
+  const avanceIdStr = watch('avanceId')
+  const montoStr = watch('monto')
+  const esSinAvance = !avanceIdStr
+  const monto = Number(montoStr) || 0
+  const disponible = dashboard?.caja.disponible ?? 0
+  const quedaria = disponible - monto
+  const excedeTope = esSinAvance && monto > 0 && monto > disponible
+
+  const fmt = (v: number) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(v)
 
   const {
     register: registerEdit,
@@ -197,11 +308,16 @@ export function LegalizacionesPage() {
         iconColor="text-emerald-600"
         iconBg="bg-emerald-100"
         actions={
-          isAdmin ? (
-            <Button onClick={() => setShowModal(true)}>
-              <Plus size={15} /> Nueva legalización
+          <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={handleExportar} loading={exportando} disabled={legalizaciones.length === 0}>
+              <Download size={15} /> Exportar
             </Button>
-          ) : undefined
+            {isAdmin && (
+              <Button onClick={() => setShowModal(true)}>
+                <Plus size={15} /> Nueva legalización
+              </Button>
+            )}
+          </div>
         }
       />
 
@@ -213,6 +329,27 @@ export function LegalizacionesPage() {
           <StatCard label="Con avance" value={resumen.conAvance} icon={FileText} iconColor="text-emerald-600" iconBg="bg-emerald-100" />
         </div>
       )}
+
+      {/* Búsqueda */}
+      <div className="relative">
+        <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+        <input
+          type="text"
+          value={busqueda}
+          onChange={e => setBusqueda(e.target.value)}
+          placeholder="Buscar por código, descripción, avance o tipo..."
+          className="w-full pl-9 pr-9 py-2.5 text-sm border border-slate-200 rounded-xl bg-white text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+        />
+        {busqueda && (
+          <button
+            onClick={() => setBusqueda('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            aria-label="Limpiar búsqueda"
+          >
+            <X size={15} />
+          </button>
+        )}
+      </div>
 
       {/* Filtros */}
       <div className="flex flex-wrap items-center gap-3 px-4 py-3 bg-slate-50 rounded-xl border border-slate-200">
@@ -342,36 +479,54 @@ export function LegalizacionesPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {legalizacionesFiltradas.map((leg) => (
+                  {legalizacionesPagina.map((leg) => (
                     <tr key={leg.id}>
                       {isAdmin && (
                         <td>
                           {leg.estadoReembolso === 'SinReembolso' && (
-                            <button
-                              onClick={() => abrirEditar(leg)}
-                              className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
-                              title="Editar legalización"
-                            >
-                              <Pencil size={13} />
-                            </button>
+                            ocrValidado(leg) ? (
+                              <span
+                                className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-300"
+                                title="Bloqueado: el monto ya fue validado por OCR con los recibos adjuntos"
+                              >
+                                <Lock size={13} />
+                              </span>
+                            ) : (
+                              <button
+                                onClick={() => abrirEditar(leg)}
+                                className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
+                                title="Editar legalización"
+                              >
+                                <Pencil size={13} />
+                              </button>
+                            )
                           )}
                         </td>
                       )}
                       {isAdmin && (
                         <td>
                           {leg.estadoReembolso === 'SinReembolso' ? (
-                            <Button
-                              size="sm"
-                              variant="secondary"
-                              loading={
-                                reembolsarMutation.isPending &&
-                                reembolsarMutation.variables === leg.id
-                              }
-                              onClick={() => reembolsarMutation.mutate(leg.id)}
-                            >
-                              <ArrowRight size={13} />
-                              Reembolsar
-                            </Button>
+                            ocrValidado(leg) ? (
+                              <Button
+                                size="sm"
+                                variant="secondary"
+                                loading={
+                                  reembolsarMutation.isPending &&
+                                  reembolsarMutation.variables === leg.id
+                                }
+                                onClick={() => reembolsarMutation.mutate(leg.id)}
+                              >
+                                <ArrowRight size={13} />
+                                Reembolsar
+                              </Button>
+                            ) : (
+                              <span title="Suba los recibos y valide el monto con OCR antes de reembolsar">
+                                <Button size="sm" variant="secondary" disabled>
+                                  <ShieldOff size={13} />
+                                  Reembolsar
+                                </Button>
+                              </span>
+                            )
                           ) : (
                             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-600 border border-emerald-200">
                               <CheckCircle2 size={11} />
@@ -413,12 +568,15 @@ export function LegalizacionesPage() {
                           <button
                             onClick={() => setReciboLeg(leg)}
                             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition-all border ${
-                              leg.recibos.length > 0
+                              ocrValidado(leg)
+                                ? 'bg-emerald-50 text-emerald-600 border-emerald-200 hover:bg-emerald-100'
+                                : leg.recibos.length > 0
                                 ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100'
                                 : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-slate-300'
                             }`}
+                            title={ocrValidado(leg) ? 'Monto validado por OCR' : undefined}
                           >
-                            <Paperclip size={11} />
+                            {ocrValidado(leg) ? <ShieldCheck size={11} /> : <Paperclip size={11} />}
                             {leg.recibos.length > 0 ? leg.recibos.length : 'Subir'}
                           </button>
                         ) : (
@@ -431,50 +589,131 @@ export function LegalizacionesPage() {
               </table>
             </div>
           )}
+          {legalizacionesFiltradas.length > 0 && (
+            <Pagination
+              page={paginaActual}
+              pageSize={pageSize}
+              totalItems={legalizacionesFiltradas.length}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
+          )}
         </CardContent>
       </Card>
 
       {/* Modal recibos */}
       <Modal
         open={!!reciboLeg}
-        onClose={() => setReciboLeg(null)}
-        title={`Recibos — ${reciboLeg?.codigoLegalizacion ?? ''}`}
+        onClose={() => { setReciboLeg(null); limpiarStaged() }}
+        title={`Facturas — ${reciboLeg?.codigoLegalizacion ?? ''}`}
         size="lg"
       >
         {reciboLeg && (
           <div className="space-y-4">
-            {/* Upload button: solo admin y solo si la legalización aún no ha pasado a proceso */}
+            {/* Zona de carga: solo admin y SinReembolso */}
             {isAdmin && reciboLeg.estadoReembolso === 'SinReembolso' && (
-              <div>
-                <label className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50 text-indigo-600 text-sm font-medium cursor-pointer hover:bg-indigo-100 transition-all">
-                  {subirReciboMutation.isPending ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
-                      Subiendo...
-                    </>
-                  ) : (
-                    <>
-                      <Upload size={15} />
-                      Subir recibo (JPG, PNG, PDF)
-                    </>
-                  )}
-                  <input
-                    type="file"
-                    accept=".jpg,.jpeg,.png,.gif,.webp,.pdf"
-                    className="hidden"
-                    disabled={subirReciboMutation.isPending}
-                    onChange={e => {
-                      const f = e.target.files?.[0]
-                      if (f) subirReciboMutation.mutate({ legId: reciboLeg.id, archivo: f })
-                      e.target.value = ''
-                    }}
-                  />
-                </label>
+              <div className="space-y-3">
+                {/* Error batch OCR */}
+                {batchError && (
+                  <div className="rounded-xl bg-red-50 border border-red-200 p-4 space-y-3">
+                    <div className="flex items-start gap-2.5">
+                      <AlertTriangle size={16} className="text-red-500 shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <p className="text-sm text-red-700 font-semibold mb-0.5">Facturas no aceptadas</p>
+                        <p className="text-xs text-red-600">{batchError.message}</p>
+                      </div>
+                    </div>
+                    {batchError.valorOCR > 0 && (
+                      <div className="flex gap-2 text-xs">
+                        <span className="flex-1 text-center bg-white border border-red-100 rounded-lg px-2 py-2">
+                          <span className="block text-slate-400 mb-0.5">Suma leída (OCR)</span>
+                          <b className="text-red-600">{fmt(batchError.valorOCR)}</b>
+                        </span>
+                        <span className="flex-1 text-center bg-white border border-red-100 rounded-lg px-2 py-2">
+                          <span className="block text-slate-400 mb-0.5">Monto legalizado</span>
+                          <b className="text-slate-700">{fmt(batchError.montoLegalizado)}</b>
+                        </span>
+                      </div>
+                    )}
+                    <p className="text-xs text-red-500 text-center font-medium">↓ Seleccione las facturas correctas e intente de nuevo</p>
+                  </div>
+                )}
+
+                {archivosStaged.length === 0 ? (
+                  /* Drop zone */
+                  <label className="flex flex-col items-center justify-center gap-2 w-full py-7 rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50 text-indigo-600 cursor-pointer hover:bg-indigo-100 transition-all">
+                    <Upload size={22} />
+                    <span className="text-sm font-medium">Seleccionar facturas</span>
+                    <span className="text-xs text-indigo-400">JPG, PNG, PDF · puede seleccionar varias a la vez</span>
+                    <input
+                      type="file"
+                      accept=".jpg,.jpeg,.png,.gif,.webp,.pdf"
+                      multiple
+                      className="hidden"
+                      onChange={e => { agregarArchivos(Array.from(e.target.files ?? [])); e.target.value = '' }}
+                    />
+                  </label>
+                ) : (
+                  /* Vista previa de archivos seleccionados */
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                      {archivosStaged.map((f, i) => (
+                        <div key={i} className="relative group rounded-xl border border-indigo-200 bg-indigo-50 overflow-hidden">
+                          {f.type.startsWith('image/') ? (
+                            <img src={previewsStaged[i]} className="h-20 w-full object-cover" alt={f.name} />
+                          ) : (
+                            <div className="h-20 flex items-center justify-center">
+                              <FileText size={26} className="text-red-400" />
+                            </div>
+                          )}
+                          <p className="text-xs text-slate-500 px-1.5 py-1 truncate">{f.name}</p>
+                          <button
+                            onClick={() => quitarArchivo(i)}
+                            className="absolute top-1 right-1 w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          >
+                            <X size={10} />
+                          </button>
+                        </div>
+                      ))}
+                      {/* Agregar más */}
+                      <label className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50 flex flex-col items-center justify-center min-h-[88px] cursor-pointer hover:bg-indigo-100 transition-all text-indigo-400 gap-1">
+                        <Plus size={18} />
+                        <span className="text-xs">Agregar</span>
+                        <input
+                          type="file"
+                          accept=".jpg,.jpeg,.png,.gif,.webp,.pdf"
+                          multiple
+                          className="hidden"
+                          onChange={e => { agregarArchivos(Array.from(e.target.files ?? [])); e.target.value = '' }}
+                        />
+                      </label>
+                    </div>
+
+                    {/* Botones */}
+                    <div className="flex gap-2">
+                      <Button type="button" variant="outline" size="sm" className="flex-1" onClick={() => limpiarStaged()}
+                        disabled={subirRecibosMutation.isPending}>
+                        Cancelar
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        className="flex-1"
+                        loading={subirRecibosMutation.isPending}
+                        onClick={() => subirRecibosMutation.mutate({ legId: reciboLeg.id, archivos: archivosStaged })}
+                      >
+                        {subirRecibosMutation.isPending
+                          ? 'Analizando facturas...'
+                          : `Aceptar (${archivosStaged.length} factura${archivosStaged.length !== 1 ? 's' : ''})`}
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
-            {/* Gallery */}
-            {reciboLeg.recibos.length === 0 ? (
+            {/* Gallery de recibos guardados */}
+            {reciboLeg.recibos.length === 0 && archivosStaged.length === 0 ? (
               <div className="py-10 text-center">
                 <Paperclip size={28} className="text-slate-300 mx-auto mb-2" />
                 <p className="text-sm text-slate-400">No hay recibos adjuntos aún</p>
@@ -519,7 +758,18 @@ export function LegalizacionesPage() {
                           <Trash2 size={11} />
                         </button>
                       )}
-                      <p className="text-xs text-slate-400 px-2 py-1 truncate">{r.nombreOriginal}</p>
+                      <div className="flex items-center justify-between px-2 py-1">
+                        <p className="text-xs text-slate-400 truncate flex-1">{r.nombreOriginal}</p>
+                        {r.validadoOCR ? (
+                          <span className="shrink-0 ml-1.5" title={r.valorOCR != null ? `OCR: ${fmt(r.valorOCR)}` : 'Verificado'}>
+                            <ShieldCheck size={13} className="text-emerald-500" />
+                          </span>
+                        ) : (r.notaOCR || r.valorOCR != null) ? (
+                          <span className="shrink-0 ml-1.5" title={r.notaOCR ?? 'No validado por OCR'}>
+                            <ShieldOff size={13} className="text-amber-500" />
+                          </span>
+                        ) : null}
+                      </div>
                     </div>
                   )
                 })}
@@ -628,11 +878,17 @@ export function LegalizacionesPage() {
       {/* Modal nueva legalización */}
       <Modal
         open={showModal}
-        onClose={() => { setShowModal(false); reset() }}
+        onClose={() => { setShowModal(false); reset(); setCrearError(null) }}
         title="Nueva Legalización"
         size="lg"
       >
-        <form onSubmit={handleSubmit((d) => crearMutation.mutate(d))} className="space-y-4">
+        <form onSubmit={handleSubmit((d) => { if (excedeTope) return; setCrearError(null); crearMutation.mutate(d) })} className="space-y-4">
+          {dashboard && esSinAvance && (
+            <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-teal-50 border border-teal-200 text-sm">
+              <span className="text-teal-600 font-medium">Disponible en caja</span>
+              <span className="font-bold text-teal-700">{fmt(dashboard.caja.disponible)}</span>
+            </div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Código legalización</Label>
@@ -666,8 +922,13 @@ export function LegalizacionesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Monto legalizado</Label>
-              <Input type="number" step="0.01" placeholder="0" {...register('monto')} error={!!errors.monto} />
+              <Input type="number" step="0.01" placeholder="0" {...register('monto')} error={!!errors.monto || excedeTope} />
               {errors.monto && <p className="text-xs text-red-500">{errors.monto.message}</p>}
+              {!errors.monto && esSinAvance && monto > 0 && (
+                <p className={`text-xs font-medium ${excedeTope ? 'text-red-500' : 'text-slate-400'}`}>
+                  {excedeTope ? `Excede el disponible (${fmt(disponible)})` : `Quedaría: ${fmt(quedaria)}`}
+                </p>
+              )}
             </div>
             <div className="space-y-1.5">
               <Label>Tipo de gasto</Label>
@@ -689,17 +950,17 @@ export function LegalizacionesPage() {
             {errors.descripcion && <p className="text-xs text-red-500">{errors.descripcion.message}</p>}
           </div>
 
-          {crearMutation.isError && (
+          {crearError && (
             <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
-              Error al crear la legalización. Verifique los datos.
+              {crearError}
             </div>
           )}
 
           <div className="flex gap-3 pt-2">
-            <Button type="button" variant="outline" className="flex-1" onClick={() => { setShowModal(false); reset() }}>
+            <Button type="button" variant="outline" className="flex-1" onClick={() => { setShowModal(false); reset(); setCrearError(null) }}>
               Cancelar
             </Button>
-            <Button type="submit" className="flex-1" loading={isSubmitting || crearMutation.isPending}>
+            <Button type="submit" className="flex-1" disabled={excedeTope} loading={isSubmitting || crearMutation.isPending}>
               Guardar legalización
             </Button>
           </div>

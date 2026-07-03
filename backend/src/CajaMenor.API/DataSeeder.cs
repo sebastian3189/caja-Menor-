@@ -19,9 +19,12 @@ public static class DataSeeder
 
         var directorPassword = config["Seeder:DirectorPassword"] ?? "Admin123!";
         var adminPassword = config["Seeder:AdminPassword"] ?? "Admin123!";
+        var maestroEmail = config["MasterAdmin:User"] ?? "maestro@cajamenor.miraxiontech";
+        var maestroPassword = config["MasterAdmin:Password"]
+            ?? throw new InvalidOperationException("MasterAdmin:Password no está configurado.");
 
         // Crear roles
-        foreach (var rol in new[] { "Director", "Administrador" })
+        foreach (var rol in new[] { RolUsuario.Director, RolUsuario.Administrador, RolUsuario.Maestro, RolUsuario.Solicitante })
         {
             if (!await roleManager.RoleExistsAsync(rol))
                 await roleManager.CreateAsync(new IdentityRole(rol));
@@ -35,6 +38,30 @@ public static class DataSeeder
         }
 
         var central = await db.Centrales.FirstAsync();
+
+        // Crear usuario Maestro (Identity real: contraseña hasheada, sesión con JWT como cualquier rol)
+        var maestroIdentity = await userManager.FindByEmailAsync(maestroEmail);
+        if (maestroIdentity == null)
+        {
+            maestroIdentity = new ApplicationUser
+            {
+                UserName = maestroEmail,
+                Email = maestroEmail,
+                NombreCompleto = "Usuario Maestro"
+            };
+            await userManager.CreateAsync(maestroIdentity, maestroPassword);
+            await userManager.AddToRoleAsync(maestroIdentity, RolUsuario.Maestro);
+
+            db.UsuariosApp.Add(new UsuarioApp
+            {
+                IdentityUserId = maestroIdentity.Id,
+                Nombre = "Usuario Maestro",
+                Email = maestroEmail,
+                Rol = RolUsuario.Maestro,
+                CentralId = central.Id
+            });
+            await db.SaveChangesAsync();
+        }
 
         // Crear Director
         UsuarioApp? directorApp = null;

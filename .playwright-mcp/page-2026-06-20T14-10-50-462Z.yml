@@ -1,0 +1,202 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e8]
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: Caja Menor
+          - paragraph [ref=e14]: MiraxionTech
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Caja activa
+        - paragraph [ref=e17]: Caja Medellín
+    - navigation [ref=e18]:
+      - paragraph [ref=e19]: Módulos
+      - link "Dashboard" [ref=e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e22]
+        - generic [ref=e27]: Dashboard
+      - link "Avances" [ref=e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e30]
+        - generic [ref=e33]: Avances
+        - img [ref=e34]
+      - link "Legalizaciones" [ref=e36] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e38]
+        - generic [ref=e41]: Legalizaciones
+      - link "Reembolsos" [ref=e42] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e44]
+        - generic [ref=e49]: Reembolsos
+      - link "Arqueo" [ref=e50] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e52]
+        - generic [ref=e55]: Arqueo
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Sebastian
+          - generic [ref=e60]: Administrador
+        - paragraph [ref=e61]: Sebas@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e62]:
+        - img [ref=e63]
+        - text: Cerrar sesión
+  - main [ref=e67]:
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - img [ref=e73]
+          - generic [ref=e76]:
+            - heading "Avances" [level=1] [ref=e77]
+            - paragraph [ref=e78]: Gestión de avances de caja menor
+        - button "Nuevo avance" [ref=e80] [cursor=pointer]:
+          - img [ref=e81]
+          - text: Nuevo avance
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - img [ref=e109]
+          - generic [ref=e112]:
+            - paragraph [ref=e113]: Total registrados
+            - paragraph [ref=e114]: "4"
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - generic [ref=e120]:
+            - paragraph [ref=e121]: Pendientes
+            - paragraph [ref=e122]: "2"
+        - generic [ref=e123]:
+          - img [ref=e125]
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Legalizados
+            - paragraph [ref=e130]: "2"
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Progreso de legalización
+          - generic [ref=e135]: 50%
+        - generic [ref=e138]:
+          - generic [ref=e139]: 2 pendientes
+          - generic [ref=e140]: 2 legalizados
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - img [ref=e84]
+          - text: Filtros
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: "Estado:"
+            - generic [ref=e89]:
+              - button "Todos" [ref=e90]
+              - button "Pendiente" [ref=e91]
+              - button "Legalizado" [ref=e92]
+          - generic [ref=e93]:
+            - generic [ref=e94]: "Desde:"
+            - textbox [ref=e95]
+          - generic [ref=e96]:
+            - generic [ref=e97]: "Hasta:"
+            - textbox [ref=e98]
+      - generic [ref=e99]:
+        - heading "Listado de avances" [level=3] [ref=e101]
+        - table [ref=e141]:
+          - rowgroup [ref=e142]:
+            - row "Código Fecha Solicitante Descripción Valor Estado Tipo Reembolso" [ref=e143]:
+              - columnheader [ref=e144]
+              - columnheader "Código" [ref=e145]
+              - columnheader "Fecha" [ref=e146]
+              - columnheader "Solicitante" [ref=e147]
+              - columnheader "Descripción" [ref=e148]
+              - columnheader "Valor" [ref=e149]
+              - columnheader "Estado" [ref=e150]
+              - columnheader "Tipo" [ref=e151]
+              - columnheader "Reembolso" [ref=e152]
+          - rowgroup [ref=e153]:
+            - row "AV-2026-004 19/06/2026 Andrea Lopez Mantenimiento equipo aire acondicionado $ 450.000 Pendiente — Sin reembolso" [ref=e154]:
+              - cell [ref=e155]:
+                - button "Editar avance" [ref=e156]:
+                  - img [ref=e157]
+              - cell "AV-2026-004" [ref=e160]
+              - cell "19/06/2026" [ref=e161]
+              - cell "Andrea Lopez" [ref=e162]
+              - cell "Mantenimiento equipo aire acondicionado" [ref=e163]
+              - cell "$ 450.000" [ref=e164]
+              - cell "Pendiente" [ref=e165]:
+                - generic [ref=e166]: Pendiente
+              - cell "—" [ref=e167]
+              - cell "Sin reembolso" [ref=e168]:
+                - generic [ref=e173]: Sin reembolso
+            - row "AV-2026-003 18/06/2026 Carlos Rodriguez Refrigerios reunion directiva $ 220.000 Pendiente — Sin reembolso" [ref=e174]:
+              - cell [ref=e175]:
+                - button "Editar avance" [ref=e176]:
+                  - img [ref=e177]
+              - cell "AV-2026-003" [ref=e180]
+              - cell "18/06/2026" [ref=e181]
+              - cell "Carlos Rodriguez" [ref=e182]
+              - cell "Refrigerios reunion directiva" [ref=e183]
+              - cell "$ 220.000" [ref=e184]
+              - cell "Pendiente" [ref=e185]:
+                - generic [ref=e186]: Pendiente
+              - cell "—" [ref=e187]
+              - cell "Sin reembolso" [ref=e188]:
+                - generic [ref=e193]: Sin reembolso
+            - row "AV-2026-002 17/06/2026 Maria Gomez Papeleria y suministros de oficina $ 180.000 Legalizado Total En proceso" [ref=e194]:
+              - cell [ref=e195]:
+                - 'button "No editable: avance ya legalizado" [disabled] [ref=e196]':
+                  - img [ref=e197]
+              - cell "AV-2026-002" [ref=e200]
+              - cell "17/06/2026" [ref=e201]
+              - cell "Maria Gomez" [ref=e202]
+              - cell "Papeleria y suministros de oficina" [ref=e203]
+              - cell "$ 180.000" [ref=e204]
+              - cell "Legalizado" [ref=e205]:
+                - generic [ref=e206]: Legalizado
+              - cell "Total" [ref=e207]:
+                - generic [ref=e208]: Total
+              - cell "En proceso" [ref=e209]:
+                - generic [ref=e214]: En proceso
+            - row "AV-2026-001 15/06/2026 Juan Perez Compra de combustible para vehiculos operativos $ 350.000 Legalizado Sobrante En proceso" [ref=e215]:
+              - cell [ref=e216]:
+                - 'button "No editable: avance ya legalizado" [disabled] [ref=e217]':
+                  - img [ref=e218]
+              - cell "AV-2026-001" [ref=e221]
+              - cell "15/06/2026" [ref=e222]
+              - cell "Juan Perez" [ref=e223]
+              - cell "Compra de combustible para vehiculos operativos" [ref=e224]
+              - cell "$ 350.000" [ref=e225]
+              - cell "Legalizado" [ref=e226]:
+                - generic [ref=e227]: Legalizado
+              - cell "Sobrante" [ref=e228]:
+                - generic [ref=e229]: Sobrante
+              - cell "En proceso" [ref=e230]:
+                - generic [ref=e235]: En proceso
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - heading "Nuevo Avance" [level=3] [ref=e240]
+          - button [ref=e241]:
+            - img [ref=e242]
+        - generic [ref=e246]:
+          - generic [ref=e247]:
+            - generic [ref=e248]:
+              - text: Código avance
+              - generic [ref=e249]:
+                - img [ref=e250]
+                - textbox "REQ-0001" [ref=e253]
+            - generic [ref=e254]:
+              - text: Fecha de envío
+              - generic [ref=e255]:
+                - img [ref=e256]
+                - textbox [ref=e258]
+          - generic [ref=e259]:
+            - text: Valor del avance
+            - generic [ref=e260]:
+              - img [ref=e261]
+              - spinbutton [ref=e263]
+          - generic [ref=e264]:
+            - text: Solicitante
+            - generic [ref=e265]:
+              - img [ref=e266]
+              - textbox "Nombre del solicitante" [ref=e269]
+          - generic [ref=e270]:
+            - text: Descripción
+            - generic [ref=e271]:
+              - img [ref=e272]
+              - textbox "Descripción del gasto" [ref=e275]
+          - generic [ref=e276]:
+            - button "Cancelar" [ref=e277] [cursor=pointer]
+            - button "Guardar avance" [ref=e278] [cursor=pointer]

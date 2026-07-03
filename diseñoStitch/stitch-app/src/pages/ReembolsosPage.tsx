@@ -170,6 +170,8 @@ export function ReembolsosPage() {
   const todosPendientes = data?.sinReembolso ?? []
   const historico = data?.historico ?? []
   const totalPendiente = data?.totalPendiente ?? 0
+  const estadoTesoreria = data?.estadoTesoreria ?? null
+  const tesoreriaAcepto = estadoTesoreria === 'Aceptado'
 
   const filtrarPorFecha = (r: ReembolsoDto) => {
     const fecha = new Date(r.fechaReembolso)
@@ -191,6 +193,29 @@ export function ReembolsosPage() {
         iconColor="text-blue-600"
         iconBg="bg-blue-100"
       />
+
+      {/* Estado de la respuesta de Tesorería al arqueo enviado */}
+      {estadoTesoreria === 'Denegado' && (
+        <div className="flex items-start gap-3 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+          <XCircle size={18} className="shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold">Tesorería denegó el arqueo</p>
+            <p className="text-red-600/90">Los reembolsos volvieron a "Sin reembolso". Corrige lo necesario y reinicia el proceso (adjunta el arqueo y vuelve a enviarlo a Tesorería).</p>
+          </div>
+        </div>
+      )}
+      {estadoTesoreria === 'Aceptado' && enProceso.length > 0 && (
+        <div className="flex items-start gap-3 rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-700">
+          <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+          <p><span className="font-semibold">Tesorería aceptó el arqueo.</span> El Director ya puede confirmar los reembolsos para pasarlos al histórico.</p>
+        </div>
+      )}
+      {estadoTesoreria === 'Pendiente' && enProceso.length > 0 && (
+        <div className="flex items-start gap-3 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-700">
+          <Clock size={18} className="shrink-0 mt-0.5" />
+          <p><span className="font-semibold">Esperando aceptación de Tesorería.</span> Cuando acepte el arqueo desde el correo, se habilitará el botón para confirmar los reembolsos.</p>
+        </div>
+      )}
 
       {/* Summary stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -362,10 +387,12 @@ export function ReembolsosPage() {
                   variant="success"
                   size="sm"
                   loading={confirmarMutation.isPending}
+                  disabled={!tesoreriaAcepto}
+                  title={tesoreriaAcepto ? undefined : 'Tesorería debe aceptar el arqueo antes de confirmar'}
                   onClick={() => confirmarMutation.mutate()}
                 >
                   <CheckCircle2 size={14} />
-                  Confirmar reembolsos
+                  {tesoreriaAcepto ? 'Confirmar reembolsos' : 'Esperando a Tesorería'}
                 </Button>
               )}
             </div>

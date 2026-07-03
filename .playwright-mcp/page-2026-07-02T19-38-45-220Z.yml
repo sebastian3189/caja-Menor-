@@ -1,0 +1,93 @@
+- generic [ref=e18]:
+  - complementary [ref=e19]:
+    - generic [ref=e20]:
+      - heading "Caja Menor" [level=1] [ref=e21]
+      - paragraph [ref=e22]: MiraxionTech
+      - paragraph [ref=e23]: 📦 Caja Menor MiraxionTech
+    - navigation [ref=e24]:
+      - link "📊 Dashboard" [ref=e25] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e26]: 📊
+        - text: Dashboard
+      - link "💵 Avances" [ref=e27] [cursor=pointer]:
+        - /url: /avances
+        - generic [ref=e28]: 💵
+        - text: Avances
+      - link "📋 Legalizaciones" [ref=e29] [cursor=pointer]:
+        - /url: /legalizaciones
+        - generic [ref=e30]: 📋
+        - text: Legalizaciones
+      - link "📁 Arqueo" [ref=e31] [cursor=pointer]:
+        - /url: /arqueo
+        - generic [ref=e32]: 📁
+        - text: Arqueo
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: Administrador MiraxionTech
+        - paragraph [ref=e36]: Administrador
+      - button "🚪 Cerrar sesión" [ref=e37]:
+        - generic [ref=e38]: 🚪
+        - text: Cerrar sesión
+  - main [ref=e39]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - heading "Caja Menor MiraxionTech" [level=2] [ref=e44]
+          - paragraph [ref=e45]: Panel de control
+        - generic [ref=e46]: Abierta
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "Valor de Apertura" [level=3] [ref=e50]
+          - paragraph [ref=e52]: $ 5.000.000
+        - generic [ref=e53]:
+          - heading "Disponible" [level=3] [ref=e55]
+          - paragraph [ref=e57]: $ 5.000.000
+        - generic [ref=e58]:
+          - heading "Total Usado" [level=3] [ref=e60]
+          - paragraph [ref=e62]: $ 0
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - heading "Avances" [level=3] [ref=e66]
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - generic [ref=e69]: Total registrados
+              - generic [ref=e70]: "0"
+            - generic [ref=e71]:
+              - generic [ref=e72]: Pendientes de legalizar
+              - generic [ref=e73]: "0"
+            - generic [ref=e74]:
+              - generic [ref=e75]: Legalizados
+              - generic [ref=e76]: "0"
+        - generic [ref=e77]:
+          - heading "Legalizaciones" [level=3] [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - generic [ref=e82]: Total registradas
+              - generic [ref=e83]: "0"
+            - generic [ref=e84]:
+              - generic [ref=e85]: Sin avance asociado
+              - generic [ref=e86]: "0"
+            - generic [ref=e87]:
+              - generic [ref=e88]: Con avance asociado
+              - generic [ref=e89]: "0"
+      - generic [ref=e90]:
+        - heading "Información de la Caja" [level=3] [ref=e92]
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - term [ref=e96]: Central
+            - definition [ref=e97]:
+              - text: Central MiraxionTech
+              - generic [ref=e98]: (MXT-001)
+          - generic [ref=e99]:
+            - term [ref=e100]: Director
+            - definition [ref=e101]: Director MiraxionTech
+          - generic [ref=e102]:
+            - term [ref=e103]: Administrador(es)
+            - definition [ref=e104]: Administrador MiraxionTech
+          - generic [ref=e105]:
+            - term [ref=e106]: Fecha de apertura
+            - definition [ref=e107]: 02/07/2026
+          - generic [ref=e108]:
+            - term [ref=e109]: Estado
+            - definition [ref=e110]:
+              - generic [ref=e111]: Abierta

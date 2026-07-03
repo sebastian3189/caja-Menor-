@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 interface CardProps {
   className?: string
   children: React.ReactNode
-  accent?: 'indigo' | 'amber' | 'emerald' | 'blue' | 'violet' | 'rose' | 'none'
+  accent?: 'indigo' | 'amber' | 'emerald' | 'blue' | 'violet' | 'rose' | 'teal' | 'none'
 }
 
 const accentMap: Record<NonNullable<CardProps['accent']>, string> = {
@@ -13,6 +13,7 @@ const accentMap: Record<NonNullable<CardProps['accent']>, string> = {
   blue: 'border-t-2 border-t-blue-500',
   violet: 'border-t-2 border-t-violet-500',
   rose: 'border-t-2 border-t-rose-500',
+  teal: 'border-t-2 border-t-teal-500',
   none: '',
 }
 

@@ -1,0 +1,171 @@
+- generic [ref=f3e78]:
+  - complementary [ref=f3e79]:
+    - generic [ref=f3e80]:
+      - generic [ref=f3e81]:
+        - img [ref=f3e83]
+        - generic [ref=f3e87]:
+          - paragraph [ref=f3e88]: Caja Menor
+          - paragraph [ref=f3e89]: MiraxionTech
+      - generic [ref=f3e90]:
+        - paragraph [ref=f3e91]: Caja activa
+        - paragraph [ref=f3e92]: Caja Menor MiraxionTech
+    - navigation [ref=f3e93]:
+      - paragraph [ref=f3e94]: Módulos
+      - link "Dashboard" [ref=f3e95] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=f3e97]
+        - generic [ref=f3e102]: Dashboard
+        - img [ref=f3e103]
+      - link "Avances" [ref=f3e105] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=f3e107]
+        - generic [ref=f3e110]: Avances
+      - link "Legalizaciones 1" [ref=f3e111] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=f3e113]
+        - generic [ref=f3e116]: Legalizaciones
+        - generic "1 pendiente" [ref=f3e117]: "1"
+      - link "Reembolsos" [ref=f3e118] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=f3e120]
+        - generic [ref=f3e125]: Reembolsos
+      - link "Arqueo" [ref=f3e126] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=f3e128]
+        - generic [ref=f3e131]: Arqueo
+      - link "Auditoría" [ref=f3e132] [cursor=pointer]:
+        - /url: /auditoria
+        - img [ref=f3e134]
+        - generic [ref=f3e137]: Auditoría
+    - generic [ref=f3e138]:
+      - generic [ref=f3e139]:
+        - generic [ref=f3e140]:
+          - paragraph [ref=f3e141]: Director MiraxionTech
+          - generic [ref=f3e142]: Director
+        - paragraph [ref=f3e143]: director@miraxiontech.com
+      - button "Cerrar sesión" [ref=f3e144]:
+        - img [ref=f3e145]
+        - text: Cerrar sesión
+  - main [ref=f3e149]:
+    - generic [ref=f3e151]:
+      - generic [ref=f3e152]:
+        - generic [ref=f3e153]:
+          - img [ref=f3e155]
+          - generic [ref=f3e160]:
+            - heading "Caja Menor MiraxionTech" [level=1] [ref=f3e161]
+            - paragraph [ref=f3e162]: Central Central MiraxionTech · MXT-001
+        - generic [ref=f3e164]: Abierta
+      - generic [ref=f3e165]:
+        - heading "Salud financiera de la caja" [level=3] [ref=f3e167]
+        - generic [ref=f3e168]:
+          - generic [ref=f3e169]:
+            - generic [ref=f3e170]:
+              - img [ref=f3e172]
+              - generic [ref=f3e174]:
+                - paragraph [ref=f3e175]: Valor Apertura
+                - paragraph [ref=f3e176]: $ 5.000.000
+            - generic [ref=f3e177]:
+              - img [ref=f3e179]
+              - generic [ref=f3e182]:
+                - paragraph [ref=f3e183]: Disponible en Caja
+                - paragraph [ref=f3e184]: $ 4.994.000
+            - generic [ref=f3e185]:
+              - img [ref=f3e187]
+              - generic [ref=f3e190]:
+                - paragraph [ref=f3e191]: Total Usado
+                - paragraph [ref=f3e192]: $ 6.000
+          - generic [ref=f3e193]:
+            - generic [ref=f3e194]:
+              - generic [ref=f3e195]: Composición del saldo
+              - generic [ref=f3e196]: 100%disponible
+            - generic [ref=f3e197]:
+              - 'img "Disponible: $ 4.994.000, Usado: $ 6.000" [ref=f3e198]'
+              - generic [ref=f3e201]:
+                - button "Disponible $ 4.994.000" [ref=f3e202]:
+                  - generic [ref=f3e204]: Disponible
+                  - generic [ref=f3e205]: $ 4.994.000
+                - button "Usado $ 6.000" [ref=f3e206]:
+                  - generic [ref=f3e208]: Usado
+                  - generic [ref=f3e209]: $ 6.000
+      - generic [ref=f3e210]:
+        - generic [ref=f3e211]:
+          - generic [ref=f3e213]:
+            - img [ref=f3e215]
+            - heading "Avances" [level=3] [ref=f3e218]
+          - generic [ref=f3e219]:
+            - generic [ref=f3e220]:
+              - generic [ref=f3e221]: "2"
+              - generic [ref=f3e222]: avances en total
+            - generic [ref=f3e223]:
+              - 'img "Legalizados: 1, Pendientes: 1" [ref=f3e224]'
+              - generic [ref=f3e227]:
+                - button "Legalizados 1" [ref=f3e228]:
+                  - generic [ref=f3e230]: Legalizados
+                  - generic [ref=f3e231]: "1"
+                - button "Pendientes 1" [ref=f3e232]:
+                  - generic [ref=f3e234]: Pendientes
+                  - generic [ref=f3e235]: "1"
+            - generic [ref=f3e236]:
+              - generic [ref=f3e237]: Progreso de legalización
+              - generic [ref=f3e238]: 50%
+        - generic [ref=f3e239]:
+          - generic [ref=f3e241]:
+            - img [ref=f3e243]
+            - heading "Legalizaciones" [level=3] [ref=f3e246]
+          - generic [ref=f3e247]:
+            - generic [ref=f3e248]:
+              - generic [ref=f3e249]: "1"
+              - generic [ref=f3e250]: legalizaciones en total
+            - generic [ref=f3e251]:
+              - 'img "Con avance: 1, Sin avance: 0" [ref=f3e252]'
+              - generic [ref=f3e254]:
+                - button "Con avance 1" [ref=f3e255]:
+                  - generic [ref=f3e257]: Con avance
+                  - generic [ref=f3e258]: "1"
+                - button "Sin avance 0" [ref=f3e259]:
+                  - generic [ref=f3e261]: Sin avance
+                  - generic [ref=f3e262]: "0"
+            - generic [ref=f3e263]:
+              - generic [ref=f3e264]:
+                - img [ref=f3e265]
+                - generic [ref=f3e268]: 1 asociadas a avances
+              - generic [ref=f3e269]:
+                - img [ref=f3e270]
+                - generic [ref=f3e273]: 0 sin avance
+      - generic [ref=f3e274]:
+        - generic [ref=f3e276]:
+          - img [ref=f3e278]
+          - heading "Movimientos por valor" [level=3] [ref=f3e281]
+        - generic [ref=f3e282]:
+          - generic [ref=f3e283]:
+            - generic [ref=f3e284]:
+              - generic "Avances por reembolsar" [ref=f3e285]
+              - generic [ref=f3e289]: $10K
+            - generic [ref=f3e290]:
+              - generic "Legaliz. con avance" [ref=f3e291]
+              - generic [ref=f3e295]: $5K
+            - generic [ref=f3e296]:
+              - generic "Avances por legalizar" [ref=f3e297]
+              - generic [ref=f3e301]: $1K
+          - paragraph [ref=f3e302]: Desglose del último arqueo del 2 de julio de 2026
+      - generic [ref=f3e303]:
+        - heading "Información de la Caja" [level=3] [ref=f3e305]
+        - generic [ref=f3e307]:
+          - generic [ref=f3e308]:
+            - img [ref=f3e310]
+            - generic [ref=f3e313]:
+              - paragraph [ref=f3e314]: Director
+              - paragraph [ref=f3e315]: Director MiraxionTech
+          - generic [ref=f3e316]:
+            - img [ref=f3e318]
+            - generic [ref=f3e323]:
+              - paragraph [ref=f3e324]: Administrador
+              - paragraph [ref=f3e325]: Administrador MiraxionTech
+          - generic [ref=f3e326]:
+            - img [ref=f3e328]
+            - generic [ref=f3e330]:
+              - paragraph [ref=f3e331]: Apertura
+              - paragraph [ref=f3e332]: 2 de julio de 2026
+          - generic [ref=f3e336]:
+            - paragraph [ref=f3e337]: Estado
+            - paragraph [ref=f3e338]: Abierta

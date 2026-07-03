@@ -40,6 +40,8 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         if (existe) return Result<LegalizacionDto>.Fail($"Ya existe una legalización con código {dto.CodigoLegalizacion}");
 
         decimal valorAvance = 0;
+        // Con avance: la descripción se hereda del avance (autoasignada). Sin avance: se toma del DTO.
+        var descripcion = dto.Descripcion;
         if (dto.AvanceId.HasValue)
         {
             var avance = await db.Avances.FindAsync(dto.AvanceId.Value);
@@ -48,6 +50,7 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
                 return Result<LegalizacionDto>.Fail("El avance ya está legalizado");
 
             valorAvance = avance.ValorAvance;
+            descripcion = avance.Descripcion; // fuente autoritativa: descripción del avance
             avance.Estado = EstadoAvance.Legalizado;
         }
 
@@ -56,7 +59,7 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
             CajaId = dto.CajaId,
             CodigoLegalizacion = dto.CodigoLegalizacion,
             Monto = dto.Monto,
-            Descripcion = dto.Descripcion,
+            Descripcion = descripcion,
             TipoLegalizacion = dto.TipoLegalizacion,
             FechaLegalizacion = dto.FechaLegalizacion,
             AvanceId = dto.AvanceId,
@@ -83,7 +86,18 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         var caja = await db.CajasMenores.FindAsync(dto.CajaId);
         if (caja is not null)
         {
-            if (legalizacion.Diferencia > 0)
+            // Legalización sin avance: descuenta directamente del disponible
+            if (dto.AvanceId == null)
+            {
+                if (caja.TotalUsado + dto.Monto > caja.ValorApertura)
+                    return Result<LegalizacionDto>.Fail($"La legalización supera el tope de la caja. Tope: {caja.ValorApertura:C}, ya usado: {caja.TotalUsado:C}");
+                if (caja.Disponible < dto.Monto)
+                    return Result<LegalizacionDto>.Fail($"Saldo insuficiente para legalización directa. Disponible: {caja.Disponible:C}");
+
+                caja.Disponible -= dto.Monto;
+                caja.TotalUsado += dto.Monto;
+            }
+            else if (legalizacion.Diferencia > 0)
             {
                 // Sobrante: empleado devuelve el exceso → disponible sube
                 caja.Disponible += legalizacion.Diferencia;
@@ -106,7 +120,7 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
 
     public async Task<Result<LegalizacionDto>> IniciarReembolsoAsync(int legalizacionId)
     {
-        var leg = await db.Legalizaciones.Include(l => l.Caja).Include(l => l.Avance).FirstOrDefaultAsync(l => l.Id == legalizacionId);
+        var leg = await db.Legalizaciones.Include(l => l.Caja).Include(l => l.Avance).Include(l => l.Recibos).FirstOrDefaultAsync(l => l.Id == legalizacionId);
         if (leg is null) return Result<LegalizacionDto>.Fail("Legalización no encontrada");
 
         if (leg.EstadoReembolso == EstadoReembolso.Reembolsado)
@@ -122,6 +136,10 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
             }
             return Result<LegalizacionDto>.Ok(MapToDto(leg));
         }
+
+        // El monto debe haber sido validado por OCR (suma de recibos = monto legalizado) antes de reembolsar
+        if (!leg.Recibos.Any(r => r.ValidadoOCR))
+            return Result<LegalizacionDto>.Fail("Debe adjuntar los recibos y validar el monto con OCR antes de iniciar el reembolso.");
 
         var reembolso = new Reembolso
         {
@@ -156,7 +174,7 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         });
     }
 
-    public async Task<Result<ReciboDto>> SubirReciboAsync(int legalizacionId, string nombreOriginal, string rutaArchivo)
+    public async Task<Result<ReciboDto>> SubirReciboAsync(int legalizacionId, string nombreOriginal, string rutaArchivo, decimal? valorOcr, bool validadoOcr, string? notaOcr)
     {
         var leg = await db.Legalizaciones.FindAsync(legalizacionId);
         if (leg is null) return Result<ReciboDto>.Fail("Legalización no encontrada");
@@ -167,7 +185,10 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         {
             LegalizacionId = legalizacionId,
             NombreOriginal = nombreOriginal,
-            RutaArchivo = rutaArchivo
+            RutaArchivo = rutaArchivo,
+            ValorOCR = valorOcr,
+            ValidadoOCR = validadoOcr,
+            NotaOCR = notaOcr
         };
         db.LegalizacionRecibos.Add(recibo);
         await db.SaveChangesAsync();
@@ -177,7 +198,10 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
             Id = recibo.Id,
             NombreOriginal = recibo.NombreOriginal,
             Url = $"/uploads/recibos/{Path.GetFileName(rutaArchivo)}",
-            FechaSubida = recibo.FechaSubida
+            FechaSubida = recibo.FechaSubida,
+            ValorOCR = recibo.ValorOCR,
+            ValidadoOCR = recibo.ValidadoOCR,
+            NotaOCR = recibo.NotaOCR
         });
     }
 
@@ -203,6 +227,8 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         if (leg is null) return Result<LegalizacionDto>.Fail("Legalización no encontrada");
         if (leg.EstadoReembolso != EstadoReembolso.SinReembolso)
             return Result<LegalizacionDto>.Fail("Solo se pueden editar legalizaciones con estado 'Sin Reembolso'");
+        if (leg.Recibos.Any(r => r.ValidadoOCR))
+            return Result<LegalizacionDto>.Fail("No se puede editar: el monto ya fue validado por OCR con los recibos adjuntos.");
 
         // Verificar código duplicado (si cambió)
         if (leg.CodigoLegalizacion != dto.CodigoLegalizacion)
@@ -213,7 +239,13 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
 
         // Revertir efecto anterior sobre la caja antes de recalcular
         var caja = leg.Caja;
-        if (leg.Diferencia > 0)
+        if (leg.AvanceId == null)
+        {
+            // Legalización directa: revertir descuento anterior
+            caja.Disponible += leg.Monto;
+            caja.TotalUsado -= leg.Monto;
+        }
+        else if (leg.Diferencia > 0)
         {
             caja.Disponible -= leg.Diferencia;
             caja.TotalUsado += leg.Diferencia;
@@ -242,7 +274,18 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
         }
 
         // Aplicar nuevo efecto sobre la caja
-        if (leg.Diferencia > 0)
+        if (leg.AvanceId == null)
+        {
+            // Legalización directa: validar tope y descontar nuevo monto
+            if (caja.TotalUsado + dto.Monto > caja.ValorApertura)
+                return Result<LegalizacionDto>.Fail($"El nuevo monto supera el tope de la caja. Tope: {caja.ValorApertura:C}, ya usado: {caja.TotalUsado:C}");
+            if (caja.Disponible < dto.Monto)
+                return Result<LegalizacionDto>.Fail($"Saldo insuficiente para legalización directa. Disponible: {caja.Disponible:C}");
+
+            caja.Disponible -= dto.Monto;
+            caja.TotalUsado += dto.Monto;
+        }
+        else if (leg.Diferencia > 0)
         {
             caja.Disponible += leg.Diferencia;
             caja.TotalUsado -= leg.Diferencia;
@@ -255,6 +298,23 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
 
         await db.SaveChangesAsync();
         return Result<LegalizacionDto>.Ok(MapToDto(leg));
+    }
+
+    public async Task<Result<string>> ObtenerSiguienteCodigoAsync(int cajaId)
+    {
+        var ultimo = await db.Legalizaciones
+            .Where(l => l.CajaId == cajaId)
+            .OrderByDescending(l => l.Id)
+            .Select(l => l.CodigoLegalizacion)
+            .FirstOrDefaultAsync();
+
+        int siguiente = 1;
+        if (ultimo is not null && ultimo.Contains('-'))
+        {
+            var partes = ultimo.Split('-');
+            if (int.TryParse(partes[^1], out var num)) siguiente = num + 1;
+        }
+        return Result<string>.Ok($"LEG-{siguiente:D4}");
     }
 
     private static LegalizacionDto MapToDto(Legalizacion l) => new()
@@ -280,7 +340,10 @@ public class LegalizacionService(AppDbContext db) : ILegalizacionService
             Id = r.Id,
             NombreOriginal = r.NombreOriginal,
             Url = $"/uploads/recibos/{Path.GetFileName(r.RutaArchivo)}",
-            FechaSubida = r.FechaSubida
+            FechaSubida = r.FechaSubida,
+            ValorOCR = r.ValorOCR,
+            ValidadoOCR = r.ValidadoOCR,
+            NotaOCR = r.NotaOCR
         }).ToList()
     };
 }

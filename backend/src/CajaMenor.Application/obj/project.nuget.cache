@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bMc3+3+EGH8=",
+  "dgSpecHash": "0S8ZymxRbrg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj",
+  "projectFilePath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",

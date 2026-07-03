@@ -13,4 +13,6 @@ public interface IArqueoService
     Task<Result> EliminarFirmaAdministradorAsync(int cajaId);
     Task<Result> EnviarATesoreriaAsync(int cajaId);
     Task<Result<byte[]>> GenerarPdfArqueoAsync(int cajaId);
+    /// <summary>Procesa la respuesta de Tesorería (aceptar/denegar) desde el enlace del correo. Devuelve un mensaje para mostrar en la página HTML.</summary>
+    Task<Result<string>> ResponderTesoreriaAsync(string token, bool aceptar);
 }

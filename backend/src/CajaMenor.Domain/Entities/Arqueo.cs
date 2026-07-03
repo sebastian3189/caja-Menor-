@@ -18,5 +18,11 @@ public class Arqueo
     public DateTime? FechaEnvioTesoreria { get; set; }
     public string Estado { get; set; } = "Pendiente";
 
+    /// <summary>Respuesta de Tesorería al arqueo enviado: "Pendiente" | "Aceptado" | "Denegado".</summary>
+    public string EstadoTesoreria { get; set; } = "Pendiente";
+    /// <summary>Token único incluido en los enlaces Aceptar/Denegar del correo a Tesorería.</summary>
+    public string? TokenTesoreria { get; set; }
+    public DateTime? FechaRespuestaTesoreria { get; set; }
+
     public CajaMenorEntity Caja { get; set; } = null!;
 }

@@ -1,0 +1,751 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - img [ref=e8]
+    - generic [ref=e44]:
+      - generic [ref=e45]: Select a definition
+      - combobox "Select a definition" [ref=e46]:
+        - option "CajaMenor.API v1" [selected]
+  - generic [ref=e47]:
+    - generic:
+      - img
+    - generic [ref=e49]:
+      - generic [ref=e54]:
+        - heading "Caja Menor API v1 OAS 3.0" [level=2] [ref=e55]:
+          - text: Caja Menor API
+          - generic [ref=e56]:
+            - generic [ref=e58]: v1
+            - generic [ref=e60]: OAS 3.0
+        - link "http://localhost:5129/swagger/v1/swagger.json" [ref=e61] [cursor=pointer]:
+          - /url: http://localhost:5129/swagger/v1/swagger.json
+          - generic [ref=e62]: http://localhost:5129/swagger/v1/swagger.json
+      - button "Authorize" [ref=e66] [cursor=pointer]:
+        - generic [ref=e67]: Authorize
+        - img [ref=e68]
+      - generic [ref=e72]:
+        - generic [ref=e74]:
+          - heading "Arqueo Collapse operation" [level=3] [ref=e75] [cursor=pointer]:
+            - generic [ref=e76]: Arqueo
+            - button "Collapse operation" [expanded] [ref=e77]:
+              - img [ref=e78]
+          - generic [ref=e81]:
+            - generic [ref=e84] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Arqueo" [ref=e85]':
+                - generic [ref=e86]: GET
+                - generic [ref=e90]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e93]:
+                - img [ref=e94]
+              - 'button "get /api/cajas/{cajaId}/Arqueo" [ref=e96]':
+                - img [ref=e97]
+            - generic [ref=e101] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Arqueo/generar" [ref=e102]':
+                - generic [ref=e103]: POST
+                - generic [ref=e107]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /generar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e110]:
+                - img [ref=e111]
+              - 'button "post /api/cajas/{cajaId}/Arqueo/generar" [ref=e113]':
+                - img [ref=e114]
+            - generic [ref=e118] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Arqueo/firma-directivo" [ref=e119]':
+                - generic [ref=e120]: POST
+                - generic [ref=e124]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /firma-directivo
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e127]:
+                - img [ref=e128]
+              - 'button "post /api/cajas/{cajaId}/Arqueo/firma-directivo" [ref=e130]':
+                - img [ref=e131]
+            - generic [ref=e135] [cursor=pointer]:
+              - 'button "DELETE /api/cajas/{cajaId}/Arqueo/firma-directivo" [ref=e136]':
+                - generic [ref=e137]: DELETE
+                - generic [ref=e141]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /firma-directivo
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e144]:
+                - img [ref=e145]
+              - 'button "delete /api/cajas/{cajaId}/Arqueo/firma-directivo" [ref=e147]':
+                - img [ref=e148]
+            - generic [ref=e152] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Arqueo/firma-administrador" [ref=e153]':
+                - generic [ref=e154]: POST
+                - generic [ref=e158]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /firma-administrador
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e161]:
+                - img [ref=e162]
+              - 'button "post /api/cajas/{cajaId}/Arqueo/firma-administrador" [ref=e164]':
+                - img [ref=e165]
+            - generic [ref=e169] [cursor=pointer]:
+              - 'button "DELETE /api/cajas/{cajaId}/Arqueo/firma-administrador" [ref=e170]':
+                - generic [ref=e171]: DELETE
+                - generic [ref=e175]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /firma-administrador
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e178]:
+                - img [ref=e179]
+              - 'button "delete /api/cajas/{cajaId}/Arqueo/firma-administrador" [ref=e181]':
+                - img [ref=e182]
+            - generic [ref=e186] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Arqueo/enviar-tesoreria" [ref=e187]':
+                - generic [ref=e188]: POST
+                - generic [ref=e192]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /enviar-tesoreria
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e195]:
+                - img [ref=e196]
+              - 'button "post /api/cajas/{cajaId}/Arqueo/enviar-tesoreria" [ref=e198]':
+                - img [ref=e199]
+            - generic [ref=e203] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Arqueo/pdf" [ref=e204]':
+                - generic [ref=e205]: GET
+                - generic [ref=e209]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Arqueo
+                  - text: /pdf
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e212]:
+                - img [ref=e213]
+              - 'button "get /api/cajas/{cajaId}/Arqueo/pdf" [ref=e215]':
+                - img [ref=e216]
+        - generic [ref=e219]:
+          - heading "Auth Collapse operation" [level=3] [ref=e220] [cursor=pointer]:
+            - generic [ref=e221]: Auth
+            - button "Collapse operation" [expanded] [ref=e222]:
+              - img [ref=e223]
+          - generic [ref=e226]:
+            - generic [ref=e228]:
+              - generic [ref=e229] [cursor=pointer]:
+                - button "POST /api/Auth/login" [expanded] [ref=e230]:
+                  - generic [ref=e231]: POST
+                  - generic [ref=e235]:
+                    - text: /api
+                    - text: /Auth
+                    - text: /login
+                - generic "Copy to clipboard"
+                - button "authorization button unlocked" [ref=e238]:
+                  - img [ref=e239]
+                - button "post /api/Auth/login" [expanded] [ref=e241]:
+                  - img [ref=e824]
+              - generic [ref=e827]:
+                - generic [ref=e828]:
+                  - generic [ref=e829]:
+                    - heading "Parameters" [level=4] [ref=e832] [cursor=pointer]
+                    - button "Try it out" [ref=e834] [cursor=pointer]
+                  - paragraph [ref=e837]: No parameters
+                  - generic [ref=e838]:
+                    - generic [ref=e839]:
+                      - heading "Request body" [level=4] [ref=e840]
+                      - combobox "Request content type" [ref=e843]:
+                        - option "application/json" [selected]
+                        - option "text/json"
+                        - option "application/*+json"
+                    - generic [ref=e846]:
+                      - tablist [ref=e847]:
+                        - tab "Example Value" [selected] [ref=e848] [cursor=pointer]
+                        - tab "Schema" [ref=e849] [cursor=pointer]
+                      - tabpanel "Example Value" [ref=e850]:
+                        - code [ref=e853]: "{ \"email\": \"string\", \"password\": \"string\" }"
+                - generic [ref=e855]:
+                  - heading "Responses" [level=4] [ref=e857]
+                  - region [ref=e859]:
+                    - rowgroup [ref=e860]:
+                      - row "Code Description Links" [ref=e861]:
+                        - cell "Code" [ref=e862]
+                        - cell "Description" [ref=e863]
+                        - cell "Links" [ref=e864]
+                    - rowgroup [ref=e865]:
+                      - row "200 OK No links" [ref=e866]:
+                        - cell "200" [ref=e867]
+                        - cell "OK" [ref=e868]:
+                          - paragraph [ref=e871]: OK
+                        - cell "No links" [ref=e872]
+            - generic [ref=e246] [cursor=pointer]:
+              - button "POST /api/Auth/registrar" [ref=e247]:
+                - generic [ref=e248]: POST
+                - generic [ref=e252]:
+                  - text: /api
+                  - text: /Auth
+                  - text: /registrar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e255]:
+                - img [ref=e256]
+              - button "post /api/Auth/registrar" [ref=e258]:
+                - img [ref=e259]
+            - generic [ref=e263] [cursor=pointer]:
+              - button "GET /api/Auth/usuarios" [ref=e264]:
+                - generic [ref=e265]: GET
+                - generic [ref=e269]:
+                  - text: /api
+                  - text: /Auth
+                  - text: /usuarios
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e272]:
+                - img [ref=e273]
+              - button "get /api/Auth/usuarios" [ref=e275]:
+                - img [ref=e276]
+            - generic [ref=e280] [cursor=pointer]:
+              - 'button "DELETE /api/Auth/usuarios/{userId}" [ref=e281]':
+                - generic [ref=e282]: DELETE
+                - generic [ref=e286]:
+                  - text: /api
+                  - text: /Auth
+                  - text: /usuarios
+                  - text: "/{userId}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e289]:
+                - img [ref=e290]
+              - 'button "delete /api/Auth/usuarios/{userId}" [ref=e292]':
+                - img [ref=e293]
+            - generic [ref=e297] [cursor=pointer]:
+              - 'button "PUT /api/Auth/usuarios/{userId}/asignar-caja/{cajaId}" [ref=e298]':
+                - generic [ref=e299]: PUT
+                - generic [ref=e303]:
+                  - text: /api
+                  - text: /Auth
+                  - text: /usuarios
+                  - text: "/{userId}"
+                  - text: /asignar-caja
+                  - text: "/{cajaId}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e306]:
+                - img [ref=e307]
+              - 'button "put /api/Auth/usuarios/{userId}/asignar-caja/{cajaId}" [ref=e309]':
+                - img [ref=e310]
+        - generic [ref=e313]:
+          - heading "Avances Collapse operation" [level=3] [ref=e314] [cursor=pointer]:
+            - generic [ref=e315]: Avances
+            - button "Collapse operation" [expanded] [ref=e316]:
+              - img [ref=e317]
+          - generic [ref=e320]:
+            - generic [ref=e323] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Avances" [ref=e324]':
+                - generic [ref=e325]: GET
+                - generic [ref=e329]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Avances
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e332]:
+                - img [ref=e333]
+              - 'button "get /api/cajas/{cajaId}/Avances" [ref=e335]':
+                - img [ref=e336]
+            - generic [ref=e339]:
+              - generic [ref=e340] [cursor=pointer]:
+                - 'button "POST /api/cajas/{cajaId}/Avances" [expanded] [ref=e341]':
+                  - generic [ref=e342]: POST
+                  - generic [ref=e346]:
+                    - text: /api
+                    - text: /cajas
+                    - text: "/{cajaId}"
+                    - text: /Avances
+                - generic "Copy to clipboard"
+                - button "authorization button unlocked" [ref=e349]:
+                  - img [ref=e350]
+                - 'button "post /api/cajas/{cajaId}/Avances" [expanded] [ref=e352]':
+                  - img [ref=e875]
+              - generic [ref=e878]:
+                - generic [ref=e879]:
+                  - generic [ref=e880]:
+                    - heading "Parameters" [level=4] [ref=e883] [cursor=pointer]
+                    - button "Try it out" [ref=e885] [cursor=pointer]
+                  - table [ref=e888]:
+                    - rowgroup [ref=e889]:
+                      - row "Name Description" [ref=e890]:
+                        - columnheader "Name" [ref=e891]
+                        - columnheader "Description" [ref=e892]
+                    - rowgroup [ref=e893]:
+                      - row "cajaId *required integer($int32) (path)" [ref=e894]:
+                        - cell "cajaId *required integer($int32) (path)" [ref=e895]:
+                          - generic [ref=e896]: cajaId *required
+                          - generic [ref=e897]:
+                            - text: integer
+                            - generic [ref=e898]: ($int32)
+                          - generic [ref=e899]: (path)
+                        - cell [ref=e900]:
+                          - textbox "cajaId" [disabled] [ref=e901]
+                  - generic [ref=e902]:
+                    - generic [ref=e903]:
+                      - heading "Request body" [level=4] [ref=e904]
+                      - combobox "Request content type" [ref=e907]:
+                        - option "application/json" [selected]
+                        - option "text/json"
+                        - option "application/*+json"
+                    - generic [ref=e910]:
+                      - tablist [ref=e911]:
+                        - tab "Example Value" [selected] [ref=e912] [cursor=pointer]
+                        - tab "Schema" [ref=e913] [cursor=pointer]
+                      - tabpanel "Example Value" [ref=e914]:
+                        - code [ref=e917]: "{ \"cajaId\": 0, \"codigoAvance\": \"string\", \"fechaEnvio\": \"2026-06-20T13:37:26.064Z\", \"valorAvance\": 0, \"descripcion\": \"string\", \"solicitante\": \"string\" }"
+                - generic [ref=e919]:
+                  - heading "Responses" [level=4] [ref=e921]
+                  - region [ref=e923]:
+                    - rowgroup [ref=e924]:
+                      - row "Code Description Links" [ref=e925]:
+                        - cell "Code" [ref=e926]
+                        - cell "Description" [ref=e927]
+                        - cell "Links" [ref=e928]
+                    - rowgroup [ref=e929]:
+                      - row "200 OK No links" [ref=e930]:
+                        - cell "200" [ref=e931]
+                        - cell "OK" [ref=e932]:
+                          - paragraph [ref=e935]: OK
+                        - cell "No links" [ref=e936]
+            - generic [ref=e357] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Avances/resumen" [ref=e358]':
+                - generic [ref=e359]: GET
+                - generic [ref=e363]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Avances
+                  - text: /resumen
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e366]:
+                - img [ref=e367]
+              - 'button "get /api/cajas/{cajaId}/Avances/resumen" [ref=e369]':
+                - img [ref=e370]
+            - generic [ref=e374] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Avances/pendientes" [ref=e375]':
+                - generic [ref=e376]: GET
+                - generic [ref=e380]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Avances
+                  - text: /pendientes
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e383]:
+                - img [ref=e384]
+              - 'button "get /api/cajas/{cajaId}/Avances/pendientes" [ref=e386]':
+                - img [ref=e387]
+            - generic [ref=e391] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Avances/{id}" [ref=e392]':
+                - generic [ref=e393]: GET
+                - generic [ref=e397]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Avances
+                  - text: "/{id}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e400]:
+                - img [ref=e401]
+              - 'button "get /api/cajas/{cajaId}/Avances/{id}" [ref=e403]':
+                - img [ref=e404]
+            - generic [ref=e408] [cursor=pointer]:
+              - 'button "PUT /api/cajas/{cajaId}/Avances/{id}" [ref=e409]':
+                - generic [ref=e410]: PUT
+                - generic [ref=e414]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Avances
+                  - text: "/{id}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e417]:
+                - img [ref=e418]
+              - 'button "put /api/cajas/{cajaId}/Avances/{id}" [ref=e420]':
+                - img [ref=e421]
+        - generic [ref=e424]:
+          - heading "CajaMenor Collapse operation" [level=3] [ref=e425] [cursor=pointer]:
+            - generic [ref=e426]: CajaMenor
+            - button "Collapse operation" [expanded] [ref=e427]:
+              - img [ref=e428]
+          - generic [ref=e431]:
+            - generic [ref=e434] [cursor=pointer]:
+              - button "GET /api/CajaMenor/mia" [ref=e435]:
+                - generic [ref=e436]: GET
+                - generic [ref=e440]:
+                  - text: /api
+                  - text: /CajaMenor
+                  - text: /mia
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e443]:
+                - img [ref=e444]
+              - button "get /api/CajaMenor/mia" [ref=e446]:
+                - img [ref=e447]
+            - generic [ref=e450]:
+              - generic [ref=e451] [cursor=pointer]:
+                - 'button "GET /api/CajaMenor/{cajaId}/dashboard" [expanded] [active] [ref=e452]':
+                  - generic [ref=e453]: GET
+                  - generic [ref=e457]:
+                    - text: /api
+                    - text: /CajaMenor
+                    - text: "/{cajaId}"
+                    - text: /dashboard
+                - generic "Copy to clipboard" [ref=e1003]:
+                  - img [ref=e1004]
+                - button "authorization button unlocked" [ref=e460]:
+                  - img [ref=e461]
+                - 'button "get /api/CajaMenor/{cajaId}/dashboard" [expanded] [ref=e463]':
+                  - img [ref=e1005]
+              - generic [ref=e1008]:
+                - generic [ref=e1009]:
+                  - generic [ref=e1010]:
+                    - heading "Parameters" [level=4] [ref=e1013] [cursor=pointer]
+                    - button "Try it out" [ref=e1015] [cursor=pointer]
+                  - table [ref=e1018]:
+                    - rowgroup [ref=e1019]:
+                      - row "Name Description" [ref=e1020]:
+                        - columnheader "Name" [ref=e1021]
+                        - columnheader "Description" [ref=e1022]
+                    - rowgroup [ref=e1023]:
+                      - row "cajaId *required integer($int32) (path)" [ref=e1024]:
+                        - cell "cajaId *required integer($int32) (path)" [ref=e1025]:
+                          - generic [ref=e1026]: cajaId *required
+                          - generic [ref=e1027]:
+                            - text: integer
+                            - generic [ref=e1028]: ($int32)
+                          - generic [ref=e1029]: (path)
+                        - cell [ref=e1030]:
+                          - textbox "cajaId" [disabled] [ref=e1031]
+                - generic [ref=e1033]:
+                  - heading "Responses" [level=4] [ref=e1035]
+                  - region [ref=e1037]:
+                    - rowgroup [ref=e1038]:
+                      - row "Code Description Links" [ref=e1039]:
+                        - cell "Code" [ref=e1040]
+                        - cell "Description" [ref=e1041]
+                        - cell "Links" [ref=e1042]
+                    - rowgroup [ref=e1043]:
+                      - row "200 OK No links" [ref=e1044]:
+                        - cell "200" [ref=e1045]
+                        - cell "OK" [ref=e1046]:
+                          - paragraph [ref=e1049]: OK
+                        - cell "No links" [ref=e1050]
+            - generic [ref=e468] [cursor=pointer]:
+              - button "POST /api/CajaMenor" [ref=e469]:
+                - generic [ref=e470]: POST
+                - generic [ref=e474]:
+                  - text: /api
+                  - text: /CajaMenor
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e477]:
+                - img [ref=e478]
+              - button "post /api/CajaMenor" [ref=e480]:
+                - img [ref=e481]
+        - generic [ref=e484]:
+          - heading "Centrales Collapse operation" [level=3] [ref=e485] [cursor=pointer]:
+            - generic [ref=e486]: Centrales
+            - button "Collapse operation" [expanded] [ref=e487]:
+              - img [ref=e488]
+          - generic [ref=e491]:
+            - generic [ref=e494] [cursor=pointer]:
+              - button "GET /api/Centrales" [ref=e495]:
+                - generic [ref=e496]: GET
+                - generic [ref=e500]:
+                  - text: /api
+                  - text: /Centrales
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e503]:
+                - img [ref=e504]
+              - button "get /api/Centrales" [ref=e506]:
+                - img [ref=e507]
+            - generic [ref=e511] [cursor=pointer]:
+              - button "POST /api/Centrales" [ref=e512]:
+                - generic [ref=e513]: POST
+                - generic [ref=e517]:
+                  - text: /api
+                  - text: /Centrales
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e520]:
+                - img [ref=e521]
+              - button "post /api/Centrales" [ref=e523]:
+                - img [ref=e524]
+            - generic [ref=e528] [cursor=pointer]:
+              - 'button "DELETE /api/Centrales/{id}" [ref=e529]':
+                - generic [ref=e530]: DELETE
+                - generic [ref=e534]:
+                  - text: /api
+                  - text: /Centrales
+                  - text: "/{id}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e537]:
+                - img [ref=e538]
+              - 'button "delete /api/Centrales/{id}" [ref=e540]':
+                - img [ref=e541]
+        - generic [ref=e544]:
+          - heading "Legalizaciones Collapse operation" [level=3] [ref=e545] [cursor=pointer]:
+            - generic [ref=e546]: Legalizaciones
+            - button "Collapse operation" [expanded] [ref=e547]:
+              - img [ref=e548]
+          - generic [ref=e551]:
+            - generic [ref=e554] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Legalizaciones" [ref=e555]':
+                - generic [ref=e556]: GET
+                - generic [ref=e560]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e563]:
+                - img [ref=e564]
+              - 'button "get /api/cajas/{cajaId}/Legalizaciones" [ref=e566]':
+                - img [ref=e567]
+            - generic [ref=e570]:
+              - generic [ref=e571] [cursor=pointer]:
+                - 'button "POST /api/cajas/{cajaId}/Legalizaciones" [expanded] [ref=e572]':
+                  - generic [ref=e573]: POST
+                  - generic [ref=e577]:
+                    - text: /api
+                    - text: /cajas
+                    - text: "/{cajaId}"
+                    - text: /Legalizaciones
+                - generic "Copy to clipboard"
+                - button "authorization button unlocked" [ref=e580]:
+                  - img [ref=e581]
+                - 'button "post /api/cajas/{cajaId}/Legalizaciones" [expanded] [ref=e583]':
+                  - img [ref=e941]
+              - generic [ref=e944]:
+                - generic [ref=e945]:
+                  - generic [ref=e946]:
+                    - heading "Parameters" [level=4] [ref=e949] [cursor=pointer]
+                    - button "Try it out" [ref=e951] [cursor=pointer]
+                  - table [ref=e954]:
+                    - rowgroup [ref=e955]:
+                      - row "Name Description" [ref=e956]:
+                        - columnheader "Name" [ref=e957]
+                        - columnheader "Description" [ref=e958]
+                    - rowgroup [ref=e959]:
+                      - row "cajaId *required integer($int32) (path)" [ref=e960]:
+                        - cell "cajaId *required integer($int32) (path)" [ref=e961]:
+                          - generic [ref=e962]: cajaId *required
+                          - generic [ref=e963]:
+                            - text: integer
+                            - generic [ref=e964]: ($int32)
+                          - generic [ref=e965]: (path)
+                        - cell [ref=e966]:
+                          - textbox "cajaId" [disabled] [ref=e967]
+                  - generic [ref=e968]:
+                    - generic [ref=e969]:
+                      - heading "Request body" [level=4] [ref=e970]
+                      - combobox "Request content type" [ref=e973]:
+                        - option "application/json" [selected]
+                        - option "text/json"
+                        - option "application/*+json"
+                    - generic [ref=e976]:
+                      - tablist [ref=e977]:
+                        - tab "Example Value" [selected] [ref=e978] [cursor=pointer]
+                        - tab "Schema" [ref=e979] [cursor=pointer]
+                      - tabpanel "Example Value" [ref=e980]:
+                        - code [ref=e983]: "{ \"cajaId\": 0, \"codigoLegalizacion\": \"string\", \"monto\": 0, \"descripcion\": \"string\", \"tipoLegalizacion\": \"string\", \"fechaLegalizacion\": \"2026-06-20T13:37:26.081Z\", \"avanceId\": 0 }"
+                - generic [ref=e985]:
+                  - heading "Responses" [level=4] [ref=e987]
+                  - region [ref=e989]:
+                    - rowgroup [ref=e990]:
+                      - row "Code Description Links" [ref=e991]:
+                        - cell "Code" [ref=e992]
+                        - cell "Description" [ref=e993]
+                        - cell "Links" [ref=e994]
+                    - rowgroup [ref=e995]:
+                      - row "200 OK No links" [ref=e996]:
+                        - cell "200" [ref=e997]
+                        - cell "OK" [ref=e998]:
+                          - paragraph [ref=e1001]: OK
+                        - cell "No links" [ref=e1002]
+            - generic [ref=e588] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Legalizaciones/resumen" [ref=e589]':
+                - generic [ref=e590]: GET
+                - generic [ref=e594]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: /resumen
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e597]:
+                - img [ref=e598]
+              - 'button "get /api/cajas/{cajaId}/Legalizaciones/resumen" [ref=e600]':
+                - img [ref=e601]
+            - generic [ref=e605] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Legalizaciones/{id}" [ref=e606]':
+                - generic [ref=e607]: GET
+                - generic [ref=e611]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: "/{id}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e614]:
+                - img [ref=e615]
+              - 'button "get /api/cajas/{cajaId}/Legalizaciones/{id}" [ref=e617]':
+                - img [ref=e618]
+            - generic [ref=e622] [cursor=pointer]:
+              - 'button "PUT /api/cajas/{cajaId}/Legalizaciones/{id}" [ref=e623]':
+                - generic [ref=e624]: PUT
+                - generic [ref=e628]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: "/{id}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e631]:
+                - img [ref=e632]
+              - 'button "put /api/cajas/{cajaId}/Legalizaciones/{id}" [ref=e634]':
+                - img [ref=e635]
+            - generic [ref=e639] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Legalizaciones/{id}/reembolsar" [ref=e640]':
+                - generic [ref=e641]: POST
+                - generic [ref=e645]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: "/{id}"
+                  - text: /reembolsar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e648]:
+                - img [ref=e649]
+              - 'button "post /api/cajas/{cajaId}/Legalizaciones/{id}/reembolsar" [ref=e651]':
+                - img [ref=e652]
+            - generic [ref=e656] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Legalizaciones/{id}/recibos" [ref=e657]':
+                - generic [ref=e658]: POST
+                - generic [ref=e662]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: "/{id}"
+                  - text: /recibos
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e665]:
+                - img [ref=e666]
+              - 'button "post /api/cajas/{cajaId}/Legalizaciones/{id}/recibos" [ref=e668]':
+                - img [ref=e669]
+            - generic [ref=e673] [cursor=pointer]:
+              - 'button "DELETE /api/cajas/{cajaId}/Legalizaciones/{id}/recibos/{reciboId}" [ref=e674]':
+                - generic [ref=e675]: DELETE
+                - generic [ref=e679]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Legalizaciones
+                  - text: "/{id}"
+                  - text: /recibos
+                  - text: "/{reciboId}"
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e682]:
+                - img [ref=e683]
+              - 'button "delete /api/cajas/{cajaId}/Legalizaciones/{id}/recibos/{reciboId}" [ref=e685]':
+                - img [ref=e686]
+        - generic [ref=e689]:
+          - heading "Reembolsos Collapse operation" [level=3] [ref=e690] [cursor=pointer]:
+            - generic [ref=e691]: Reembolsos
+            - button "Collapse operation" [expanded] [ref=e692]:
+              - img [ref=e693]
+          - generic [ref=e696]:
+            - generic [ref=e699] [cursor=pointer]:
+              - 'button "GET /api/cajas/{cajaId}/Reembolsos" [ref=e700]':
+                - generic [ref=e701]: GET
+                - generic [ref=e705]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Reembolsos
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e708]:
+                - img [ref=e709]
+              - 'button "get /api/cajas/{cajaId}/Reembolsos" [ref=e711]':
+                - img [ref=e712]
+            - generic [ref=e716] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Reembolsos/activar" [ref=e717]':
+                - generic [ref=e718]: POST
+                - generic [ref=e722]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Reembolsos
+                  - text: /activar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e725]:
+                - img [ref=e726]
+              - 'button "post /api/cajas/{cajaId}/Reembolsos/activar" [ref=e728]':
+                - img [ref=e729]
+            - generic [ref=e733] [cursor=pointer]:
+              - 'button "POST /api/cajas/{cajaId}/Reembolsos/confirmar" [ref=e734]':
+                - generic [ref=e735]: POST
+                - generic [ref=e739]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Reembolsos
+                  - text: /confirmar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e742]:
+                - img [ref=e743]
+              - 'button "post /api/cajas/{cajaId}/Reembolsos/confirmar" [ref=e745]':
+                - img [ref=e746]
+            - generic [ref=e750] [cursor=pointer]:
+              - 'button "DELETE /api/cajas/{cajaId}/Reembolsos/{reembolsoId}/cancelar" [ref=e751]':
+                - generic [ref=e752]: DELETE
+                - generic [ref=e756]:
+                  - text: /api
+                  - text: /cajas
+                  - text: "/{cajaId}"
+                  - text: /Reembolsos
+                  - text: "/{reembolsoId}"
+                  - text: /cancelar
+              - generic "Copy to clipboard"
+              - button "authorization button unlocked" [ref=e759]:
+                - img [ref=e760]
+              - 'button "delete /api/cajas/{cajaId}/Reembolsos/{reembolsoId}/cancelar" [ref=e762]':
+                - img [ref=e763]
+      - generic [ref=e767]:
+        - heading "Schemas" [level=4] [ref=e768] [cursor=pointer]:
+          - button "Schemas" [expanded] [ref=e769]:
+            - generic [ref=e770]: Schemas
+            - img [ref=e771]
+        - generic [ref=e773]:
+          - button "CrearAvanceDto" [ref=e776] [cursor=pointer]:
+            - generic [ref=e778]: CrearAvanceDto
+          - button "CrearCajaMenorDto" [ref=e782] [cursor=pointer]:
+            - generic [ref=e784]: CrearCajaMenorDto
+          - button "CrearCentralDto" [ref=e788] [cursor=pointer]:
+            - generic [ref=e790]: CrearCentralDto
+          - button "CrearLegalizacionDto" [ref=e794] [cursor=pointer]:
+            - generic [ref=e796]: CrearLegalizacionDto
+          - button "EditarAvanceDto" [ref=e800] [cursor=pointer]:
+            - generic [ref=e802]: EditarAvanceDto
+          - button "EditarLegalizacionDto" [ref=e806] [cursor=pointer]:
+            - generic [ref=e808]: EditarLegalizacionDto
+          - button "LoginDto" [ref=e812] [cursor=pointer]:
+            - generic [ref=e814]: LoginDto
+          - button "RegistrarUsuarioDto" [ref=e818] [cursor=pointer]:
+            - generic [ref=e820]: RegistrarUsuarioDto

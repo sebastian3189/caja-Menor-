@@ -1,0 +1,130 @@
+- generic [ref=e78]:
+  - complementary [ref=e79]:
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - img [ref=e83]
+        - generic [ref=e87]:
+          - paragraph [ref=e88]: Caja Menor
+          - paragraph [ref=e89]: MiraxionTech
+      - generic [ref=e90]:
+        - paragraph [ref=e91]: Caja activa
+        - paragraph [ref=e92]: Caja Medellín
+    - navigation [ref=e93]:
+      - paragraph [ref=e94]: Módulos
+      - link "Dashboard" [ref=e95] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e97]
+        - generic [ref=e102]: Dashboard
+        - img [ref=e103]
+      - link "Avances" [ref=e105] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e107]
+        - generic [ref=e110]: Avances
+      - link "Legalizaciones" [ref=e111] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e113]
+        - generic [ref=e116]: Legalizaciones
+      - link "Reembolsos" [ref=e117] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e119]
+        - generic [ref=e124]: Reembolsos
+      - link "Arqueo" [ref=e125] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e127]
+        - generic [ref=e130]: Arqueo
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Cristian
+          - generic [ref=e135]: Director
+        - paragraph [ref=e136]: Cris@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e137]:
+        - img [ref=e138]
+        - text: Cerrar sesión
+  - main [ref=e142]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - img [ref=e148]
+          - generic [ref=e153]:
+            - heading "Caja Medellín" [level=1] [ref=e154]
+            - paragraph [ref=e155]: Central Medellin · MXT-MED
+        - generic [ref=e157]: Abierta
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - img [ref=e161]
+          - generic [ref=e163]:
+            - paragraph [ref=e164]: Valor Apertura
+            - paragraph [ref=e165]: $ 10.000.000
+        - generic [ref=e166]:
+          - img [ref=e168]
+          - generic [ref=e171]:
+            - paragraph [ref=e172]: Disponible en Caja
+            - paragraph [ref=e173]: $ 8.810.000
+        - generic [ref=e174]:
+          - img [ref=e176]
+          - generic [ref=e179]:
+            - paragraph [ref=e180]: Total Usado
+            - paragraph [ref=e181]: $ 1.190.000
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - generic [ref=e185]:
+            - img [ref=e187]
+            - heading "Avances" [level=3] [ref=e190]
+          - generic [ref=e191]:
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - paragraph [ref=e194]: Total
+                - paragraph [ref=e195]: "4"
+              - generic [ref=e196]:
+                - paragraph [ref=e197]: Pendientes
+                - paragraph [ref=e198]: "2"
+              - generic [ref=e199]:
+                - paragraph [ref=e200]: Legalizados
+                - paragraph [ref=e201]: "2"
+            - generic [ref=e203]:
+              - generic [ref=e204]: Progreso de legalización
+              - generic [ref=e205]: 50%
+        - generic [ref=e208]:
+          - generic [ref=e210]:
+            - img [ref=e212]
+            - heading "Legalizaciones" [level=3] [ref=e215]
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - generic [ref=e218]:
+                - paragraph [ref=e219]: Total
+                - paragraph [ref=e220]: "3"
+              - generic [ref=e221]:
+                - paragraph [ref=e222]: Sin avance
+                - paragraph [ref=e223]: "1"
+              - generic [ref=e224]:
+                - paragraph [ref=e225]: Con avance
+                - paragraph [ref=e226]: "2"
+            - generic [ref=e227]:
+              - generic [ref=e228]:
+                - img [ref=e229]
+                - generic [ref=e232]: 2 asociadas a avances
+              - generic [ref=e233]:
+                - img [ref=e234]
+                - generic [ref=e237]: 1 sin avance
+      - generic [ref=e238]:
+        - heading "Información de la Caja" [level=3] [ref=e240]
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - img [ref=e245]
+            - generic [ref=e248]:
+              - paragraph [ref=e249]: Director
+              - paragraph [ref=e250]: Cristian
+          - generic [ref=e251]:
+            - img [ref=e253]
+            - generic [ref=e258]:
+              - paragraph [ref=e259]: Administrador
+              - paragraph [ref=e260]: Sebastian
+          - generic [ref=e261]:
+            - img [ref=e263]
+            - generic [ref=e265]:
+              - paragraph [ref=e266]: Apertura
+              - paragraph [ref=e267]: 14 de abril de 2026
+          - generic [ref=e271]:
+            - paragraph [ref=e272]: Estado
+            - paragraph [ref=e273]: Abierta

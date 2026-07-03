@@ -1,4 +1,5 @@
 using CajaMenor.Application.Interfaces;
+using CajaMenor.API.Services;
 using CajaMenor.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,12 +33,12 @@ public class ArqueoController(IArqueoService service) : ControllerBase
     [Authorize(Roles = "Director")]
     public async Task<IActionResult> SubirFirmaDirectivo(int cajaId, IFormFile firma)
     {
-        if (firma is null || firma.Length == 0)
-            return BadRequest(new { message = "Debe adjuntar un archivo de firma" });
+        var errorFirma = UploadValidator.Validar(firma);
+        if (errorFirma is not null) return BadRequest(new { message = errorFirma });
 
         var uploadDir = Path.Combine("uploads", "firmas");
         Directory.CreateDirectory(uploadDir);
-        var fileName = $"director_{cajaId}_{Guid.NewGuid()}{Path.GetExtension(firma.FileName)}";
+        var fileName = $"director_{cajaId}_{Guid.NewGuid()}{UploadValidator.ExtensionSegura(firma)}";
         var filePath = Path.Combine(uploadDir, fileName);
 
         using var stream = System.IO.File.Create(filePath);
@@ -52,12 +53,12 @@ public class ArqueoController(IArqueoService service) : ControllerBase
     [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> SubirFirmaAdministrador(int cajaId, IFormFile firma)
     {
-        if (firma is null || firma.Length == 0)
-            return BadRequest(new { message = "Debe adjuntar un archivo de firma" });
+        var errorFirma = UploadValidator.Validar(firma);
+        if (errorFirma is not null) return BadRequest(new { message = errorFirma });
 
         var uploadDir = Path.Combine("uploads", "firmas");
         Directory.CreateDirectory(uploadDir);
-        var fileName = $"admin_{cajaId}_{Guid.NewGuid()}{Path.GetExtension(firma.FileName)}";
+        var fileName = $"admin_{cajaId}_{Guid.NewGuid()}{UploadValidator.ExtensionSegura(firma)}";
         var filePath = Path.Combine(uploadDir, fileName);
 
         using var stream = System.IO.File.Create(filePath);

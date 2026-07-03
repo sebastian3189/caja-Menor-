@@ -1,0 +1,165 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e8]
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: Caja Menor
+          - paragraph [ref=e14]: MiraxionTech
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Caja activa
+        - paragraph [ref=e17]: Caja Medellín
+    - navigation [ref=e18]:
+      - paragraph [ref=e19]: Módulos
+      - link "Dashboard" [ref=e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e22]
+        - generic [ref=e27]: Dashboard
+      - link "Avances" [ref=e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e30]
+        - generic [ref=e33]: Avances
+      - link "Legalizaciones" [ref=e34] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e36]
+        - generic [ref=e39]: Legalizaciones
+        - img [ref=e40]
+      - link "Reembolsos" [ref=e42] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e44]
+        - generic [ref=e49]: Reembolsos
+      - link "Arqueo" [ref=e50] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e52]
+        - generic [ref=e55]: Arqueo
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Sebastian
+          - generic [ref=e60]: Administrador
+        - paragraph [ref=e61]: Sebas@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e62]:
+        - img [ref=e63]
+        - text: Cerrar sesión
+  - main [ref=e67]:
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - img [ref=e73]
+          - generic [ref=e76]:
+            - heading "Legalizaciones" [level=1] [ref=e77]
+            - paragraph [ref=e78]: Registro de legalizaciones de gastos
+        - button "Nueva legalización" [ref=e80] [cursor=pointer]:
+          - img [ref=e81]
+          - text: Nueva legalización
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - img [ref=e116]
+          - generic [ref=e119]:
+            - paragraph [ref=e120]: Total
+            - paragraph [ref=e121]: "3"
+        - generic [ref=e122]:
+          - img [ref=e124]
+          - generic [ref=e127]:
+            - paragraph [ref=e128]: Sin avance
+            - paragraph [ref=e129]: "1"
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - generic [ref=e135]:
+            - paragraph [ref=e136]: Con avance
+            - paragraph [ref=e137]: "2"
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - img [ref=e84]
+          - text: Filtros
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: "Estado:"
+            - generic [ref=e89]:
+              - button "Todos" [ref=e90]
+              - button "Sin reembolso" [ref=e91]
+              - button "En proceso" [ref=e92]
+              - button "Reembolsado" [ref=e93]
+          - generic [ref=e94]:
+            - generic [ref=e95]: "Desde:"
+            - textbox [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]: "Hasta:"
+            - textbox [ref=e99]
+      - generic [ref=e100]:
+        - generic [ref=e102]:
+          - heading "Listado de legalizaciones" [level=3] [ref=e103]
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - img [ref=e106]
+              - generic [ref=e108]: Círculo indica estado de reembolso
+            - button "Reembolsar todas (0)" [disabled]:
+              - img
+              - text: Reembolsar todas (0)
+        - table [ref=e138]:
+          - rowgroup [ref=e139]:
+            - row "Acción Código Fecha Avance V. Avance Monto Diferencia Desc. Caja A Reembolsar Estado Recibos" [ref=e140]:
+              - columnheader [ref=e141]
+              - columnheader "Acción" [ref=e142]
+              - columnheader "Código" [ref=e143]
+              - columnheader "Fecha" [ref=e144]
+              - columnheader "Avance" [ref=e145]
+              - columnheader "V. Avance" [ref=e146]
+              - columnheader "Monto" [ref=e147]
+              - columnheader "Diferencia" [ref=e148]
+              - columnheader "Desc. Caja" [ref=e149]
+              - columnheader "A Reembolsar" [ref=e150]
+              - columnheader "Estado" [ref=e151]
+              - columnheader "Recibos" [ref=e152]
+          - rowgroup [ref=e153]:
+            - row "Enviado LG-2026-003 19/06/2026 Sin avance $ 0 $ 95.000 $ 0 $ 0 $ 95.000 En proceso —" [ref=e154]:
+              - cell [ref=e155]
+              - cell "Enviado" [ref=e156]:
+                - generic [ref=e157]:
+                  - img [ref=e158]
+                  - text: Enviado
+              - cell "LG-2026-003" [ref=e161]
+              - cell "19/06/2026" [ref=e162]
+              - cell "Sin avance" [ref=e163]
+              - cell "$ 0" [ref=e164]
+              - cell "$ 95.000" [ref=e165]
+              - cell "$ 0" [ref=e166]
+              - cell "$ 0" [ref=e167]
+              - cell "$ 95.000" [ref=e168]
+              - cell "En proceso" [ref=e169]:
+                - generic [ref=e174]: En proceso
+              - cell "—" [ref=e175]
+            - row "Enviado LG-2026-002 18/06/2026 AV-2026-002 $ 180.000 $ 180.000 $ 0 $ 0 $ 180.000 En proceso —" [ref=e176]:
+              - cell [ref=e177]
+              - cell "Enviado" [ref=e178]:
+                - generic [ref=e179]:
+                  - img [ref=e180]
+                  - text: Enviado
+              - cell "LG-2026-002" [ref=e183]
+              - cell "18/06/2026" [ref=e184]
+              - cell "AV-2026-002" [ref=e185]
+              - cell "$ 180.000" [ref=e186]
+              - cell "$ 180.000" [ref=e187]
+              - cell "$ 0" [ref=e188]
+              - cell "$ 0" [ref=e189]
+              - cell "$ 180.000" [ref=e190]
+              - cell "En proceso" [ref=e191]:
+                - generic [ref=e196]: En proceso
+              - cell "—" [ref=e197]
+            - row "Enviado LG-2026-001 16/06/2026 AV-2026-001 $ 350.000 $ 340.000 $ 10.000 $ 0 $ 340.000 En proceso —" [ref=e198]:
+              - cell [ref=e199]
+              - cell "Enviado" [ref=e200]:
+                - generic [ref=e201]:
+                  - img [ref=e202]
+                  - text: Enviado
+              - cell "LG-2026-001" [ref=e205]
+              - cell "16/06/2026" [ref=e206]
+              - cell "AV-2026-001" [ref=e207]
+              - cell "$ 350.000" [ref=e208]
+              - cell "$ 340.000" [ref=e209]
+              - cell "$ 10.000" [ref=e210]
+              - cell "$ 0" [ref=e211]
+              - cell "$ 340.000" [ref=e212]
+              - cell "En proceso" [ref=e213]:
+                - generic [ref=e218]: En proceso
+              - cell "—" [ref=e219]

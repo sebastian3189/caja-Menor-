@@ -1,0 +1,66 @@
+- generic [ref=f4e3]:
+  - complementary [ref=f4e4]:
+    - generic [ref=f4e6]:
+      - img [ref=f4e8]
+      - generic [ref=f4e12]:
+        - paragraph [ref=f4e13]: Caja Menor
+        - paragraph [ref=f4e14]: MiraxionTech
+    - navigation [ref=f4e15]:
+      - paragraph [ref=f4e16]: Módulos
+      - link "Usuarios" [ref=f4e17] [cursor=pointer]:
+        - /url: /maestro/usuarios
+        - img [ref=f4e19]
+        - generic [ref=f4e24]: Usuarios
+        - img [ref=f4e25]
+      - link "Centrales" [ref=f4e27] [cursor=pointer]:
+        - /url: /maestro/centrales
+        - img [ref=f4e29]
+        - generic [ref=f4e31]: Centrales
+      - link "Cajas" [ref=f4e32] [cursor=pointer]:
+        - /url: /maestro/cajas
+        - img [ref=f4e34]
+        - generic [ref=f4e37]: Cajas
+    - generic [ref=f4e38]:
+      - generic [ref=f4e40]:
+        - generic [ref=f4e41]: UM
+        - generic [ref=f4e42]:
+          - generic [ref=f4e43]:
+            - paragraph [ref=f4e44]: Usuario Maestro
+            - generic [ref=f4e45]: Maestro
+          - paragraph [ref=f4e46]: maestro@cajamenor.miraxiontech
+      - button "Cerrar sesión" [ref=f4e47]:
+        - img [ref=f4e48]
+        - text: Cerrar sesión
+  - main [ref=f4e52]:
+    - generic [ref=f4e54]:
+      - generic [ref=f4e55]:
+        - generic [ref=f4e56]:
+          - img [ref=f4e58]
+          - generic [ref=f4e63]:
+            - heading "Usuarios" [level=1] [ref=f4e64]
+            - paragraph [ref=f4e65]: Directores y administradores del sistema
+        - button "Nuevo usuario" [ref=f4e67] [cursor=pointer]:
+          - img [ref=f4e68]
+          - text: Nuevo usuario
+      - generic [ref=f4e69]:
+        - generic [ref=f4e70]:
+          - img [ref=f4e72]
+          - generic [ref=f4e77]:
+            - paragraph [ref=f4e78]: Total usuarios
+            - paragraph [ref=f4e79]: "0"
+        - generic [ref=f4e80]:
+          - img [ref=f4e82]
+          - generic [ref=f4e85]:
+            - paragraph [ref=f4e86]: Directores
+            - paragraph [ref=f4e87]: "0"
+        - generic [ref=f4e88]:
+          - img [ref=f4e90]
+          - generic [ref=f4e93]:
+            - paragraph [ref=f4e94]: Administradores
+            - paragraph [ref=f4e95]: "0"
+      - generic [ref=f4e96]:
+        - img [ref=f4e97]
+        - textbox "Buscar por nombre, correo o rol..." [ref=f4e100]
+      - generic [ref=f4e101]:
+        - heading "Listado de usuarios" [level=3] [ref=f4e103]
+        - generic [ref=f4e107]: Cargando usuarios...

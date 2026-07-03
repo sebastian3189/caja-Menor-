@@ -13,10 +13,10 @@ export const crearLegalizacion = (cajaId: number, dto: CrearLegalizacionDto) =>
 export const iniciarReembolso = (cajaId: number, legalizacionId: number) =>
   api.post<LegalizacionDto>(`/cajas/${cajaId}/legalizaciones/${legalizacionId}/reembolsar`).then(r => r.data)
 
-export const subirRecibo = (cajaId: number, legalizacionId: number, archivo: File) => {
+export const subirRecibos = (cajaId: number, legalizacionId: number, archivos: File[]) => {
   const form = new FormData()
-  form.append('archivo', archivo)
-  return api.post<ReciboDto>(`/cajas/${cajaId}/legalizaciones/${legalizacionId}/recibos`, form, {
+  archivos.forEach(f => form.append('archivos', f))
+  return api.post<ReciboDto[]>(`/cajas/${cajaId}/legalizaciones/${legalizacionId}/recibos/batch`, form, {
     headers: { 'Content-Type': 'multipart/form-data' },
   }).then(r => r.data)
 }
@@ -26,3 +26,9 @@ export const eliminarRecibo = (cajaId: number, legalizacionId: number, reciboId:
 
 export const editarLegalizacion = (cajaId: number, id: number, dto: EditarLegalizacionDto) =>
   api.put<LegalizacionDto>(`/cajas/${cajaId}/legalizaciones/${id}`, dto).then(r => r.data)
+
+export const getSiguienteCodigoLegalizacion = (cajaId: number) =>
+  api.get<{ codigo: string }>(`/cajas/${cajaId}/legalizaciones/siguiente-codigo`).then(r => r.data)
+
+export const exportarLegalizaciones = (cajaId: number) =>
+  api.get(`/cajas/${cajaId}/legalizaciones/exportar`, { responseType: 'blob' }).then(r => r.data)

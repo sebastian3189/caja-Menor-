@@ -23,8 +23,19 @@ public class ReembolsoService(AppDbContext db) : IReembolsoService
         {
             SinReembolso = sinReembolso.Select(MapToDto).ToList(),
             TotalPendiente = sinReembolso.Sum(r => r.Debemos),
-            Historico = historico.Select(MapToDto).ToList()
+            Historico = historico.Select(MapToDto).ToList(),
+            EstadoTesoreria = await ObtenerEstadoTesoreriaAsync(cajaId)
         });
+    }
+
+    /// <summary>Estado de Tesorería del último arqueo enviado de la caja (null si nunca se envió uno).</summary>
+    private async Task<string?> ObtenerEstadoTesoreriaAsync(int cajaId)
+    {
+        return await db.Arqueos
+            .Where(a => a.CajaId == cajaId && a.TokenTesoreria != null)
+            .OrderByDescending(a => a.Id)
+            .Select(a => a.EstadoTesoreria)
+            .FirstOrDefaultAsync();
     }
 
     public async Task<Result> ActivarReembolsosAsync(int cajaId)
@@ -53,6 +64,13 @@ public class ReembolsoService(AppDbContext db) : IReembolsoService
 
     public async Task<Result> ConfirmarReembolsosAsync(int cajaId)
     {
+        // Solo se puede pasar a histórico si Tesorería aceptó el arqueo enviado
+        var estadoTesoreria = await ObtenerEstadoTesoreriaAsync(cajaId);
+        if (estadoTesoreria != "Aceptado")
+            return Result.Fail(estadoTesoreria == "Denegado"
+                ? "Tesorería denegó el arqueo. Corrija y reinicie el proceso antes de confirmar."
+                : "Tesorería aún no ha aceptado el arqueo. Espere su aprobación desde el correo.");
+
         var reembolsos = await db.Reembolsos
             .Include(r => r.Legalizacion)
             .Where(r => r.Legalizacion.CajaId == cajaId && r.Estado == EstadoReembolso.EnProceso)

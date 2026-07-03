@@ -29,3 +29,11 @@ export function formatDateLong(date: string | Date): string {
     year: 'numeric',
   }).format(new Date(date))
 }
+
+/** Moneda compacta para ejes y puntas de barra: $1,8M / $450K / $3.200. */
+export function formatCompactCurrency(value: number): string {
+  const abs = Math.abs(value)
+  if (abs >= 1_000_000) return `$${(value / 1_000_000).toLocaleString('es-CO', { maximumFractionDigits: 1 })}M`
+  if (abs >= 1_000) return `$${(value / 1_000).toLocaleString('es-CO', { maximumFractionDigits: 0 })}K`
+  return formatCurrency(value)
+}

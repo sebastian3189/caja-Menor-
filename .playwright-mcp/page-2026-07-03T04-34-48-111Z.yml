@@ -1,0 +1,144 @@
+- generic [ref=f2e3]:
+  - complementary [ref=f2e4]:
+    - generic [ref=f2e6]:
+      - img [ref=f2e8]
+      - generic [ref=f2e12]:
+        - paragraph [ref=f2e13]: Caja Menor
+        - paragraph [ref=f2e14]: MiraxionTech
+    - navigation [ref=f2e15]:
+      - paragraph [ref=f2e16]: Módulos
+      - link "Usuarios" [ref=f2e17] [cursor=pointer]:
+        - /url: /maestro/usuarios
+        - img [ref=f2e19]
+        - generic [ref=f2e24]: Usuarios
+      - link "Centrales" [ref=f2e25] [cursor=pointer]:
+        - /url: /maestro/centrales
+        - img [ref=f2e27]
+        - generic [ref=f2e29]: Centrales
+      - link "Cajas" [ref=f2e30] [cursor=pointer]:
+        - /url: /maestro/cajas
+        - img [ref=f2e32]
+        - generic [ref=f2e35]: Cajas
+        - img [ref=f2e36]
+    - generic [ref=f2e38]:
+      - generic [ref=f2e40]:
+        - generic [ref=f2e41]: UM
+        - generic [ref=f2e42]:
+          - generic [ref=f2e43]:
+            - paragraph [ref=f2e44]: Usuario Maestro
+            - generic [ref=f2e45]: Maestro
+          - paragraph [ref=f2e46]: maestro@cajamenor.miraxiontech
+      - button "Cerrar sesión" [ref=f2e47]:
+        - img [ref=f2e48]
+        - text: Cerrar sesión
+  - main [ref=f2e52]:
+    - generic [ref=f2e54]:
+      - generic [ref=f2e55]:
+        - generic [ref=f2e56]:
+          - img [ref=f2e58]
+          - generic [ref=f2e61]:
+            - heading "Cajas Menores" [level=1] [ref=f2e62]
+            - paragraph [ref=f2e63]: Estructura, apertura y estado de todas las cajas del sistema
+        - button "Nueva caja" [ref=f2e65] [cursor=pointer]:
+          - img [ref=f2e66]
+          - text: Nueva caja
+      - generic [ref=f2e67]:
+        - generic [ref=f2e68]:
+          - img [ref=f2e70]
+          - generic [ref=f2e73]:
+            - paragraph [ref=f2e74]: Total cajas
+            - paragraph [ref=f2e75]: "1"
+        - generic [ref=f2e76]:
+          - img [ref=f2e78]
+          - generic [ref=f2e81]:
+            - paragraph [ref=f2e82]: Abiertas
+            - paragraph [ref=f2e83]: "1"
+        - generic [ref=f2e84]:
+          - img [ref=f2e86]
+          - generic [ref=f2e89]:
+            - paragraph [ref=f2e90]: Disponible total
+            - paragraph [ref=f2e91]: $ 5.000.000
+      - generic [ref=f2e92]:
+        - img [ref=f2e93]
+        - textbox "Buscar por nombre, central o director..." [ref=f2e96]
+      - generic [ref=f2e97]:
+        - heading "Listado de cajas" [level=3] [ref=f2e99]
+        - generic [ref=f2e100]:
+          - table [ref=f2e104]:
+            - rowgroup [ref=f2e105]:
+              - row "Nombre Central Director Administradores Apertura Disponible Estado" [ref=f2e106]:
+                - columnheader [ref=f2e107]
+                - columnheader "Nombre" [ref=f2e108]
+                - columnheader "Central" [ref=f2e109]
+                - columnheader "Director" [ref=f2e110]
+                - columnheader "Administradores" [ref=f2e111]
+                - columnheader "Apertura" [ref=f2e112]
+                - columnheader "Disponible" [ref=f2e113]
+                - columnheader "Estado" [ref=f2e114]
+                - columnheader [ref=f2e115]
+            - rowgroup [ref=f2e116]:
+              - row "Caja Menor MiraxionTech Central MiraxionTech Director MiraxionTech Administrador MiraxionTech $ 5.000.000 $ 5.000.000 Abierta" [ref=f2e117]:
+                - cell [ref=f2e118]:
+                  - button "Editar caja" [active] [ref=f2e119]:
+                    - img [ref=f2e120]
+                - cell "Caja Menor MiraxionTech" [ref=f2e123]
+                - cell "Central MiraxionTech" [ref=f2e124]
+                - cell "Director MiraxionTech" [ref=f2e125]
+                - cell "Administrador MiraxionTech" [ref=f2e126]
+                - cell "$ 5.000.000" [ref=f2e127]
+                - cell "$ 5.000.000" [ref=f2e128]
+                - cell "Abierta" [ref=f2e129]:
+                  - generic [ref=f2e130]: Abierta
+                - cell [ref=f2e131]:
+                  - generic [ref=f2e132]:
+                    - button "Cerrar caja" [ref=f2e133]:
+                      - img [ref=f2e134]
+                    - 'button "No se puede eliminar: tiene movimientos registrados" [disabled] [ref=f2e137]':
+                      - img [ref=f2e138]
+          - generic [ref=f2e141]:
+            - generic [ref=f2e142]:
+              - generic [ref=f2e143]:
+                - text: Mostrando
+                - generic [ref=f2e144]: 1–1
+                - text: de 1
+              - generic [ref=f2e145]: ·
+              - generic [ref=f2e146]:
+                - generic [ref=f2e147]: "Por página:"
+                - combobox "Por página:" [ref=f2e148]:
+                  - option "10" [selected]
+                  - option "25"
+                  - option "50"
+            - generic [ref=f2e149]:
+              - button "Página anterior" [disabled] [ref=f2e150]:
+                - img [ref=f2e151]
+              - generic [ref=f2e153]: 1 / 1
+              - button "Página siguiente" [disabled] [ref=f2e154]:
+                - img [ref=f2e155]
+      - generic [ref=f2e159]:
+        - generic [ref=f2e160]:
+          - heading "Editar — Caja Menor MiraxionTech" [level=3] [ref=f2e161]
+          - button [ref=f2e162]:
+            - img [ref=f2e163]
+        - generic [ref=f2e167]:
+          - generic [ref=f2e168]:
+            - generic [ref=f2e169]:
+              - text: Nombre
+              - textbox [ref=f2e170]: Caja Menor MiraxionTech
+            - generic [ref=f2e171]:
+              - text: Central
+              - combobox [ref=f2e172] [cursor=pointer]:
+                - option "Seleccionar..."
+                - option "Central MiraxionTech" [selected]
+                - option "Medellin"
+          - generic [ref=f2e173]:
+            - text: Valor de apertura
+            - spinbutton [ref=f2e174]: "5000000"
+          - generic [ref=f2e175]:
+            - text: Director
+            - combobox [ref=f2e176] [cursor=pointer]:
+              - option "Seleccionar..."
+              - option "Cristian"
+              - option "Director MiraxionTech"
+          - generic [ref=f2e177]:
+            - button "Cancelar" [ref=f2e178] [cursor=pointer]
+            - button "Guardar cambios" [ref=f2e179] [cursor=pointer]

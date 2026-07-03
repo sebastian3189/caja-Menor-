@@ -20052,3 +20052,618 @@ WHERE [l].[CajaId] = @__cajaId_0
 2026-04-14 16:28:55.336 -05:00 [INF] Executed action CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API) in 53.4209ms
 2026-04-14 16:28:55.342 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
 2026-04-14 16:28:55.345 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - 200 null application/json; charset=utf-8 81.326ms
+2026-04-14 21:13:59.563 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-14 21:13:59.701 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-04-14 21:13:59.738 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2026-04-14 21:13:59.859 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2026-04-14 21:13:59.877 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-14 21:13:59.884 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-14 21:13:59.897 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-04-14 21:13:59.912 -05:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-14 21:13:59.920 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2026-04-14 21:13:59.966 -05:00 [INF] User profile is available. Using 'C:\Users\USUARIO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-14 21:14:01.181 -05:00 [INF] Executed DbCommand (395ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-04-14 21:14:01.350 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-04-14 21:14:01.442 -05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Centrales] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-14 21:14:01.456 -05:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-14 21:14:01.497 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CodigoCentral], [c].[Nombre]
+FROM [Centrales] AS [c]
+2026-04-14 21:14:01.632 -05:00 [INF] Executed DbCommand (23ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 21:14:01.777 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__directorIdentity_Id_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CentralId], [u].[Email], [u].[IdentityUserId], [u].[Nombre], [u].[Rol]
+FROM [UsuariosApp] AS [u]
+WHERE [u].[IdentityUserId] = @__directorIdentity_Id_0
+2026-04-14 21:14:01.866 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 21:14:01.894 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__adminIdentity_Id_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CentralId], [u].[Email], [u].[IdentityUserId], [u].[Nombre], [u].[Rol]
+FROM [UsuariosApp] AS [u]
+WHERE [u].[IdentityUserId] = @__adminIdentity_Id_0
+2026-04-14 21:14:01.921 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CajasMenores] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-14 21:14:02.456 -05:00 [INF] Now listening on: http://localhost:5129
+2026-04-14 21:14:02.467 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-14 21:14:02.471 -05:00 [INF] Hosting environment: Development
+2026-04-14 21:14:02.474 -05:00 [INF] Content root path: C:\Users\USUARIO\Documents\CajaMenor\backend\src\CajaMenor.API
+2026-04-14 21:14:05.019 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - null null
+2026-04-14 21:14:05.399 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 21:14:05.464 -05:00 [INF] Route matched with {action = "ObtenerDashboard", controller = "CajaMenor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerDashboard(Int32) on controller CajaMenor.API.Controllers.CajaMenorController (CajaMenor.API).
+2026-04-14 21:14:06.125 -05:00 [INF] Executed DbCommand (40ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura], [s].[Id0], [s].[CodigoCentral], [s].[Nombre0], [s].[Id1], [s].[CentralId0], [s].[Email], [s].[IdentityUserId], [s].[Nombre1], [s].[Rol], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId], [s0].[Id], [s0].[CentralId], [s0].[Email], [s0].[IdentityUserId], [s0].[Nombre], [s0].[Rol]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [c0].[Id] AS [Id0], [c0].[CodigoCentral], [c0].[Nombre] AS [Nombre0], [u].[Id] AS [Id1], [u].[CentralId] AS [CentralId0], [u].[Email], [u].[IdentityUserId], [u].[Nombre] AS [Nombre1], [u].[Rol]
+    FROM [CajasMenores] AS [c]
+    INNER JOIN [Centrales] AS [c0] ON [c].[CentralId] = [c0].[Id]
+    INNER JOIN [UsuariosApp] AS [u] ON [c].[DirectorId] = [u].[Id]
+    WHERE [c].[Id] = @__cajaId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [c1].[AdministradoresId], [c1].[CajasMenoresComoAdminId], [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol]
+    FROM [CajaAdministradores] AS [c1]
+    INNER JOIN [UsuariosApp] AS [u0] ON [c1].[AdministradoresId] = [u0].[Id]
+) AS [s0] ON [s].[Id] = [s0].[CajasMenoresComoAdminId]
+ORDER BY [s].[Id], [s].[Id0], [s].[Id1], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId]
+2026-04-14 21:14:06.335 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:14:06.380 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:06.413 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.DashboardDto'.
+2026-04-14 21:14:06.610 -05:00 [INF] Executed action CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API) in 1131.177ms
+2026-04-14 21:14:06.621 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 21:14:06.637 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - 200 null application/json; charset=utf-8 1621.7434ms
+2026-04-14 21:14:09.554 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances/resumen - null null
+2026-04-14 21:14:09.554 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances - null null
+2026-04-14 21:14:09.575 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API)'
+2026-04-14 21:14:09.587 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:09.590 -05:00 [INF] Route matched with {action = "Resumen", controller = "Avances"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Resumen(Int32) on controller CajaMenor.API.Controllers.AvancesController (CajaMenor.API).
+2026-04-14 21:14:09.601 -05:00 [INF] Route matched with {action = "Obtener", controller = "Avances"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.AvancesController (CajaMenor.API).
+2026-04-14 21:14:09.616 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:14:09.631 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenAvancesDto'.
+2026-04-14 21:14:09.642 -05:00 [INF] Executed action CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API) in 42.4954ms
+2026-04-14 21:14:09.652 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API)'
+2026-04-14 21:14:09.662 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances/resumen - 200 null application/json; charset=utf-8 107.7863ms
+2026-04-14 21:14:09.707 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Avances] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0
+ORDER BY [a].[FechaEnvio] DESC
+2026-04-14 21:14:09.717 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CajaMenor.Application.DTOs.AvanceDto, CajaMenor.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-14 21:14:09.752 -05:00 [INF] Executed action CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API) in 140.775ms
+2026-04-14 21:14:09.757 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:09.762 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances - 200 null application/json; charset=utf-8 208.0811ms
+2026-04-14 21:14:10.715 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones - null null
+2026-04-14 21:14:10.716 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones/resumen - null null
+2026-04-14 21:14:10.724 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:10.730 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API)'
+2026-04-14 21:14:10.740 -05:00 [INF] Route matched with {action = "Obtener", controller = "Legalizaciones"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.LegalizacionesController (CajaMenor.API).
+2026-04-14 21:14:10.743 -05:00 [INF] Route matched with {action = "Resumen", controller = "Legalizaciones"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Resumen(Int32) on controller CajaMenor.API.Controllers.LegalizacionesController (CajaMenor.API).
+2026-04-14 21:14:10.816 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:10.830 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenLegalizacionesDto'.
+2026-04-14 21:14:10.838 -05:00 [INF] Executed action CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API) in 86.0558ms
+2026-04-14 21:14:10.844 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API)'
+2026-04-14 21:14:10.849 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones/resumen - 200 null application/json; charset=utf-8 132.7923ms
+2026-04-14 21:14:10.926 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance], [l0].[Id], [l0].[FechaSubida], [l0].[LegalizacionId], [l0].[NombreOriginal], [l0].[RutaArchivo]
+FROM [Legalizaciones] AS [l]
+INNER JOIN [CajasMenores] AS [c] ON [l].[CajaId] = [c].[Id]
+LEFT JOIN [Avances] AS [a] ON [l].[AvanceId] = [a].[Id]
+LEFT JOIN [LegalizacionRecibos] AS [l0] ON [l].[Id] = [l0].[LegalizacionId]
+WHERE [l].[CajaId] = @__cajaId_0
+ORDER BY [l].[FechaCreacion] DESC, [l].[Id], [c].[Id], [a].[Id]
+2026-04-14 21:14:10.932 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CajaMenor.Application.DTOs.LegalizacionDto, CajaMenor.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-14 21:14:10.964 -05:00 [INF] Executed action CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API) in 216.5922ms
+2026-04-14 21:14:10.968 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:10.972 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones - 200 null application/json; charset=utf-8 255.9398ms
+2026-04-14 21:14:11.324 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/reembolsos - null null
+2026-04-14 21:14:11.331 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:11.340 -05:00 [INF] Route matched with {action = "Obtener", controller = "Reembolsos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ReembolsosController (CajaMenor.API).
+2026-04-14 21:14:11.409 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar], [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+LEFT JOIN [Avances] AS [a] ON [l].[AvanceId] = [a].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:11.429 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenReembolsosDto'.
+2026-04-14 21:14:11.453 -05:00 [INF] Executed action CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API) in 104.9284ms
+2026-04-14 21:14:11.459 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:11.466 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/reembolsos - 200 null application/json; charset=utf-8 141.921ms
+2026-04-14 21:14:12.158 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - null null
+2026-04-14 21:14:12.166 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:12.180 -05:00 [INF] Route matched with {action = "Obtener", controller = "Arqueo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ArqueoController (CajaMenor.API).
+2026-04-14 21:14:12.248 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AvancesPendientesLegalizar], [a].[CajaId], [a].[DisponibleCaja], [a].[Estado], [a].[FechaArqueo], [a].[FechaEnvioTesoreria], [a].[LegalizacionesSinAvance], [a].[RutaFirmaAdministrador], [a].[RutaFirmaDirectivo], [a].[TotalReembolso], [a].[ValorApertura], [a].[ValorAvancesPendientes], [a].[ValorLegalizaciones], [a].[ValorLegalizacionesSinAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Arqueos] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0 AND [a].[Estado] <> N'Enviado'
+2026-04-14 21:14:12.334 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura], [s].[Id0], [s].[CentralId0], [s].[Email], [s].[IdentityUserId], [s].[Nombre0], [s].[Rol], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId], [s0].[Id], [s0].[CentralId], [s0].[Email], [s0].[IdentityUserId], [s0].[Nombre], [s0].[Rol]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [u].[Id] AS [Id0], [u].[CentralId] AS [CentralId0], [u].[Email], [u].[IdentityUserId], [u].[Nombre] AS [Nombre0], [u].[Rol]
+    FROM [CajasMenores] AS [c]
+    INNER JOIN [UsuariosApp] AS [u] ON [c].[DirectorId] = [u].[Id]
+    WHERE [c].[Id] = @__cajaId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [c0].[AdministradoresId], [c0].[CajasMenoresComoAdminId], [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol]
+    FROM [CajaAdministradores] AS [c0]
+    INNER JOIN [UsuariosApp] AS [u0] ON [c0].[AdministradoresId] = [u0].[Id]
+) AS [s0] ON [s].[Id] = [s0].[CajasMenoresComoAdminId]
+ORDER BY [s].[Id], [s].[Id0], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId]
+2026-04-14 21:14:12.360 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.369 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.412 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.847 -05:00 [INF] Executed DbCommand (32ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32), @p7='?' (Size = 500), @p8='?' (Size = 500), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Arqueos] ([AvancesPendientesLegalizar], [CajaId], [DisponibleCaja], [Estado], [FechaArqueo], [FechaEnvioTesoreria], [LegalizacionesSinAvance], [RutaFirmaAdministrador], [RutaFirmaDirectivo], [TotalReembolso], [ValorApertura], [ValorAvancesPendientes], [ValorLegalizaciones], [ValorLegalizacionesSinAvance])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-04-14 21:14:12.918 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.926 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.937 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:14:12.961 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__arqueo_CajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [CajasMenores] AS [c]
+WHERE [c].[Id] = @__arqueo_CajaId_0
+2026-04-14 21:14:12.971 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ArqueoDto'.
+2026-04-14 21:14:12.989 -05:00 [INF] Executed action CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API) in 802.0826ms
+2026-04-14 21:14:12.992 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:14:12.996 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - 200 null application/json; charset=utf-8 837.984ms
+2026-04-14 21:17:04.312 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - null null
+2026-04-14 21:17:04.377 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 21:17:04.390 -05:00 [INF] Route matched with {action = "ObtenerDashboard", controller = "CajaMenor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerDashboard(Int32) on controller CajaMenor.API.Controllers.CajaMenorController (CajaMenor.API).
+2026-04-14 21:17:04.563 -05:00 [INF] Executed DbCommand (109ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura], [s].[Id0], [s].[CodigoCentral], [s].[Nombre0], [s].[Id1], [s].[CentralId0], [s].[Email], [s].[IdentityUserId], [s].[Nombre1], [s].[Rol], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId], [s0].[Id], [s0].[CentralId], [s0].[Email], [s0].[IdentityUserId], [s0].[Nombre], [s0].[Rol]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [c0].[Id] AS [Id0], [c0].[CodigoCentral], [c0].[Nombre] AS [Nombre0], [u].[Id] AS [Id1], [u].[CentralId] AS [CentralId0], [u].[Email], [u].[IdentityUserId], [u].[Nombre] AS [Nombre1], [u].[Rol]
+    FROM [CajasMenores] AS [c]
+    INNER JOIN [Centrales] AS [c0] ON [c].[CentralId] = [c0].[Id]
+    INNER JOIN [UsuariosApp] AS [u] ON [c].[DirectorId] = [u].[Id]
+    WHERE [c].[Id] = @__cajaId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [c1].[AdministradoresId], [c1].[CajasMenoresComoAdminId], [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol]
+    FROM [CajaAdministradores] AS [c1]
+    INNER JOIN [UsuariosApp] AS [u0] ON [c1].[AdministradoresId] = [u0].[Id]
+) AS [s0] ON [s].[Id] = [s0].[CajasMenoresComoAdminId]
+ORDER BY [s].[Id], [s].[Id0], [s].[Id1], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId]
+2026-04-14 21:17:04.598 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:17:04.618 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:17:04.630 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.DashboardDto'.
+2026-04-14 21:17:04.638 -05:00 [INF] Executed action CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API) in 241.2659ms
+2026-04-14 21:17:04.641 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 21:17:04.645 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - 200 null application/json; charset=utf-8 335.0708ms
+2026-04-14 21:17:06.833 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances - null null
+2026-04-14 21:17:06.838 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances/resumen - null null
+2026-04-14 21:17:06.843 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:06.851 -05:00 [INF] Route matched with {action = "Obtener", controller = "Avances"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.AvancesController (CajaMenor.API).
+2026-04-14 21:17:06.852 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API)'
+2026-04-14 21:17:06.860 -05:00 [INF] Route matched with {action = "Resumen", controller = "Avances"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Resumen(Int32) on controller CajaMenor.API.Controllers.AvancesController (CajaMenor.API).
+2026-04-14 21:17:06.890 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Avances] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0
+ORDER BY [a].[FechaEnvio] DESC
+2026-04-14 21:17:06.901 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CajaMenor.Application.DTOs.AvanceDto, CajaMenor.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-14 21:17:06.908 -05:00 [INF] Executed action CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API) in 51.9527ms
+2026-04-14 21:17:06.915 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AvancesController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:06.921 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances - 200 null application/json; charset=utf-8 87.3959ms
+2026-04-14 21:17:06.965 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:17:06.974 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenAvancesDto'.
+2026-04-14 21:17:06.981 -05:00 [INF] Executed action CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API) in 112.9791ms
+2026-04-14 21:17:06.987 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AvancesController.Resumen (CajaMenor.API)'
+2026-04-14 21:17:06.990 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/avances/resumen - 200 null application/json; charset=utf-8 151.8373ms
+2026-04-14 21:17:08.303 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones/resumen - null null
+2026-04-14 21:17:08.304 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones - null null
+2026-04-14 21:17:08.316 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API)'
+2026-04-14 21:17:08.327 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:08.332 -05:00 [INF] Route matched with {action = "Resumen", controller = "Legalizaciones"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Resumen(Int32) on controller CajaMenor.API.Controllers.LegalizacionesController (CajaMenor.API).
+2026-04-14 21:17:08.337 -05:00 [INF] Route matched with {action = "Obtener", controller = "Legalizaciones"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.LegalizacionesController (CajaMenor.API).
+2026-04-14 21:17:08.356 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:17:08.366 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenLegalizacionesDto'.
+2026-04-14 21:17:08.372 -05:00 [INF] Executed action CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API) in 27.7539ms
+2026-04-14 21:17:08.375 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance], [l0].[Id], [l0].[FechaSubida], [l0].[LegalizacionId], [l0].[NombreOriginal], [l0].[RutaArchivo]
+FROM [Legalizaciones] AS [l]
+INNER JOIN [CajasMenores] AS [c] ON [l].[CajaId] = [c].[Id]
+LEFT JOIN [Avances] AS [a] ON [l].[AvanceId] = [a].[Id]
+LEFT JOIN [LegalizacionRecibos] AS [l0] ON [l].[Id] = [l0].[LegalizacionId]
+WHERE [l].[CajaId] = @__cajaId_0
+ORDER BY [l].[FechaCreacion] DESC, [l].[Id], [c].[Id], [a].[Id]
+2026-04-14 21:17:08.378 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Resumen (CajaMenor.API)'
+2026-04-14 21:17:08.386 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CajaMenor.Application.DTOs.LegalizacionDto, CajaMenor.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-14 21:17:08.391 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones/resumen - 200 null application/json; charset=utf-8 85.2325ms
+2026-04-14 21:17:08.396 -05:00 [INF] Executed action CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API) in 44.6804ms
+2026-04-14 21:17:08.409 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.LegalizacionesController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:08.412 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/legalizaciones - 200 null application/json; charset=utf-8 107.9923ms
+2026-04-14 21:17:09.188 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/reembolsos - null null
+2026-04-14 21:17:09.199 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:09.203 -05:00 [INF] Route matched with {action = "Obtener", controller = "Reembolsos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ReembolsosController (CajaMenor.API).
+2026-04-14 21:17:09.228 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar], [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+LEFT JOIN [Avances] AS [a] ON [l].[AvanceId] = [a].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:17:09.239 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ResumenReembolsosDto'.
+2026-04-14 21:17:09.245 -05:00 [INF] Executed action CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API) in 34.0367ms
+2026-04-14 21:17:09.250 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ReembolsosController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:09.255 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/reembolsos - 200 null application/json; charset=utf-8 66.2638ms
+2026-04-14 21:17:09.917 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - null null
+2026-04-14 21:17:09.925 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:09.928 -05:00 [INF] Route matched with {action = "Obtener", controller = "Arqueo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ArqueoController (CajaMenor.API).
+2026-04-14 21:17:09.953 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AvancesPendientesLegalizar], [a].[CajaId], [a].[DisponibleCaja], [a].[Estado], [a].[FechaArqueo], [a].[FechaEnvioTesoreria], [a].[LegalizacionesSinAvance], [a].[RutaFirmaAdministrador], [a].[RutaFirmaDirectivo], [a].[TotalReembolso], [a].[ValorApertura], [a].[ValorAvancesPendientes], [a].[ValorLegalizaciones], [a].[ValorLegalizacionesSinAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Arqueos] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0 AND [a].[Estado] <> N'Enviado'
+2026-04-14 21:17:09.970 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:17:09.987 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:17:10.004 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:17:10.021 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__arqueo_CajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [CajasMenores] AS [c]
+WHERE [c].[Id] = @__arqueo_CajaId_0
+2026-04-14 21:17:10.032 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ArqueoDto'.
+2026-04-14 21:17:10.037 -05:00 [INF] Executed action CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API) in 100.1799ms
+2026-04-14 21:17:10.044 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:17:10.066 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - 200 null application/json; charset=utf-8 148.6374ms
+2026-04-14 21:19:14.648 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - null null
+2026-04-14 21:19:14.658 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:19:14.661 -05:00 [INF] Route matched with {action = "Obtener", controller = "Arqueo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ArqueoController (CajaMenor.API).
+2026-04-14 21:19:14.700 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AvancesPendientesLegalizar], [a].[CajaId], [a].[DisponibleCaja], [a].[Estado], [a].[FechaArqueo], [a].[FechaEnvioTesoreria], [a].[LegalizacionesSinAvance], [a].[RutaFirmaAdministrador], [a].[RutaFirmaDirectivo], [a].[TotalReembolso], [a].[ValorApertura], [a].[ValorAvancesPendientes], [a].[ValorLegalizaciones], [a].[ValorLegalizacionesSinAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Arqueos] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0 AND [a].[Estado] <> N'Enviado'
+2026-04-14 21:19:14.717 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:19:14.741 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:19:14.759 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:19:14.766 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__arqueo_CajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [CajasMenores] AS [c]
+WHERE [c].[Id] = @__arqueo_CajaId_0
+2026-04-14 21:19:14.771 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ArqueoDto'.
+2026-04-14 21:19:14.774 -05:00 [INF] Executed action CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API) in 109.6698ms
+2026-04-14 21:19:14.777 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:19:14.779 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - 200 null application/json; charset=utf-8 131.7998ms
+2026-04-14 21:31:48.747 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - null null
+2026-04-14 21:31:48.863 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:31:48.884 -05:00 [INF] Route matched with {action = "Obtener", controller = "Arqueo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Obtener(Int32) on controller CajaMenor.API.Controllers.ArqueoController (CajaMenor.API).
+2026-04-14 21:31:50.365 -05:00 [INF] Executed DbCommand (15ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AvancesPendientesLegalizar], [a].[CajaId], [a].[DisponibleCaja], [a].[Estado], [a].[FechaArqueo], [a].[FechaEnvioTesoreria], [a].[LegalizacionesSinAvance], [a].[RutaFirmaAdministrador], [a].[RutaFirmaDirectivo], [a].[TotalReembolso], [a].[ValorApertura], [a].[ValorAvancesPendientes], [a].[ValorLegalizaciones], [a].[ValorLegalizacionesSinAvance], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [Arqueos] AS [a]
+INNER JOIN [CajasMenores] AS [c] ON [a].[CajaId] = [c].[Id]
+WHERE [a].[CajaId] = @__cajaId_0 AND [a].[Estado] <> N'Enviado'
+2026-04-14 21:31:50.423 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 21:31:50.435 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:31:50.452 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[AvanceId], [r].[CodigoCentral], [r].[Debe], [r].[Debemos], [r].[Estado], [r].[FechaConfirmacion], [r].[FechaReembolso], [r].[LegalizacionId], [r].[Monto], [r].[ValorAvance], [r].[ValorLegalizado], [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Reembolsos] AS [r]
+INNER JOIN [Legalizaciones] AS [l] ON [r].[LegalizacionId] = [l].[Id]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 21:31:50.466 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__arqueo_CajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura]
+FROM [CajasMenores] AS [c]
+WHERE [c].[Id] = @__arqueo_CajaId_0
+2026-04-14 21:31:50.489 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.ArqueoDto'.
+2026-04-14 21:31:50.509 -05:00 [INF] Executed action CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API) in 1617.7611ms
+2026-04-14 21:31:50.513 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.ArqueoController.Obtener (CajaMenor.API)'
+2026-04-14 21:31:50.522 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajas/2/arqueo - 200 null application/json; charset=utf-8 1781.6804ms
+2026-04-14 22:41:57.629 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-14 22:41:57.692 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-04-14 22:41:57.714 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2026-04-14 22:41:57.773 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2026-04-14 22:41:57.785 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-14 22:41:57.791 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-14 22:41:57.805 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-04-14 22:41:57.823 -05:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-14 22:41:57.833 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2026-04-14 22:41:57.891 -05:00 [INF] User profile is available. Using 'C:\Users\USUARIO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-14 22:41:58.294 -05:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-04-14 22:41:58.381 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-04-14 22:41:58.410 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Centrales] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-14 22:41:58.418 -05:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-14 22:41:58.433 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CodigoCentral], [c].[Nombre]
+FROM [Centrales] AS [c]
+2026-04-14 22:41:58.492 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:41:58.567 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__directorIdentity_Id_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CentralId], [u].[Email], [u].[IdentityUserId], [u].[Nombre], [u].[Rol]
+FROM [UsuariosApp] AS [u]
+WHERE [u].[IdentityUserId] = @__directorIdentity_Id_0
+2026-04-14 22:41:58.629 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:41:58.644 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__adminIdentity_Id_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CentralId], [u].[Email], [u].[IdentityUserId], [u].[Nombre], [u].[Rol]
+FROM [UsuariosApp] AS [u]
+WHERE [u].[IdentityUserId] = @__adminIdentity_Id_0
+2026-04-14 22:41:58.655 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CajasMenores] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-14 22:41:58.915 -05:00 [INF] Now listening on: http://localhost:5129
+2026-04-14 22:41:58.923 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-14 22:41:58.924 -05:00 [INF] Hosting environment: Development
+2026-04-14 22:41:58.928 -05:00 [INF] Content root path: C:\Users\USUARIO\Documents\CajaMenor\backend\src\CajaMenor.API
+2026-04-14 22:42:08.304 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - null null
+2026-04-14 22:42:08.447 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 22:42:08.481 -05:00 [INF] Route matched with {action = "ObtenerDashboard", controller = "CajaMenor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerDashboard(Int32) on controller CajaMenor.API.Controllers.CajaMenorController (CajaMenor.API).
+2026-04-14 22:42:09.035 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura], [s].[Id0], [s].[CodigoCentral], [s].[Nombre0], [s].[Id1], [s].[CentralId0], [s].[Email], [s].[IdentityUserId], [s].[Nombre1], [s].[Rol], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId], [s0].[Id], [s0].[CentralId], [s0].[Email], [s0].[IdentityUserId], [s0].[Nombre], [s0].[Rol]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [c0].[Id] AS [Id0], [c0].[CodigoCentral], [c0].[Nombre] AS [Nombre0], [u].[Id] AS [Id1], [u].[CentralId] AS [CentralId0], [u].[Email], [u].[IdentityUserId], [u].[Nombre] AS [Nombre1], [u].[Rol]
+    FROM [CajasMenores] AS [c]
+    INNER JOIN [Centrales] AS [c0] ON [c].[CentralId] = [c0].[Id]
+    INNER JOIN [UsuariosApp] AS [u] ON [c].[DirectorId] = [u].[Id]
+    WHERE [c].[Id] = @__cajaId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [c1].[AdministradoresId], [c1].[CajasMenoresComoAdminId], [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol]
+    FROM [CajaAdministradores] AS [c1]
+    INNER JOIN [UsuariosApp] AS [u0] ON [c1].[AdministradoresId] = [u0].[Id]
+) AS [s0] ON [s].[Id] = [s0].[CajasMenoresComoAdminId]
+ORDER BY [s].[Id], [s].[Id0], [s].[Id1], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId]
+2026-04-14 22:42:09.171 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 22:42:09.212 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 22:42:09.241 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.DashboardDto'.
+2026-04-14 22:42:09.422 -05:00 [INF] Executed action CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API) in 929.1308ms
+2026-04-14 22:42:09.431 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 22:42:09.448 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - 200 null application/json; charset=utf-8 1145.5037ms
+2026-04-14 22:42:55.897 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5129/api/auth/login - application/json 57
+2026-04-14 22:42:55.909 -05:00 [INF] CORS policy execution successful.
+2026-04-14 22:42:55.914 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:42:55.921 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CajaMenor.Application.DTOs.LoginDto) on controller CajaMenor.API.Controllers.AuthController (CajaMenor.API).
+2026-04-14 22:42:55.980 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:42:55.985 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-14 22:42:56.000 -05:00 [INF] Executed action CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API) in 74.7583ms
+2026-04-14 22:42:56.003 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:42:56.006 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5129/api/auth/login - 401 null application/json; charset=utf-8 109.0919ms
+2026-04-14 22:43:34.328 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5129/api/auth/login - application/json 56
+2026-04-14 22:43:34.337 -05:00 [INF] CORS policy execution successful.
+2026-04-14 22:43:34.343 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:43:34.345 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CajaMenor.Application.DTOs.LoginDto) on controller CajaMenor.API.Controllers.AuthController (CajaMenor.API).
+2026-04-14 22:43:34.361 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:43:34.366 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-14 22:43:34.369 -05:00 [INF] Executed action CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API) in 21.3535ms
+2026-04-14 22:43:34.373 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:43:34.375 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5129/api/auth/login - 401 null application/json; charset=utf-8 47.3211ms
+2026-04-14 22:43:47.487 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5129/api/auth/login - application/json 60
+2026-04-14 22:43:47.492 -05:00 [INF] CORS policy execution successful.
+2026-04-14 22:43:47.493 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:43:47.496 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CajaMenor.Application.DTOs.LoginDto) on controller CajaMenor.API.Controllers.AuthController (CajaMenor.API).
+2026-04-14 22:43:47.521 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:43:47.526 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-14 22:43:47.529 -05:00 [INF] Executed action CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API) in 29.5732ms
+2026-04-14 22:43:47.532 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:43:47.535 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5129/api/auth/login - 401 null application/json; charset=utf-8 47.1707ms
+2026-04-14 22:45:00.114 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5129/api/auth/login - application/json 59
+2026-04-14 22:45:00.120 -05:00 [INF] CORS policy execution successful.
+2026-04-14 22:45:00.122 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:45:00.125 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CajaMenor.Application.DTOs.LoginDto) on controller CajaMenor.API.Controllers.AuthController (CajaMenor.API).
+2026-04-14 22:45:00.136 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NombreCompleto], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-14 22:45:00.232 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-04-14 22:45:00.244 -05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-04-14 22:45:00.270 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol], [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [s].[AdministradoresId], [s].[CajasMenoresComoAdminId], [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CentralId], [u].[Email], [u].[IdentityUserId], [u].[Nombre], [u].[Rol]
+    FROM [UsuariosApp] AS [u]
+    WHERE [u].[IdentityUserId] = @__user_Id_0
+) AS [u0]
+LEFT JOIN [CajasMenores] AS [c] ON [u0].[Id] = [c].[DirectorId]
+LEFT JOIN (
+    SELECT [c0].[AdministradoresId], [c0].[CajasMenoresComoAdminId], [c1].[Id], [c1].[CentralId], [c1].[DirectorId], [c1].[Disponible], [c1].[Estado], [c1].[FechaApertura], [c1].[Nombre], [c1].[TotalUsado], [c1].[ValorApertura]
+    FROM [CajaAdministradores] AS [c0]
+    INNER JOIN [CajasMenores] AS [c1] ON [c0].[CajasMenoresComoAdminId] = [c1].[Id]
+) AS [s] ON [u0].[Id] = [s].[AdministradoresId]
+ORDER BY [u0].[Id], [c].[Id], [s].[AdministradoresId], [s].[CajasMenoresComoAdminId]
+2026-04-14 22:45:00.286 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.LoginResponseDto'.
+2026-04-14 22:45:00.289 -05:00 [INF] Executed action CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API) in 160.6485ms
+2026-04-14 22:45:00.291 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.AuthController.Login (CajaMenor.API)'
+2026-04-14 22:45:00.292 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5129/api/auth/login - 200 null application/json; charset=utf-8 177.6522ms
+2026-04-14 22:45:00.393 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - null null
+2026-04-14 22:45:00.399 -05:00 [INF] Executing endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 22:45:00.402 -05:00 [INF] Route matched with {action = "ObtenerDashboard", controller = "CajaMenor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerDashboard(Int32) on controller CajaMenor.API.Controllers.CajaMenorController (CajaMenor.API).
+2026-04-14 22:45:00.427 -05:00 [INF] Executed DbCommand (17ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CentralId], [s].[DirectorId], [s].[Disponible], [s].[Estado], [s].[FechaApertura], [s].[Nombre], [s].[TotalUsado], [s].[ValorApertura], [s].[Id0], [s].[CodigoCentral], [s].[Nombre0], [s].[Id1], [s].[CentralId0], [s].[Email], [s].[IdentityUserId], [s].[Nombre1], [s].[Rol], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId], [s0].[Id], [s0].[CentralId], [s0].[Email], [s0].[IdentityUserId], [s0].[Nombre], [s0].[Rol]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CentralId], [c].[DirectorId], [c].[Disponible], [c].[Estado], [c].[FechaApertura], [c].[Nombre], [c].[TotalUsado], [c].[ValorApertura], [c0].[Id] AS [Id0], [c0].[CodigoCentral], [c0].[Nombre] AS [Nombre0], [u].[Id] AS [Id1], [u].[CentralId] AS [CentralId0], [u].[Email], [u].[IdentityUserId], [u].[Nombre] AS [Nombre1], [u].[Rol]
+    FROM [CajasMenores] AS [c]
+    INNER JOIN [Centrales] AS [c0] ON [c].[CentralId] = [c0].[Id]
+    INNER JOIN [UsuariosApp] AS [u] ON [c].[DirectorId] = [u].[Id]
+    WHERE [c].[Id] = @__cajaId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [c1].[AdministradoresId], [c1].[CajasMenoresComoAdminId], [u0].[Id], [u0].[CentralId], [u0].[Email], [u0].[IdentityUserId], [u0].[Nombre], [u0].[Rol]
+    FROM [CajaAdministradores] AS [c1]
+    INNER JOIN [UsuariosApp] AS [u0] ON [c1].[AdministradoresId] = [u0].[Id]
+) AS [s0] ON [s].[Id] = [s0].[CajasMenoresComoAdminId]
+ORDER BY [s].[Id], [s].[Id0], [s].[Id1], [s0].[AdministradoresId], [s0].[CajasMenoresComoAdminId]
+2026-04-14 22:45:00.439 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CajaId], [a].[CodigoAvance], [a].[Descripcion], [a].[Estado], [a].[EstadoReembolso], [a].[FechaCreacion], [a].[FechaEnvio], [a].[Solicitante], [a].[TipoAvance], [a].[ValorAvance]
+FROM [Avances] AS [a]
+WHERE [a].[CajaId] = @__cajaId_0
+2026-04-14 22:45:00.449 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__cajaId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AvanceId], [l].[CajaId], [l].[CodigoLegalizacion], [l].[Descripcion], [l].[DescuentoCaja], [l].[Diferencia], [l].[EstadoReembolso], [l].[FechaCreacion], [l].[FechaLegalizacion], [l].[Monto], [l].[TipoLegalizacion], [l].[ValorAvance], [l].[ValorReembolsar]
+FROM [Legalizaciones] AS [l]
+WHERE [l].[CajaId] = @__cajaId_0
+2026-04-14 22:45:00.455 -05:00 [INF] Executing OkObjectResult, writing value of type 'CajaMenor.Application.DTOs.DashboardDto'.
+2026-04-14 22:45:00.459 -05:00 [INF] Executed action CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API) in 53.4954ms
+2026-04-14 22:45:00.462 -05:00 [INF] Executed endpoint 'CajaMenor.API.Controllers.CajaMenorController.ObtenerDashboard (CajaMenor.API)'
+2026-04-14 22:45:00.465 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5129/api/cajamenor/2/dashboard - 200 null application/json; charset=utf-8 72.0293ms

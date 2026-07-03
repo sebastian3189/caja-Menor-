@@ -7,5 +7,6 @@ public interface ICentralService
 {
     Task<Result<List<CentralDto>>> ListarAsync();
     Task<Result<CentralDto>> CrearAsync(CrearCentralDto dto);
+    Task<Result<CentralDto>> EditarAsync(int id, EditarCentralDto dto);
     Task<Result> EliminarAsync(int id);
 }

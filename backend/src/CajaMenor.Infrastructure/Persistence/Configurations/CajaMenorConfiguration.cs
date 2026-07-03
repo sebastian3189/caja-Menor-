@@ -16,8 +16,10 @@ public class CajaMenorConfiguration : IEntityTypeConfiguration<CajaMenorEntity>
         builder.Property(x => x.TotalUsado).HasColumnType("decimal(18,2)");
 
         builder.HasOne(x => x.Central).WithMany(c => c.CajasMenores).HasForeignKey(x => x.CentralId);
-        builder.HasOne(x => x.Director).WithMany(u => u.CajasMenoresComoDirector).HasForeignKey(x => x.DirectorId).OnDelete(DeleteBehavior.Restrict);
+        builder.HasOne(x => x.Director).WithMany(u => u.CajasMenoresComoDirector).HasForeignKey(x => x.DirectorId).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
         builder.HasMany(x => x.Administradores).WithMany(u => u.CajasMenoresComoAdmin)
             .UsingEntity(j => j.ToTable("CajaAdministradores"));
+        builder.HasMany(x => x.Solicitantes).WithMany(u => u.CajasMenoresComoSolicitante)
+            .UsingEntity(j => j.ToTable("CajaSolicitantes"));
     }
 }

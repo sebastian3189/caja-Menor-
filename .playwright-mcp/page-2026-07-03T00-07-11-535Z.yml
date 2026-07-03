@@ -1,0 +1,58 @@
+- generic [ref=f4e3]:
+  - complementary [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - generic [ref=f4e6]:
+        - img [ref=f4e8]
+        - generic [ref=f4e12]:
+          - paragraph [ref=f4e13]: Caja Menor
+          - paragraph [ref=f4e14]: MiraxionTech
+      - generic [ref=f4e15]:
+        - paragraph [ref=f4e16]: Caja activa
+        - paragraph [ref=f4e17]: Caja Menor MiraxionTech
+    - navigation [ref=f4e18]:
+      - paragraph [ref=f4e19]: Módulos
+      - link "Dashboard" [ref=f4e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=f4e22]
+        - generic [ref=f4e27]: Dashboard
+      - link "Avances" [ref=f4e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=f4e30]
+        - generic [ref=f4e33]: Avances
+      - link "Legalizaciones" [ref=f4e34] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=f4e36]
+        - generic [ref=f4e39]: Legalizaciones
+      - link "Reembolsos" [ref=f4e40] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=f4e42]
+        - generic [ref=f4e47]: Reembolsos
+      - link "Arqueo" [ref=f4e48] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=f4e50]
+        - generic [ref=f4e53]: Arqueo
+      - link "Auditoría" [ref=f4e54] [cursor=pointer]:
+        - /url: /auditoria
+        - img [ref=f4e56]
+        - generic [ref=f4e59]: Auditoría
+        - img [ref=f4e60]
+    - generic [ref=f4e62]:
+      - generic [ref=f4e63]:
+        - generic [ref=f4e64]:
+          - paragraph [ref=f4e65]: Director MiraxionTech
+          - generic [ref=f4e66]: Director
+        - paragraph [ref=f4e67]: director@miraxiontech.com
+      - button "Cerrar sesión" [ref=f4e68]:
+        - img [ref=f4e69]
+        - text: Cerrar sesión
+  - main [ref=f4e73]:
+    - generic [ref=f4e75]:
+      - generic [ref=f4e77]:
+        - img [ref=f4e79]
+        - generic [ref=f4e82]:
+          - heading "Auditoría" [level=1] [ref=f4e83]
+          - paragraph [ref=f4e84]: Registro de todas las operaciones del sistema
+      - generic [ref=f4e85]:
+        - img [ref=f4e86]
+        - textbox "Buscar por usuario, acción o módulo..." [ref=f4e89]
+      - generic [ref=f4e94]: Cargando auditoría...

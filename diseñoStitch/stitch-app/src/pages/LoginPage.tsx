@@ -6,21 +6,10 @@ import { z } from 'zod'
 import { Mail, Lock, ArrowRight, Building2, Shield, TrendingUp, BarChart3, Eye, EyeOff } from 'lucide-react'
 import { login } from '@/api/auth'
 import { useAuthStore } from '@/store/authStore'
+import { rutaHomePorRol } from '@/components/layout/ProtectedRoute'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Label } from '@/components/ui/Label'
-
-// Ícono de Microsoft (SVG oficial — cuatro cuadros de colores)
-function MicrosoftIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="9" height="9" fill="#F25022" />
-      <rect x="11" y="1" width="9" height="9" fill="#7FBA00" />
-      <rect x="1" y="11" width="9" height="9" fill="#00A4EF" />
-      <rect x="11" y="11" width="9" height="9" fill="#FFB900" />
-    </svg>
-  )
-}
 
 const loginSchema = z.object({
   email: z.string().email('Correo electrónico inválido'),
@@ -40,26 +29,9 @@ export function LoginPage() {
   const { setAuth } = useAuthStore()
   const [error, setError] = useState<string | null>(null)
   const [showPassword, setShowPassword] = useState(false)
-  const [msLoading, setMsLoading] = useState(false)
-
-  const handleMicrosoftLogin = async () => {
-    setMsLoading(true)
-    setError(null)
-    try {
-      // TODO: integrar MSAL (@azure/msal-browser)
-      // const result = await msalInstance.loginPopup({ scopes: ['openid', 'profile', 'email'] })
-      // const response = await loginWithMicrosoft(result.idToken)
-      // setAuth(response)
-      // navigate('/dashboard')
-    } finally {
-      setMsLoading(false)
-    }
-  }
 
   const handleForgotPassword = () => {
-    // TODO: redirigir al flujo de reset de contraseña de Azure AD
-    // window.location.href = `https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/authorize?...&prompt=select_account`
-    window.open('https://account.live.com/password/reset', '_blank', 'noopener')
+    navigate('/forgot-password')
   }
 
   const {
@@ -73,7 +45,8 @@ export function LoginPage() {
     try {
       const response = await login(data)
       setAuth(response)
-      navigate('/dashboard')
+      // Primer ingreso: forzar cambio de la contraseña (la inicial es la cédula)
+      navigate(response.mustChangePassword ? '/cambiar-password' : rutaHomePorRol(response.rol))
     } catch {
       setError('Credenciales inválidas. Verifique su correo y contraseña.')
     }
@@ -160,28 +133,6 @@ export function LoginPage() {
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-slate-900">Bienvenido</h1>
             <p className="text-slate-500 text-sm mt-1">Ingresa tus credenciales para continuar</p>
-          </div>
-
-          {/* Microsoft login */}
-          <button
-            type="button"
-            onClick={handleMicrosoftLogin}
-            disabled={msLoading}
-            className="w-full h-11 flex items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-sm mb-6"
-          >
-            {msLoading ? (
-              <span className="w-4 h-4 border-2 border-slate-300 border-t-slate-600 rounded-full animate-spin" />
-            ) : (
-              <MicrosoftIcon size={18} />
-            )}
-            Continuar con Microsoft
-          </button>
-
-          {/* Divider */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="flex-1 h-px bg-slate-200" />
-            <span className="text-xs text-slate-400 shrink-0">o ingresa con tu correo</span>
-            <div className="flex-1 h-px bg-slate-200" />
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

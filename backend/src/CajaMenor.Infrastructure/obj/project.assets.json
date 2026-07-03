@@ -1557,6 +1557,15 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+      "System.Reflection.Emit/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "System.Reflection.Metadata/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -1859,6 +1868,25 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Tesseract.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Tesseract.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Tesseract.targets": {}
         }
       },
       "CajaMenor.Application/1.0.0": {
@@ -4569,6 +4597,60 @@
         "version.txt"
       ]
     },
+    "System.Reflection.Emit/4.7.0": {
+      "sha512": "VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "type": "package",
+      "path": "system.reflection.emit/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Reflection.Emit.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Reflection.Emit.dll",
+        "lib/netstandard1.1/System.Reflection.Emit.xml",
+        "lib/netstandard1.3/System.Reflection.Emit.dll",
+        "lib/netstandard2.0/System.Reflection.Emit.dll",
+        "lib/netstandard2.0/System.Reflection.Emit.xml",
+        "lib/netstandard2.1/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Reflection.Emit.dll",
+        "ref/netstandard1.1/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/de/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/es/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/fr/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/it/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ja/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ko/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ru/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/zh-hans/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/zh-hant/System.Reflection.Emit.xml",
+        "ref/netstandard2.0/System.Reflection.Emit.dll",
+        "ref/netstandard2.0/System.Reflection.Emit.xml",
+        "ref/netstandard2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/aot/lib/netcore50/System.Reflection.Emit.dll",
+        "runtimes/aot/lib/netcore50/System.Reflection.Emit.xml",
+        "system.reflection.emit.4.7.0.nupkg.sha512",
+        "system.reflection.emit.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Reflection.Metadata/7.0.0": {
       "sha512": "MclTG61lsD9sYdpNz9xsKBzjsmsfCtcMZYXz/IUr2zlhaTaABonlr1ESeompTgM+Xk+IwtGYU7/voh3YWB/fWw==",
       "type": "package",
@@ -5151,6 +5233,26 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Tesseract/5.2.0": {
+      "sha512": "YB7feJlrTWSXtK8+WaCcseGSPK/1r2d2FWeKGyndlrPwYClrzTlCoHD4/oQEUjKafmpkWlhTZZ7pxiRJYZgj6w==",
+      "type": "package",
+      "path": "tesseract/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Tesseract.targets",
+        "lib/net47/Tesseract.dll",
+        "lib/net48/Tesseract.dll",
+        "lib/netstandard2.0/Tesseract.dll",
+        "lib/netstandard2.0/Tesseract.xml",
+        "tesseract.5.2.0.nupkg.sha512",
+        "tesseract.nuspec",
+        "x64/leptonica-1.82.0.dll",
+        "x64/tesseract50.dll",
+        "x86/leptonica-1.82.0.dll",
+        "x86/tesseract50.dll"
+      ]
+    },
     "CajaMenor.Application/1.0.0": {
       "type": "project",
       "path": "../CajaMenor.Application/CajaMenor.Application.csproj",
@@ -5176,7 +5278,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.4",
-      "QuestPDF >= 2026.2.4"
+      "QuestPDF >= 2026.2.4",
+      "Tesseract >= 5.2.0"
     ]
   },
   "packageFolders": {
@@ -5186,11 +5289,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\CajaMenor.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\CajaMenor.Infrastructure.csproj",
       "projectName": "CajaMenor.Infrastructure",
-      "projectPath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\CajaMenor.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\CajaMenor.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5211,14 +5314,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj"
+            "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Application\\CajaMenor.Application.csproj"
             },
-            "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Domain\\CajaMenor.Domain.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Domain\\CajaMenor.Domain.csproj"
+            "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Domain\\CajaMenor.Domain.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Domain\\CajaMenor.Domain.csproj"
             },
-            "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Shared\\CajaMenor.Shared.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\Documents\\CajaMenor\\backend\\src\\CajaMenor.Shared\\CajaMenor.Shared.csproj"
+            "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Shared\\CajaMenor.Shared.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\Documents\\Agencia\\PProyects\\CajaMenor\\backend\\src\\CajaMenor.Shared\\CajaMenor.Shared.csproj"
             }
           }
         }
@@ -5260,6 +5363,10 @@
           "QuestPDF": {
             "target": "Package",
             "version": "[2026.2.4, )"
+          },
+          "Tesseract": {
+            "target": "Package",
+            "version": "[5.2.0, )"
           }
         },
         "imports": [
@@ -5284,5 +5391,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"MailKit\" 4.15.1 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-9j88-vvj5-vhgr",
+      "libraryId": "MailKit",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

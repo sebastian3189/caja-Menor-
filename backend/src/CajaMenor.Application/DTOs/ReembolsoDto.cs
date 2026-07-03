@@ -23,4 +23,6 @@ public class ResumenReembolsosDto
     public List<ReembolsoDto> SinReembolso { get; set; } = [];
     public decimal TotalPendiente { get; set; }
     public List<ReembolsoDto> Historico { get; set; } = [];
+    /// <summary>Respuesta de Tesorería al último arqueo enviado: null | "Pendiente" | "Aceptado" | "Denegado".</summary>
+    public string? EstadoTesoreria { get; set; }
 }

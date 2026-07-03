@@ -1,0 +1,123 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e8]
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: Caja Menor
+          - paragraph [ref=e14]: MiraxionTech
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Caja activa
+        - paragraph [ref=e17]: Caja Medellín
+    - navigation [ref=e18]:
+      - paragraph [ref=e19]: Módulos
+      - link "Dashboard" [ref=e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e22]
+        - generic [ref=e27]: Dashboard
+      - link "Avances" [ref=e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e30]
+        - generic [ref=e33]: Avances
+      - link "Legalizaciones" [ref=e34] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e36]
+        - generic [ref=e39]: Legalizaciones
+      - link "Reembolsos" [ref=e40] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e42]
+        - generic [ref=e47]: Reembolsos
+      - link "Arqueo" [ref=e48] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e50]
+        - generic [ref=e53]: Arqueo
+        - img [ref=e54]
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Cristian
+          - generic [ref=e60]: Director
+        - paragraph [ref=e61]: Cris@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e62]:
+        - img [ref=e63]
+        - text: Cerrar sesión
+  - main [ref=e67]:
+    - generic [ref=e69]:
+      - generic [ref=e74]:
+        - img [ref=e76]
+        - generic [ref=e79]:
+          - heading "Arqueo de Caja" [level=1] [ref=e80]
+          - paragraph [ref=e81]: Control y cierre del período de caja
+      - generic [ref=e82]:
+        - generic [ref=e84]:
+          - heading "Arqueo — Caja Medellín" [level=3] [ref=e85]
+          - generic [ref=e86]: Pendiente
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - paragraph [ref=e90]: Fecha arqueo
+            - paragraph [ref=e91]: 15/04/2026
+          - generic [ref=e92]:
+            - paragraph [ref=e93]: Valor apertura
+            - paragraph [ref=e94]: $ 10.000.000
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Disponible
+            - paragraph [ref=e97]: $ 8.810.000
+          - generic [ref=e98]:
+            - paragraph [ref=e99]: Total reembolso
+            - paragraph [ref=e100]: $ 615.000
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - img [ref=e104]
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: Avances pendientes legalizar
+            - paragraph [ref=e109]: "2"
+            - paragraph [ref=e110]: ↓ $ 670.000
+        - generic [ref=e111]:
+          - img [ref=e113]
+          - generic [ref=e116]:
+            - paragraph [ref=e117]: Avances pend. reembolso
+            - paragraph [ref=e118]: "0"
+            - paragraph [ref=e119]: ↓ $ 0
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e125]:
+            - paragraph [ref=e126]: Legalizaciones con avance
+            - paragraph [ref=e127]: "2"
+            - paragraph [ref=e128]: ↑ $ 520.000
+        - generic [ref=e129]:
+          - img [ref=e131]
+          - generic [ref=e134]:
+            - paragraph [ref=e135]: Legalizaciones sin avance
+            - paragraph [ref=e136]: "1"
+            - paragraph [ref=e137]: ↑ $ 95.000
+        - generic [ref=e138]:
+          - img [ref=e140]
+          - generic [ref=e143]:
+            - paragraph [ref=e144]: Reembolsos sin reembolsar
+            - paragraph [ref=e145]: "3"
+            - paragraph [ref=e146]: ↓ $ 615.000
+      - generic [ref=e147]:
+        - generic [ref=e149]:
+          - img [ref=e150]
+          - heading "Firmas y descarga arqueo" [level=3] [ref=e153]
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - img [ref=e159]
+                - generic [ref=e162]:
+                  - paragraph [ref=e163]: Firma Directivo
+                  - paragraph [ref=e164]: Pendiente de firma
+                - generic [ref=e166]: Pendiente
+              - button "Subir firma" [ref=e168] [cursor=pointer]:
+                - img [ref=e169]
+                - text: Subir firma
+            - generic [ref=e172]:
+              - img [ref=e174]
+              - generic [ref=e177]:
+                - paragraph [ref=e178]: Firma Administrador
+                - paragraph [ref=e179]: Pendiente de firma
+              - generic [ref=e181]: Pendiente
+          - generic [ref=e183]:
+            - img [ref=e184]
+            - generic [ref=e186]: Se requieren ambas firmas para descargar el arqueo.

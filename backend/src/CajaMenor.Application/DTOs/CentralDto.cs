@@ -14,3 +14,9 @@ public class CrearCentralDto
     public string Nombre { get; set; } = string.Empty;
     public string CodigoCentral { get; set; } = string.Empty;
 }
+
+public class EditarCentralDto
+{
+    public string Nombre { get; set; } = string.Empty;
+    public string CodigoCentral { get; set; } = string.Empty;
+}

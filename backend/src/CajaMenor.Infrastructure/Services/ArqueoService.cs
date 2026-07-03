@@ -5,13 +5,14 @@ using CajaMenor.Domain.Entities;
 using CajaMenor.Domain.Enums;
 using CajaMenor.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 namespace CajaMenor.Infrastructure.Services;
 
-public class ArqueoService(AppDbContext db, INotificacionService notificacion) : IArqueoService
+public class ArqueoService(AppDbContext db, INotificacionService notificacion, IConfiguration config) : IArqueoService
 {
     public async Task<Result<ArqueoDto>> ObtenerArqueoActivoAsync(int cajaId)
     {
@@ -102,20 +103,71 @@ public class ArqueoService(AppDbContext db, INotificacionService notificacion) :
         var pdf = await GenerarPdfArqueoAsync(cajaId);
         if (!pdf.Success) return Result.Fail(pdf.Error!);
 
-        var emailTesoreria = "tesoreria@empresa.com"; // configurable via appsettings
+        // Token y enlaces Aceptar/Denegar que Tesorería usará desde el correo
+        var token = Guid.NewGuid().ToString("N");
+        var apiUrl = (config["App:ApiUrl"] ?? "http://localhost:5129").TrimEnd('/');
+        var urlAceptar = $"{apiUrl}/api/tesoreria/{token}/aceptar";
+        var urlDenegar = $"{apiUrl}/api/tesoreria/{token}/denegar";
+
+        var emailTesoreria = config["Tesoreria:Email"] ?? "sliters83@gmail.com";
         var resultado = await notificacion.EnviarArqueoTesoreriaAsync(
             emailTesoreria,
             arqueo.Caja.Nombre,
             arqueo.Caja.Director.Nombre,
             string.Join(", ", arqueo.Caja.Administradores.Select(a => a.Nombre)),
-            pdf.Data!);
+            pdf.Data!,
+            urlAceptar,
+            urlDenegar);
 
         if (!resultado.Success) return resultado;
 
         arqueo.FechaEnvioTesoreria = DateTime.UtcNow;
         arqueo.Estado = "Enviado";
+        arqueo.EstadoTesoreria = "Pendiente";
+        arqueo.TokenTesoreria = token;
+        arqueo.FechaRespuestaTesoreria = null;
         await db.SaveChangesAsync();
         return Result.Ok();
+    }
+
+    public async Task<Result<string>> ResponderTesoreriaAsync(string token, bool aceptar)
+    {
+        var arqueo = await db.Arqueos.FirstOrDefaultAsync(a => a.TokenTesoreria == token);
+        if (arqueo is null)
+            return Result<string>.Fail("Enlace inválido o el arqueo ya no existe.");
+
+        if (arqueo.EstadoTesoreria is "Aceptado" or "Denegado")
+            return Result<string>.Ok($"Este arqueo ya fue {arqueo.EstadoTesoreria.ToLower()} anteriormente.");
+
+        arqueo.FechaRespuestaTesoreria = DateTime.UtcNow;
+
+        if (aceptar)
+        {
+            arqueo.EstadoTesoreria = "Aceptado";
+            await db.SaveChangesAsync();
+            return Result<string>.Ok("Arqueo ACEPTADO. El Director ya puede confirmar el paso de los reembolsos al histórico.");
+        }
+
+        // Denegado: los reembolsos En Proceso de la caja vuelven a Sin Reembolso para rehacer el proceso
+        arqueo.EstadoTesoreria = "Denegado";
+
+        var reembolsos = await db.Reembolsos
+            .Include(r => r.Legalizacion)
+            .Where(r => r.Legalizacion.CajaId == arqueo.CajaId && r.Estado == EstadoReembolso.EnProceso)
+            .ToListAsync();
+
+        foreach (var r in reembolsos)
+        {
+            r.Estado = EstadoReembolso.SinReembolso;
+            r.Legalizacion.EstadoReembolso = EstadoReembolso.SinReembolso;
+        }
+
+        var avanceIds = reembolsos.Where(r => r.AvanceId.HasValue).Select(r => r.AvanceId!.Value).ToList();
+        var avances = await db.Avances.Where(a => avanceIds.Contains(a.Id)).ToListAsync();
+        foreach (var a in avances) a.EstadoReembolso = EstadoReembolso.SinReembolso;
+
+        await db.SaveChangesAsync();
+        return Result<string>.Ok("Arqueo DENEGADO. Los reembolsos volvieron a 'Sin reembolso'; el equipo deberá corregir y reiniciar el proceso.");
     }
 
     public async Task<Result<byte[]>> GenerarPdfArqueoAsync(int cajaId)

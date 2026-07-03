@@ -44,10 +44,17 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("EstadoTesoreria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaArqueo")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("FechaEnvioTesoreria")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaRespuestaTesoreria")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LegalizacionesSinAvance")
@@ -60,6 +67,9 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.Property<string>("RutaFirmaDirectivo")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("TokenTesoreria")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalReembolso")
                         .HasColumnType("decimal(18,2)");
@@ -185,7 +195,7 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.Property<int>("CentralId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DirectorId")
+                    b.Property<int?>("DirectorId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Disponible")
@@ -236,37 +246,6 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Centrales");
-                });
-
-            modelBuilder.Entity("CajaMenor.Domain.Entities.LegalizacionRecibo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("FechaSubida")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LegalizacionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NombreOriginal")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("RutaArchivo")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LegalizacionId");
-
-                    b.ToTable("LegalizacionRecibos");
                 });
 
             modelBuilder.Entity("CajaMenor.Domain.Entities.Legalizacion", b =>
@@ -336,6 +315,48 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.ToTable("Legalizaciones", (string)null);
                 });
 
+            modelBuilder.Entity("CajaMenor.Domain.Entities.LegalizacionRecibo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("FechaSubida")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LegalizacionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreOriginal")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("NotaOCR")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("RutaArchivo")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("ValidadoOCR")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("ValorOCR")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LegalizacionId");
+
+                    b.ToTable("LegalizacionRecibos", (string)null);
+                });
+
             modelBuilder.Entity("CajaMenor.Domain.Entities.Reembolso", b =>
                 {
                     b.Property<int>("Id")
@@ -387,6 +408,55 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.ToTable("Reembolsos", (string)null);
                 });
 
+            modelBuilder.Entity("CajaMenor.Domain.Entities.SolicitudAvance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AvanceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CajaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaRespuesta")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaSolicitud")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MotivoRechazo")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("SolicitanteId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ValorSolicitado")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AvanceId");
+
+                    b.HasIndex("CajaId");
+
+                    b.HasIndex("SolicitanteId");
+
+                    b.ToTable("SolicitudesAvance", (string)null);
+                });
+
             modelBuilder.Entity("CajaMenor.Domain.Entities.UsuarioApp", b =>
                 {
                     b.Property<int>("Id")
@@ -394,6 +464,10 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cedula")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CentralId")
                         .HasColumnType("int");
@@ -445,6 +519,9 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<bool>("MustChangePassword")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NombreCompleto")
                         .IsRequired()
@@ -503,6 +580,21 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.HasIndex("CajasMenoresComoAdminId");
 
                     b.ToTable("CajaAdministradores", (string)null);
+                });
+
+            modelBuilder.Entity("CajaMenorEntityUsuarioApp1", b =>
+                {
+                    b.Property<int>("CajasMenoresComoSolicitanteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SolicitantesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CajasMenoresComoSolicitanteId", "SolicitantesId");
+
+                    b.HasIndex("SolicitantesId");
+
+                    b.ToTable("CajaSolicitantes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -671,23 +763,11 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.HasOne("CajaMenor.Domain.Entities.UsuarioApp", "Director")
                         .WithMany("CajasMenoresComoDirector")
                         .HasForeignKey("DirectorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Central");
 
                     b.Navigation("Director");
-                });
-
-            modelBuilder.Entity("CajaMenor.Domain.Entities.LegalizacionRecibo", b =>
-                {
-                    b.HasOne("CajaMenor.Domain.Entities.Legalizacion", "Legalizacion")
-                        .WithMany("Recibos")
-                        .HasForeignKey("LegalizacionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Legalizacion");
                 });
 
             modelBuilder.Entity("CajaMenor.Domain.Entities.Legalizacion", b =>
@@ -707,6 +787,17 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.Navigation("Caja");
                 });
 
+            modelBuilder.Entity("CajaMenor.Domain.Entities.LegalizacionRecibo", b =>
+                {
+                    b.HasOne("CajaMenor.Domain.Entities.Legalizacion", "Legalizacion")
+                        .WithMany("Recibos")
+                        .HasForeignKey("LegalizacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Legalizacion");
+                });
+
             modelBuilder.Entity("CajaMenor.Domain.Entities.Reembolso", b =>
                 {
                     b.HasOne("CajaMenor.Domain.Entities.Legalizacion", "Legalizacion")
@@ -716,6 +807,32 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Legalizacion");
+                });
+
+            modelBuilder.Entity("CajaMenor.Domain.Entities.SolicitudAvance", b =>
+                {
+                    b.HasOne("CajaMenor.Domain.Entities.Avance", "Avance")
+                        .WithMany()
+                        .HasForeignKey("AvanceId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("CajaMenor.Domain.Entities.CajaMenorEntity", "Caja")
+                        .WithMany("Solicitudes")
+                        .HasForeignKey("CajaId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CajaMenor.Domain.Entities.UsuarioApp", "Solicitante")
+                        .WithMany()
+                        .HasForeignKey("SolicitanteId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Avance");
+
+                    b.Navigation("Caja");
+
+                    b.Navigation("Solicitante");
                 });
 
             modelBuilder.Entity("CajaMenor.Domain.Entities.UsuarioApp", b =>
@@ -740,6 +857,21 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.HasOne("CajaMenor.Domain.Entities.CajaMenorEntity", null)
                         .WithMany()
                         .HasForeignKey("CajasMenoresComoAdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CajaMenorEntityUsuarioApp1", b =>
+                {
+                    b.HasOne("CajaMenor.Domain.Entities.CajaMenorEntity", null)
+                        .WithMany()
+                        .HasForeignKey("CajasMenoresComoSolicitanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CajaMenor.Domain.Entities.UsuarioApp", null)
+                        .WithMany()
+                        .HasForeignKey("SolicitantesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -807,6 +939,8 @@ namespace CajaMenor.Infrastructure.Persistence.Migrations
                     b.Navigation("Avances");
 
                     b.Navigation("Legalizaciones");
+
+                    b.Navigation("Solicitudes");
                 });
 
             modelBuilder.Entity("CajaMenor.Domain.Entities.Central", b =>

@@ -3,6 +3,16 @@ export interface LoginDto {
   password: string
 }
 
+export interface ForgotPasswordDto {
+  email: string
+}
+
+export interface ResetPasswordDto {
+  email: string
+  token: string
+  nuevaPassword: string
+}
+
 export interface LoginResponse {
   token: string
   refreshToken: string
@@ -13,6 +23,12 @@ export interface LoginResponse {
   rol: string
   cajaId: number
   nombreCaja: string
+  mustChangePassword: boolean
+}
+
+export interface CambiarPasswordDto {
+  passwordActual: string
+  nuevaPassword: string
 }
 
 export interface CajaMenorDto {
@@ -24,10 +40,30 @@ export interface CajaMenorDto {
   valorApertura: number
   disponible: number
   totalUsado: number
+  directorId: number
   nombreDirector: string
+  administradorIds: number[]
   nombreAdministrador: string
-  estado: string
+  estado: 'Abierta' | 'Cerrada'
   fechaApertura: string
+  puedeEditarApertura: boolean
+  puedeEliminar: boolean
+}
+
+export interface CrearCajaMenorDto {
+  centralId: number
+  nombre: string
+  valorApertura: number
+  directorId: number
+  administradorId: number
+}
+
+export interface EditarCajaMenorDto {
+  nombre: string
+  centralId: number
+  valorApertura: number
+  directorId: number
+  administradorId: number
 }
 
 export interface AvanceDto {
@@ -67,6 +103,8 @@ export interface ResumenAvancesDto {
   legalizados: number
   porcentajePendientes: number
   porcentajeLegalizados: number
+  reembolsados: number
+  valorReembolsados: number
 }
 
 export interface ReciboDto {
@@ -74,6 +112,9 @@ export interface ReciboDto {
   nombreOriginal: string
   url: string
   fechaSubida: string
+  valorOCR?: number | null
+  validadoOCR: boolean
+  notaOCR?: string | null
 }
 
 export interface LegalizacionDto {
@@ -118,6 +159,8 @@ export interface ResumenLegalizacionesDto {
   total: number
   sinAvance: number
   conAvance: number
+  reembolsadas: number
+  valorReembolsadas: number
 }
 
 export interface ReembolsoDto {
@@ -141,6 +184,8 @@ export interface ResumenReembolsosDto {
   sinReembolso: ReembolsoDto[]
   totalPendiente: number
   historico: ReembolsoDto[]
+  /** Respuesta de Tesorería al último arqueo enviado. */
+  estadoTesoreria?: 'Pendiente' | 'Aceptado' | 'Denegado' | null
 }
 
 export interface ArqueoDto {
@@ -182,4 +227,96 @@ export interface DashboardDto {
   caja: CajaMenorDto
   avances: ResumenAvancesDto
   legalizaciones: ResumenLegalizacionesDto
+}
+
+export interface AuditoriaDto {
+  id: number
+  tabla: string
+  registroId: number
+  usuario: string
+  accion: string
+  fecha: string
+  datosAnteriores?: string | null
+  datosNuevos?: string | null
+}
+
+// ── Panel Maestro: Centrales ──
+export interface CentralDto {
+  id: number
+  nombre: string
+  codigoCentral: string
+  totalUsuarios: number
+  totalCajas: number
+}
+
+export interface CrearCentralDto {
+  nombre: string
+  codigoCentral: string
+}
+
+export interface EditarCentralDto {
+  nombre: string
+  codigoCentral: string
+}
+
+// ── Panel Maestro: Usuarios ──
+export interface UsuarioListDto {
+  /** Id de Identity (GUID). Se usa en las rutas de auth: editar/eliminar/asignar-caja. */
+  id: string
+  /** Id interno de UsuarioApp. Se usa como directorId/administradorId al crear o editar una caja. */
+  usuarioAppId: number
+  nombreCompleto: string
+  email: string
+  rol: string
+  centralId: number
+  nombreCentral: string
+  nombreCaja: string
+}
+
+export interface RegistrarUsuarioDto {
+  nombreCompleto: string
+  email: string
+  /** Cédula: es la contraseña inicial; el usuario deberá cambiarla en su primer ingreso. */
+  cedula: string
+  rol: 'Director' | 'Administrador' | 'Solicitante'
+  centralId: number
+  /** Solo para rol Solicitante: caja a la que queda asignado al crearlo. */
+  cajaId?: number
+}
+
+export interface EditarUsuarioDto {
+  nombreCompleto: string
+  email: string
+  rol: string
+  centralId: number
+  nuevaPassword?: string
+}
+
+// ── Solicitudes de avance ──
+export interface SolicitudAvanceDto {
+  id: number
+  cajaId: number
+  nombreCaja: string
+  solicitanteId: number
+  nombreSolicitante: string
+  valorSolicitado: number
+  descripcion: string
+  estado: 'Pendiente' | 'Aceptada' | 'Rechazada'
+  fechaSolicitud: string
+  fechaRespuesta?: string | null
+  avanceId?: number | null
+  codigoAvance?: string | null
+  motivoRechazo?: string | null
+}
+
+export interface CrearSolicitudAvanceDto {
+  valorSolicitado: number
+  descripcion: string
+}
+
+/** Solicitante para el desplegable del formulario de avance del Administrador. */
+export interface SolicitanteDto {
+  id: number
+  nombreCompleto: string
+  email: string
 }

@@ -1,0 +1,159 @@
+- generic [ref=f4e3]:
+  - complementary [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - generic [ref=f4e6]:
+        - img [ref=f4e8]
+        - generic [ref=f4e12]:
+          - paragraph [ref=f4e13]: Caja Menor
+          - paragraph [ref=f4e14]: MiraxionTech
+      - generic [ref=f4e15]:
+        - paragraph [ref=f4e16]: Caja activa
+        - paragraph [ref=f4e17]: Caja Menor MiraxionTech
+    - navigation [ref=f4e18]:
+      - paragraph [ref=f4e19]: Módulos
+      - link "Dashboard" [ref=f4e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=f4e22]
+        - generic [ref=f4e27]: Dashboard
+      - link "Avances" [ref=f4e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=f4e30]
+        - generic [ref=f4e33]: Avances
+      - link "Legalizaciones 1" [ref=f4e95] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=f4e36]
+        - generic [ref=f4e39]: Legalizaciones
+        - generic "1 pendiente" [ref=f4e96]: "1"
+      - link "Reembolsos" [ref=f4e40] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=f4e42]
+        - generic [ref=f4e47]: Reembolsos
+      - link "Arqueo" [ref=f4e48] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=f4e50]
+        - generic [ref=f4e53]: Arqueo
+      - link "Auditoría" [ref=f4e54] [cursor=pointer]:
+        - /url: /auditoria
+        - img [ref=f4e56]
+        - generic [ref=f4e59]: Auditoría
+        - img [ref=f4e60]
+    - generic [ref=f4e62]:
+      - generic [ref=f4e63]:
+        - generic [ref=f4e64]:
+          - paragraph [ref=f4e65]: Director MiraxionTech
+          - generic [ref=f4e66]: Director
+        - paragraph [ref=f4e67]: director@miraxiontech.com
+      - button "Cerrar sesión" [ref=f4e68]:
+        - img [ref=f4e69]
+        - text: Cerrar sesión
+  - main [ref=f4e73]:
+    - generic [ref=f4e75]:
+      - generic [ref=f4e77]:
+        - img [ref=f4e79]
+        - generic [ref=f4e82]:
+          - heading "Auditoría" [level=1] [ref=f4e83]
+          - paragraph [ref=f4e84]: Registro de todas las operaciones del sistema
+      - generic [ref=f4e85]:
+        - img [ref=f4e86]
+        - textbox "Buscar por usuario, acción o módulo..." [ref=f4e89]
+      - generic [ref=f4e91]:
+        - table [ref=f4e97]:
+          - rowgroup [ref=f4e98]:
+            - row "Fecha Usuario Acción Módulo Registro" [ref=f4e99]:
+              - columnheader [ref=f4e100]
+              - columnheader "Fecha" [ref=f4e101]
+              - columnheader "Usuario" [ref=f4e102]
+              - columnheader "Acción" [ref=f4e103]
+              - columnheader "Módulo" [ref=f4e104]
+              - columnheader "Registro" [ref=f4e105]
+          - rowgroup [ref=f4e106]:
+            - 'row "03/07/202612:06 a. m. Administrador MiraxionTech Editar Arqueo #1" [ref=f4e107] [cursor=pointer]':
+              - cell [ref=f4e108]:
+                - img [ref=f4e109]
+              - cell "03/07/202612:06 a. m." [ref=f4e111]
+              - cell "Administrador MiraxionTech" [ref=f4e112]
+              - cell "Editar" [ref=f4e113]:
+                - generic [ref=f4e114]:
+                  - img [ref=f4e115]
+                  - text: Editar
+              - cell "Arqueo" [ref=f4e118]
+              - cell "#1" [ref=f4e119]
+            - 'row "03/07/202612:06 a. m. Administrador MiraxionTech Editar Caja menor #1" [ref=f4e120] [cursor=pointer]':
+              - cell [ref=f4e121]:
+                - img [ref=f4e122]
+              - cell "03/07/202612:06 a. m." [ref=f4e124]
+              - cell "Administrador MiraxionTech" [ref=f4e125]
+              - cell "Editar" [ref=f4e126]:
+                - generic [ref=f4e127]:
+                  - img [ref=f4e128]
+                  - text: Editar
+              - cell "Caja menor" [ref=f4e131]
+              - cell "#1" [ref=f4e132]
+            - 'row "03/07/202612:06 a. m. Administrador MiraxionTech Crear Avance #3" [ref=f4e133] [cursor=pointer]':
+              - cell [ref=f4e134]:
+                - img [ref=f4e160]
+              - cell "03/07/202612:06 a. m." [ref=f4e137]
+              - cell "Administrador MiraxionTech" [ref=f4e138]
+              - cell "Crear" [ref=f4e139]:
+                - generic [ref=f4e140]:
+                  - img [ref=f4e141]
+                  - text: Crear
+              - cell "Avance" [ref=f4e142]
+              - cell "#3" [ref=f4e143]
+            - 'row "Después Id: -2147482647 CajaId: 1 CodigoAvance: REQ-0002 Descripcion: Prueba auditoria Estado: 1 EstadoReembolso: 1 FechaCreacion: 2026-07-03T00:06:27.6214941Z FechaEnvio: 2026-07-02T00:00:00 Solicitante: Test TipoAvance: — ValorAvance: 1000" [ref=f4e162]':
+              - 'cell "Después Id: -2147482647 CajaId: 1 CodigoAvance: REQ-0002 Descripcion: Prueba auditoria Estado: 1 EstadoReembolso: 1 FechaCreacion: 2026-07-03T00:06:27.6214941Z FechaEnvio: 2026-07-02T00:00:00 Solicitante: Test TipoAvance: — ValorAvance: 1000" [ref=f4e163]':
+                - generic [ref=f4e165]:
+                  - paragraph [ref=f4e166]: Después
+                  - generic [ref=f4e167]:
+                    - generic [ref=f4e168]:
+                      - generic [ref=f4e169]: "Id:"
+                      - generic [ref=f4e170]: "-2147482647"
+                    - generic [ref=f4e171]:
+                      - generic [ref=f4e172]: "CajaId:"
+                      - generic [ref=f4e173]: "1"
+                    - generic [ref=f4e174]:
+                      - generic [ref=f4e175]: "CodigoAvance:"
+                      - generic [ref=f4e176]: REQ-0002
+                    - generic [ref=f4e177]:
+                      - generic [ref=f4e178]: "Descripcion:"
+                      - generic [ref=f4e179]: Prueba auditoria
+                    - generic [ref=f4e180]:
+                      - generic [ref=f4e181]: "Estado:"
+                      - generic [ref=f4e182]: "1"
+                    - generic [ref=f4e183]:
+                      - generic [ref=f4e184]: "EstadoReembolso:"
+                      - generic [ref=f4e185]: "1"
+                    - generic [ref=f4e186]:
+                      - generic [ref=f4e187]: "FechaCreacion:"
+                      - generic [ref=f4e188]: 2026-07-03T00:06:27.6214941Z
+                    - generic [ref=f4e189]:
+                      - generic [ref=f4e190]: "FechaEnvio:"
+                      - generic [ref=f4e191]: 2026-07-02T00:00:00
+                    - generic [ref=f4e192]:
+                      - generic [ref=f4e193]: "Solicitante:"
+                      - generic [ref=f4e194]: Test
+                    - generic [ref=f4e195]:
+                      - generic [ref=f4e196]: "TipoAvance:"
+                      - generic [ref=f4e197]: —
+                    - generic [ref=f4e198]:
+                      - generic [ref=f4e199]: "ValorAvance:"
+                      - generic [ref=f4e200]: "1000"
+        - generic [ref=f4e144]:
+          - generic [ref=f4e145]:
+            - generic [ref=f4e146]:
+              - text: Mostrando
+              - generic [ref=f4e147]: 1–3
+              - text: de 3
+            - generic [ref=f4e148]: ·
+            - generic [ref=f4e149]:
+              - generic [ref=f4e150]: "Por página:"
+              - combobox "Por página:" [ref=f4e151]:
+                - option "10"
+                - option "25" [selected]
+                - option "50"
+          - generic [ref=f4e152]:
+            - button "Página anterior" [disabled] [ref=f4e153]:
+              - img [ref=f4e154]
+            - generic [ref=f4e156]: 1 / 1
+            - button "Página siguiente" [disabled] [ref=f4e157]:
+              - img [ref=f4e158]

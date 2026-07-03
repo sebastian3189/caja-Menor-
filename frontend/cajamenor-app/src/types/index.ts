@@ -3,6 +3,16 @@ export interface LoginDto {
   password: string
 }
 
+export interface ForgotPasswordDto {
+  email: string
+}
+
+export interface ResetPasswordDto {
+  email: string
+  token: string
+  nuevaPassword: string
+}
+
 export interface LoginResponse {
   token: string
   refreshToken: string
@@ -61,6 +71,16 @@ export interface ResumenAvancesDto {
   porcentajeLegalizados: number
 }
 
+export interface ReciboDto {
+  id: number
+  nombreOriginal: string
+  url: string
+  fechaSubida: string
+  valorOCR?: number | null
+  validadoOCR: boolean
+  notaOCR?: string | null
+}
+
 export interface LegalizacionDto {
   id: number
   cajaId: number
@@ -78,6 +98,7 @@ export interface LegalizacionDto {
   estadoReembolso: 'SinReembolso' | 'EnProceso' | 'Reembolsado'
   nombreCaja: string
   reembolsoFinalizado: boolean
+  recibos: ReciboDto[]
 }
 
 export interface CrearLegalizacionDto {

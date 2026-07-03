@@ -8,6 +8,9 @@ public class ReciboDto
     public string NombreOriginal { get; set; } = string.Empty;
     public string Url { get; set; } = string.Empty;
     public DateTime FechaSubida { get; set; }
+    public decimal? ValorOCR { get; set; }
+    public bool ValidadoOCR { get; set; }
+    public string? NotaOCR { get; set; }
 }
 
 public class LegalizacionDto
@@ -56,4 +59,7 @@ public class ResumenLegalizacionesDto
     public int Total { get; set; }
     public int SinAvance { get; set; }
     public int ConAvance { get; set; }
+    /// <summary>Legalizaciones ya reembolsadas (histórico); en el dashboard se excluyen de Total/SinAvance/ConAvance.</summary>
+    public int Reembolsadas { get; set; }
+    public decimal ValorReembolsadas { get; set; }
 }

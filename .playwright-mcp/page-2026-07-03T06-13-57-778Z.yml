@@ -1,0 +1,208 @@
+- generic [ref=f3e3]:
+  - complementary [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - generic [ref=f3e6]:
+        - img [ref=f3e8]
+        - generic [ref=f3e12]:
+          - paragraph [ref=f3e13]: Caja Menor
+          - paragraph [ref=f3e14]: MiraxionTech
+      - generic [ref=f3e15]:
+        - paragraph [ref=f3e18]: Caja activa
+        - paragraph [ref=f3e19]: Caja Menor MiraxionTech
+        - generic [ref=f3e123]:
+          - paragraph [ref=f3e124]: Disponible
+          - paragraph [ref=f3e125]: $ 4.820.000
+    - navigation [ref=f3e20]:
+      - paragraph [ref=f3e21]: Módulos
+      - link "Dashboard" [ref=f3e22] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=f3e24]
+        - generic [ref=f3e29]: Dashboard
+      - link "Avances" [ref=f3e30] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=f3e32]
+        - generic [ref=f3e35]: Avances
+        - img [ref=f3e36]
+      - link "Legalizaciones" [ref=f3e38] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=f3e40]
+        - generic [ref=f3e43]: Legalizaciones
+      - link "Solicitudes" [ref=f3e44] [cursor=pointer]:
+        - /url: /solicitudes
+        - img [ref=f3e46]
+        - generic [ref=f3e49]: Solicitudes
+      - link "Reembolsos" [ref=f3e50] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=f3e52]
+        - generic [ref=f3e57]: Reembolsos
+      - link "Arqueo" [ref=f3e58] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=f3e60]
+        - generic [ref=f3e63]: Arqueo
+    - generic [ref=f3e64]:
+      - generic [ref=f3e66]:
+        - generic [ref=f3e67]: AM
+        - generic [ref=f3e68]:
+          - generic [ref=f3e69]:
+            - paragraph [ref=f3e70]: Administrador MiraxionTech
+            - generic [ref=f3e71]: Administrador
+          - paragraph [ref=f3e72]: admin@miraxiontech.com
+      - button "Cerrar sesión" [ref=f3e73]:
+        - img [ref=f3e74]
+        - text: Cerrar sesión
+  - main [ref=f3e78]:
+    - generic [ref=f3e80]:
+      - generic [ref=f3e81]:
+        - generic [ref=f3e82]:
+          - img [ref=f3e84]
+          - generic [ref=f3e87]:
+            - heading "Avances" [level=1] [ref=f3e88]
+            - paragraph [ref=f3e89]: Gestión de avances de caja menor
+        - generic [ref=f3e91]:
+          - button "Exportar" [ref=f3e126] [cursor=pointer]:
+            - img [ref=f3e127]
+            - text: Exportar
+          - button "Nuevo avance" [active] [ref=f3e92] [cursor=pointer]:
+            - img [ref=f3e93]
+            - text: Nuevo avance
+      - generic [ref=f3e130]:
+        - generic [ref=f3e131]:
+          - img [ref=f3e133]
+          - generic [ref=f3e136]:
+            - paragraph [ref=f3e137]: Total registrados
+            - paragraph [ref=f3e138]: "1"
+        - generic [ref=f3e139]:
+          - img [ref=f3e141]
+          - generic [ref=f3e144]:
+            - paragraph [ref=f3e145]: Pendientes
+            - paragraph [ref=f3e146]: "1"
+        - generic [ref=f3e147]:
+          - img [ref=f3e149]
+          - generic [ref=f3e152]:
+            - paragraph [ref=f3e153]: Legalizados
+            - paragraph [ref=f3e154]: "0"
+      - generic [ref=f3e156]:
+        - generic [ref=f3e157]:
+          - paragraph [ref=f3e158]: Progreso de legalización
+          - generic [ref=f3e159]: 0%
+        - generic [ref=f3e160]:
+          - 'img "Legalizados: 0, Pendientes: 1" [ref=f3e161]'
+          - generic [ref=f3e163]:
+            - button "Legalizados 0" [ref=f3e164]:
+              - generic [ref=f3e166]: Legalizados
+              - generic [ref=f3e167]: "0"
+            - button "Pendientes 1" [ref=f3e168]:
+              - generic [ref=f3e170]: Pendientes
+              - generic [ref=f3e171]: "1"
+      - generic [ref=f3e94]:
+        - img [ref=f3e95]
+        - textbox "Buscar por código, descripción o solicitante..." [ref=f3e98]
+      - generic [ref=f3e99]:
+        - generic [ref=f3e100]:
+          - img [ref=f3e101]
+          - text: Filtros
+        - generic [ref=f3e103]:
+          - generic [ref=f3e104]:
+            - generic [ref=f3e105]: "Estado:"
+            - generic [ref=f3e106]:
+              - button "Todos" [ref=f3e107]
+              - button "Pendiente" [ref=f3e108]
+              - button "Legalizado" [ref=f3e109]
+          - generic [ref=f3e110]:
+            - generic [ref=f3e111]: "Desde:"
+            - textbox [ref=f3e112]
+          - generic [ref=f3e113]:
+            - generic [ref=f3e114]: "Hasta:"
+            - textbox [ref=f3e115]
+      - generic [ref=f3e116]:
+        - heading "Listado de avances" [level=3] [ref=f3e118]
+        - generic [ref=f3e119]:
+          - table [ref=f3e172]:
+            - rowgroup [ref=f3e173]:
+              - row "Código Fecha Solicitante Descripción Valor Estado Tipo Reembolso" [ref=f3e174]:
+                - columnheader [ref=f3e175]
+                - columnheader "Código" [ref=f3e176]
+                - columnheader "Fecha" [ref=f3e177]
+                - columnheader "Solicitante" [ref=f3e178]
+                - columnheader "Descripción" [ref=f3e179]
+                - columnheader "Valor" [ref=f3e180]
+                - columnheader "Estado" [ref=f3e181]
+                - columnheader "Tipo" [ref=f3e182]
+                - columnheader "Reembolso" [ref=f3e183]
+            - rowgroup [ref=f3e184]:
+              - row "REQ-0001 03/07/2026 Ana Solicitante Viáticos para visita a cliente $ 180.000 Pendiente — Sin reembolso" [ref=f3e185]:
+                - cell [ref=f3e186]:
+                  - generic [ref=f3e187]:
+                    - button "Editar avance" [ref=f3e188]:
+                      - img [ref=f3e189]
+                    - button "Eliminar avance pendiente" [ref=f3e192]:
+                      - img [ref=f3e193]
+                    - button "Descargar PDF del avance" [ref=f3e196]:
+                      - img [ref=f3e197]
+                - cell "REQ-0001" [ref=f3e200]
+                - cell "03/07/2026" [ref=f3e201]
+                - cell "Ana Solicitante" [ref=f3e202]
+                - cell "Viáticos para visita a cliente" [ref=f3e203]
+                - cell "$ 180.000" [ref=f3e204]
+                - cell "Pendiente" [ref=f3e205]:
+                  - generic [ref=f3e206]: Pendiente
+                - cell "—" [ref=f3e207]
+                - cell "Sin reembolso" [ref=f3e208]:
+                  - generic [ref=f3e213]: Sin reembolso
+          - generic [ref=f3e214]:
+            - generic [ref=f3e215]:
+              - generic [ref=f3e216]:
+                - text: Mostrando
+                - generic [ref=f3e217]: 1–1
+                - text: de 1
+              - generic [ref=f3e218]: ·
+              - generic [ref=f3e219]:
+                - generic [ref=f3e220]: "Por página:"
+                - combobox "Por página:" [ref=f3e221]:
+                  - option "10" [selected]
+                  - option "25"
+                  - option "50"
+            - generic [ref=f3e222]:
+              - button "Página anterior" [disabled] [ref=f3e223]:
+                - img [ref=f3e224]
+              - generic [ref=f3e226]: 1 / 1
+              - button "Página siguiente" [disabled] [ref=f3e227]:
+                - img [ref=f3e228]
+      - generic [ref=f3e232]:
+        - generic [ref=f3e233]:
+          - heading "Nuevo Avance" [level=3] [ref=f3e234]
+          - button [ref=f3e235]:
+            - img [ref=f3e236]
+        - generic [ref=f3e240]:
+          - generic [ref=f3e241]:
+            - generic [ref=f3e242]: Disponible en caja
+            - generic [ref=f3e243]: $ 4.820.000
+          - generic [ref=f3e244]:
+            - generic [ref=f3e245]:
+              - text: Código avance
+              - generic [ref=f3e246]:
+                - img [ref=f3e247]
+                - textbox "REQ-0001" [ref=f3e250]: REQ-0002
+            - generic [ref=f3e251]:
+              - text: Fecha de envío
+              - generic [ref=f3e252]:
+                - img [ref=f3e253]
+                - textbox [ref=f3e255]
+          - generic [ref=f3e256]:
+            - text: Valor del avance
+            - generic [ref=f3e257]:
+              - img [ref=f3e258]
+              - spinbutton "0" [ref=f3e260]
+          - generic [ref=f3e261]:
+            - text: Solicitante
+            - combobox [ref=f3e262] [cursor=pointer]:
+              - option "Seleccionar solicitante..." [selected]
+              - option "Ana Solicitante"
+          - generic [ref=f3e263]:
+            - text: Descripción
+            - generic [ref=f3e264]:
+              - img [ref=f3e265]
+              - textbox "Descripción del gasto" [ref=f3e268]
+          - generic [ref=f3e269]:
+            - button "Cancelar" [ref=f3e270] [cursor=pointer]
+            - button "Guardar avance" [ref=f3e271] [cursor=pointer]

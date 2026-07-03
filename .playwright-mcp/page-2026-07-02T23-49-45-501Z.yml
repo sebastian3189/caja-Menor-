@@ -1,0 +1,163 @@
+- generic [ref=e78]:
+  - complementary [ref=e79]:
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - img [ref=e83]
+        - generic [ref=e87]:
+          - paragraph [ref=e88]: Caja Menor
+          - paragraph [ref=e89]: MiraxionTech
+      - generic [ref=e90]:
+        - paragraph [ref=e91]: Caja activa
+        - paragraph [ref=e92]: Caja Menor MiraxionTech
+    - navigation [ref=e93]:
+      - paragraph [ref=e94]: Módulos
+      - link "Dashboard" [ref=e95] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e97]
+        - generic [ref=e102]: Dashboard
+        - img [ref=e103]
+      - link "Avances" [ref=e105] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e107]
+        - generic [ref=e110]: Avances
+      - link "Legalizaciones" [ref=e111] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e113]
+        - generic [ref=e116]: Legalizaciones
+      - link "Reembolsos" [ref=e117] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e119]
+        - generic [ref=e124]: Reembolsos
+      - link "Arqueo" [ref=e125] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e127]
+        - generic [ref=e130]: Arqueo
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Administrador MiraxionTech
+          - generic [ref=e135]: Administrador
+        - paragraph [ref=e136]: admin@miraxiontech.com
+      - button "Cerrar sesión" [ref=e137]:
+        - img [ref=e138]
+        - text: Cerrar sesión
+  - main [ref=e142]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - img [ref=e148]
+          - generic [ref=e153]:
+            - heading "Caja Menor MiraxionTech" [level=1] [ref=e154]
+            - paragraph [ref=e155]: Central Central MiraxionTech · MXT-001
+        - generic [ref=e157]: Abierta
+      - generic [ref=e158]:
+        - heading "Salud financiera de la caja" [level=3] [ref=e160]
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - img [ref=e165]
+              - generic [ref=e167]:
+                - paragraph [ref=e168]: Valor Apertura
+                - paragraph [ref=e169]: $ 5.000.000
+            - generic [ref=e170]:
+              - img [ref=e172]
+              - generic [ref=e175]:
+                - paragraph [ref=e176]: Disponible en Caja
+                - paragraph [ref=e177]: $ 4.995.000
+            - generic [ref=e178]:
+              - img [ref=e180]
+              - generic [ref=e183]:
+                - paragraph [ref=e184]: Total Usado
+                - paragraph [ref=e185]: $ 5.000
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - generic [ref=e188]: Composición del saldo
+              - generic [ref=e189]: 100%disponible
+            - generic [ref=e190]:
+              - 'img "Disponible: $ 4.995.000, Usado: $ 5.000" [ref=e191]'
+              - generic [ref=e194]:
+                - button "Disponible $ 4.995.000" [ref=e195]:
+                  - generic [ref=e197]: Disponible
+                  - generic [ref=e198]: $ 4.995.000
+                - button "Usado $ 5.000" [ref=e199]:
+                  - generic [ref=e201]: Usado
+                  - generic [ref=e202]: $ 5.000
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e206]:
+            - img [ref=e208]
+            - heading "Avances" [level=3] [ref=e211]
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - generic [ref=e214]: "1"
+              - generic [ref=e215]: avances en total
+            - generic [ref=e216]:
+              - 'img "Legalizados: 1, Pendientes: 0" [ref=e217]'
+              - generic [ref=e219]:
+                - button "Legalizados 1" [ref=e220]:
+                  - generic [ref=e222]: Legalizados
+                  - generic [ref=e223]: "1"
+                - button "Pendientes 0" [ref=e224]:
+                  - generic [ref=e226]: Pendientes
+                  - generic [ref=e227]: "0"
+            - generic [ref=e228]:
+              - generic [ref=e229]: Progreso de legalización
+              - generic [ref=e230]: 100%
+        - generic [ref=e231]:
+          - generic [ref=e233]:
+            - img [ref=e235]
+            - heading "Legalizaciones" [level=3] [ref=e238]
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]: "1"
+              - generic [ref=e242]: legalizaciones en total
+            - generic [ref=e243]:
+              - 'img "Con avance: 1, Sin avance: 0" [ref=e244]'
+              - generic [ref=e246]:
+                - button "Con avance 1" [ref=e247]:
+                  - generic [ref=e249]: Con avance
+                  - generic [ref=e250]: "1"
+                - button "Sin avance 0" [ref=e251]:
+                  - generic [ref=e253]: Sin avance
+                  - generic [ref=e254]: "0"
+            - generic [ref=e255]:
+              - generic [ref=e256]:
+                - img [ref=e257]
+                - generic [ref=e260]: 1 asociadas a avances
+              - generic [ref=e261]:
+                - img [ref=e262]
+                - generic [ref=e265]: 0 sin avance
+      - generic [ref=e266]:
+        - generic [ref=e268]:
+          - img [ref=e270]
+          - heading "Movimientos por valor" [level=3] [ref=e273]
+        - generic [ref=e274]:
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - generic "Avances por reembolsar" [ref=e277]
+              - generic [ref=e281]: $10K
+            - generic [ref=e282]:
+              - generic "Legaliz. con avance" [ref=e283]
+              - generic [ref=e287]: $5K
+          - paragraph [ref=e288]: Desglose del último arqueo del 2 de julio de 2026
+      - generic [ref=e289]:
+        - heading "Información de la Caja" [level=3] [ref=e291]
+        - generic [ref=e293]:
+          - generic [ref=e294]:
+            - img [ref=e296]
+            - generic [ref=e299]:
+              - paragraph [ref=e300]: Director
+              - paragraph [ref=e301]: Director MiraxionTech
+          - generic [ref=e302]:
+            - img [ref=e304]
+            - generic [ref=e309]:
+              - paragraph [ref=e310]: Administrador
+              - paragraph [ref=e311]: Administrador MiraxionTech
+          - generic [ref=e312]:
+            - img [ref=e314]
+            - generic [ref=e316]:
+              - paragraph [ref=e317]: Apertura
+              - paragraph [ref=e318]: 2 de julio de 2026
+          - generic [ref=e322]:
+            - paragraph [ref=e323]: Estado
+            - paragraph [ref=e324]: Abierta

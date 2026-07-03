@@ -1,0 +1,150 @@
+- generic [ref=e78]:
+  - complementary [ref=e79]:
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - img [ref=e83]
+        - generic [ref=e87]:
+          - paragraph [ref=e88]: Caja Menor
+          - paragraph [ref=e89]: MiraxionTech
+      - generic [ref=e90]:
+        - paragraph [ref=e91]: Caja activa
+        - paragraph [ref=e92]: Caja Medellín
+    - navigation [ref=e93]:
+      - paragraph [ref=e94]: Módulos
+      - link "Dashboard" [ref=e95] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e97]
+        - generic [ref=e102]: Dashboard
+      - link "Avances" [active] [ref=e105] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e107]
+        - generic [ref=e110]: Avances
+        - img [ref=e274]
+      - link "Legalizaciones" [ref=e111] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e113]
+        - generic [ref=e116]: Legalizaciones
+      - link "Reembolsos" [ref=e117] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e119]
+        - generic [ref=e124]: Reembolsos
+      - link "Arqueo" [ref=e125] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e127]
+        - generic [ref=e130]: Arqueo
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Cristian
+          - generic [ref=e135]: Director
+        - paragraph [ref=e136]: Cris@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e137]:
+        - img [ref=e138]
+        - text: Cerrar sesión
+  - main [ref=e142]:
+    - generic [ref=e276]:
+      - generic [ref=e278]:
+        - img [ref=e280]
+        - generic [ref=e283]:
+          - heading "Avances" [level=1] [ref=e284]
+          - paragraph [ref=e285]: Gestión de avances de caja menor
+      - generic [ref=e286]:
+        - generic [ref=e287]:
+          - img [ref=e289]
+          - generic [ref=e292]:
+            - paragraph [ref=e293]: Total registrados
+            - paragraph [ref=e294]: "4"
+        - generic [ref=e295]:
+          - img [ref=e297]
+          - generic [ref=e300]:
+            - paragraph [ref=e301]: Pendientes
+            - paragraph [ref=e302]: "2"
+        - generic [ref=e303]:
+          - img [ref=e305]
+          - generic [ref=e308]:
+            - paragraph [ref=e309]: Legalizados
+            - paragraph [ref=e310]: "2"
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - paragraph [ref=e314]: Progreso de legalización
+          - generic [ref=e315]: 50%
+        - generic [ref=e318]:
+          - generic [ref=e319]: 2 pendientes
+          - generic [ref=e320]: 2 legalizados
+      - generic [ref=e321]:
+        - generic [ref=e322]:
+          - img [ref=e323]
+          - text: Filtros
+        - generic [ref=e325]:
+          - generic [ref=e326]:
+            - generic [ref=e327]: "Estado:"
+            - generic [ref=e328]:
+              - button "Todos" [ref=e329]
+              - button "Pendiente" [ref=e330]
+              - button "Legalizado" [ref=e331]
+          - generic [ref=e332]:
+            - generic [ref=e333]: "Desde:"
+            - textbox [ref=e334]
+          - generic [ref=e335]:
+            - generic [ref=e336]: "Hasta:"
+            - textbox [ref=e337]
+      - generic [ref=e338]:
+        - heading "Listado de avances" [level=3] [ref=e340]
+        - table [ref=e343]:
+          - rowgroup [ref=e344]:
+            - row "Código Fecha Solicitante Descripción Valor Estado Tipo Reembolso" [ref=e345]:
+              - columnheader "Código" [ref=e346]
+              - columnheader "Fecha" [ref=e347]
+              - columnheader "Solicitante" [ref=e348]
+              - columnheader "Descripción" [ref=e349]
+              - columnheader "Valor" [ref=e350]
+              - columnheader "Estado" [ref=e351]
+              - columnheader "Tipo" [ref=e352]
+              - columnheader "Reembolso" [ref=e353]
+          - rowgroup [ref=e354]:
+            - row "AV-2026-004 19/06/2026 Andrea Lopez Mantenimiento equipo aire acondicionado $ 450.000 Pendiente — Sin reembolso" [ref=e355]:
+              - cell "AV-2026-004" [ref=e356]
+              - cell "19/06/2026" [ref=e357]
+              - cell "Andrea Lopez" [ref=e358]
+              - cell "Mantenimiento equipo aire acondicionado" [ref=e359]
+              - cell "$ 450.000" [ref=e360]
+              - cell "Pendiente" [ref=e361]:
+                - generic [ref=e362]: Pendiente
+              - cell "—" [ref=e363]
+              - cell "Sin reembolso" [ref=e364]:
+                - generic [ref=e369]: Sin reembolso
+            - row "AV-2026-003 18/06/2026 Carlos Rodriguez Refrigerios reunion directiva $ 220.000 Pendiente — Sin reembolso" [ref=e370]:
+              - cell "AV-2026-003" [ref=e371]
+              - cell "18/06/2026" [ref=e372]
+              - cell "Carlos Rodriguez" [ref=e373]
+              - cell "Refrigerios reunion directiva" [ref=e374]
+              - cell "$ 220.000" [ref=e375]
+              - cell "Pendiente" [ref=e376]:
+                - generic [ref=e377]: Pendiente
+              - cell "—" [ref=e378]
+              - cell "Sin reembolso" [ref=e379]:
+                - generic [ref=e384]: Sin reembolso
+            - row "AV-2026-002 17/06/2026 Maria Gomez Papeleria y suministros de oficina $ 180.000 Legalizado Total Sin reembolso" [ref=e385]:
+              - cell "AV-2026-002" [ref=e386]
+              - cell "17/06/2026" [ref=e387]
+              - cell "Maria Gomez" [ref=e388]
+              - cell "Papeleria y suministros de oficina" [ref=e389]
+              - cell "$ 180.000" [ref=e390]
+              - cell "Legalizado" [ref=e391]:
+                - generic [ref=e392]: Legalizado
+              - cell "Total" [ref=e393]:
+                - generic [ref=e394]: Total
+              - cell "Sin reembolso" [ref=e395]:
+                - generic [ref=e400]: Sin reembolso
+            - row "AV-2026-001 15/06/2026 Juan Perez Compra de combustible para vehiculos operativos $ 350.000 Legalizado Sobrante Sin reembolso" [ref=e401]:
+              - cell "AV-2026-001" [ref=e402]
+              - cell "15/06/2026" [ref=e403]
+              - cell "Juan Perez" [ref=e404]
+              - cell "Compra de combustible para vehiculos operativos" [ref=e405]
+              - cell "$ 350.000" [ref=e406]
+              - cell "Legalizado" [ref=e407]:
+                - generic [ref=e408]: Legalizado
+              - cell "Sobrante" [ref=e409]:
+                - generic [ref=e410]: Sobrante
+              - cell "Sin reembolso" [ref=e411]:
+                - generic [ref=e416]: Sin reembolso

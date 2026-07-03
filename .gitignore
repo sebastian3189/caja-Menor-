@@ -1,0 +1,23 @@
+# Secretos — nunca commitear
+.env
+*.env
+!.env.example
+
+# .NET
+**/bin/
+**/obj/
+**/.vs/
+*.user
+
+# Node / frontend
+**/node_modules/
+**/dist/
+
+# Datos de la app (no deben ir al repo)
+backend/src/CajaMenor.API/uploads/
+backend/src/CajaMenor.API/logs/
+
+# Editores / OS
+.idea/
+.DS_Store
+Thumbs.db

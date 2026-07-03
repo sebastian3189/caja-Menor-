@@ -1,0 +1,184 @@
+- generic [ref=f4e3]:
+  - complementary [ref=f4e4]:
+    - generic [ref=f4e6]:
+      - img [ref=f4e8]
+      - generic [ref=f4e12]:
+        - paragraph [ref=f4e13]: Caja Menor
+        - paragraph [ref=f4e14]: MiraxionTech
+    - navigation [ref=f4e15]:
+      - paragraph [ref=f4e16]: Módulos
+      - link "Usuarios" [ref=f4e17] [cursor=pointer]:
+        - /url: /maestro/usuarios
+        - img [ref=f4e19]
+        - generic [ref=f4e24]: Usuarios
+        - img [ref=f4e25]
+      - link "Centrales" [ref=f4e27] [cursor=pointer]:
+        - /url: /maestro/centrales
+        - img [ref=f4e29]
+        - generic [ref=f4e31]: Centrales
+      - link "Cajas" [ref=f4e32] [cursor=pointer]:
+        - /url: /maestro/cajas
+        - img [ref=f4e34]
+        - generic [ref=f4e37]: Cajas
+    - generic [ref=f4e38]:
+      - generic [ref=f4e40]:
+        - generic [ref=f4e41]: UM
+        - generic [ref=f4e42]:
+          - generic [ref=f4e43]:
+            - paragraph [ref=f4e44]: Usuario Maestro
+            - generic [ref=f4e45]: Maestro
+          - paragraph [ref=f4e46]: maestro@cajamenor.miraxiontech
+      - button "Cerrar sesión" [ref=f4e47]:
+        - img [ref=f4e48]
+        - text: Cerrar sesión
+  - main [ref=f4e52]:
+    - generic [ref=f4e54]:
+      - generic [ref=f4e55]:
+        - generic [ref=f4e56]:
+          - img [ref=f4e58]
+          - generic [ref=f4e63]:
+            - heading "Usuarios" [level=1] [ref=f4e64]
+            - paragraph [ref=f4e65]: Directores y administradores del sistema
+        - button "Nuevo usuario" [ref=f4e67] [cursor=pointer]:
+          - img [ref=f4e68]
+          - text: Nuevo usuario
+      - generic [ref=f4e69]:
+        - generic [ref=f4e70]:
+          - img [ref=f4e72]
+          - generic [ref=f4e77]:
+            - paragraph [ref=f4e78]: Total usuarios
+            - paragraph [ref=f4e79]: "5"
+        - generic [ref=f4e80]:
+          - img [ref=f4e82]
+          - generic [ref=f4e85]:
+            - paragraph [ref=f4e86]: Directores
+            - paragraph [ref=f4e87]: "2"
+        - generic [ref=f4e88]:
+          - img [ref=f4e90]
+          - generic [ref=f4e93]:
+            - paragraph [ref=f4e94]: Administradores
+            - paragraph [ref=f4e95]: "2"
+      - generic [ref=f4e96]:
+        - img [ref=f4e97]
+        - textbox "Buscar por nombre, correo o rol..." [ref=f4e100]
+      - generic [ref=f4e101]:
+        - heading "Listado de usuarios" [level=3] [ref=f4e103]
+        - generic [ref=f4e104]:
+          - table [ref=f4e108]:
+            - rowgroup [ref=f4e109]:
+              - row "Nombre Correo Rol Central Caja asignada" [ref=f4e110]:
+                - columnheader [ref=f4e111]
+                - columnheader "Nombre" [ref=f4e112]
+                - columnheader "Correo" [ref=f4e113]
+                - columnheader "Rol" [ref=f4e114]
+                - columnheader "Central" [ref=f4e115]
+                - columnheader "Caja asignada" [ref=f4e116]
+                - columnheader [ref=f4e117]
+            - rowgroup [ref=f4e118]:
+              - row "Administrador MiraxionTech admin@miraxiontech.com Administrador Central MiraxionTech Caja Menor MiraxionTech" [ref=f4e119]:
+                - cell [ref=f4e120]:
+                  - button "Editar usuario" [ref=f4e121]:
+                    - img [ref=f4e122]
+                - cell "Administrador MiraxionTech" [ref=f4e125]
+                - cell "admin@miraxiontech.com" [ref=f4e126]
+                - cell "Administrador" [ref=f4e127]:
+                  - generic [ref=f4e128]: Administrador
+                - cell "Central MiraxionTech" [ref=f4e129]
+                - cell "Caja Menor MiraxionTech" [ref=f4e130]
+                - cell [ref=f4e131]:
+                  - generic [ref=f4e132]:
+                    - button "Asignar caja" [ref=f4e133]:
+                      - img [ref=f4e134]
+                    - button "Eliminar usuario" [ref=f4e137]:
+                      - img [ref=f4e138]
+              - row "Usuario Maestro maestro@cajamenor.miraxiontech Maestro Central MiraxionTech Sin asignar" [ref=f4e141]:
+                - cell [ref=f4e142]
+                - cell "Usuario Maestro" [ref=f4e143]
+                - cell "maestro@cajamenor.miraxiontech" [ref=f4e144]
+                - cell "Maestro" [ref=f4e145]:
+                  - generic [ref=f4e146]: Maestro
+                - cell "Central MiraxionTech" [ref=f4e147]
+                - cell "Sin asignar" [ref=f4e148]
+                - cell [ref=f4e149]
+              - row "Cristian Cano Cris@miraxiontech.com Administrador CENTRAL MEDELLIN caja menor central medellin" [ref=f4e150]:
+                - cell [ref=f4e151]:
+                  - button "Editar usuario" [ref=f4e152]:
+                    - img [ref=f4e153]
+                - cell "Cristian Cano" [ref=f4e156]
+                - cell "Cris@miraxiontech.com" [ref=f4e157]
+                - cell "Administrador" [ref=f4e158]:
+                  - generic [ref=f4e159]: Administrador
+                - cell "CENTRAL MEDELLIN" [ref=f4e160]
+                - cell "caja menor central medellin" [ref=f4e161]
+                - cell [ref=f4e162]:
+                  - generic [ref=f4e163]:
+                    - button "Asignar caja" [ref=f4e164]:
+                      - img [ref=f4e165]
+                    - button "Eliminar usuario" [ref=f4e168]:
+                      - img [ref=f4e169]
+              - row "Sebastian Uribe Sebas@miraxiontech.com Director CENTRAL MEDELLIN caja menor central medellin" [ref=f4e172]:
+                - cell [ref=f4e173]:
+                  - button "Editar usuario" [ref=f4e174]:
+                    - img [ref=f4e175]
+                - cell "Sebastian Uribe" [ref=f4e178]
+                - cell "Sebas@miraxiontech.com" [ref=f4e179]
+                - cell "Director" [ref=f4e180]:
+                  - generic [ref=f4e181]: Director
+                - cell "CENTRAL MEDELLIN" [ref=f4e182]
+                - cell "caja menor central medellin" [ref=f4e183]
+                - cell [ref=f4e184]:
+                  - generic [ref=f4e185]:
+                    - button "Asignar caja" [ref=f4e186]:
+                      - img [ref=f4e187]
+                    - button "Eliminar usuario" [ref=f4e190]:
+                      - img [ref=f4e191]
+              - row "Director MiraxionTech director@miraxiontech.com Director Central MiraxionTech Caja Menor MiraxionTech" [ref=f4e194]:
+                - cell [ref=f4e195]:
+                  - button "Editar usuario" [ref=f4e196]:
+                    - img [ref=f4e197]
+                - cell "Director MiraxionTech" [ref=f4e200]
+                - cell "director@miraxiontech.com" [ref=f4e201]
+                - cell "Director" [ref=f4e202]:
+                  - generic [ref=f4e203]: Director
+                - cell "Central MiraxionTech" [ref=f4e204]
+                - cell "Caja Menor MiraxionTech" [ref=f4e205]
+                - cell [ref=f4e206]:
+                  - generic [ref=f4e207]:
+                    - button "Asignar caja" [active] [ref=f4e208]:
+                      - img [ref=f4e209]
+                    - button "Eliminar usuario" [ref=f4e212]:
+                      - img [ref=f4e213]
+          - generic [ref=f4e216]:
+            - generic [ref=f4e217]:
+              - generic [ref=f4e218]:
+                - text: Mostrando
+                - generic [ref=f4e219]: 1–5
+                - text: de 5
+              - generic [ref=f4e220]: ·
+              - generic [ref=f4e221]:
+                - generic [ref=f4e222]: "Por página:"
+                - combobox "Por página:" [ref=f4e223]:
+                  - option "10" [selected]
+                  - option "25"
+                  - option "50"
+            - generic [ref=f4e224]:
+              - button "Página anterior" [disabled] [ref=f4e225]:
+                - img [ref=f4e226]
+              - generic [ref=f4e228]: 1 / 1
+              - button "Página siguiente" [disabled] [ref=f4e229]:
+                - img [ref=f4e230]
+      - generic [ref=f4e234]:
+        - generic [ref=f4e235]:
+          - heading "Asignar caja — Director MiraxionTech" [level=3] [ref=f4e236]
+          - button [ref=f4e237]:
+            - img [ref=f4e238]
+        - generic [ref=f4e242]:
+          - paragraph [ref=f4e243]: "Un Director solo puede tener una caja: si la caja elegida ya tiene otro Director, se lo reemplaza."
+          - generic [ref=f4e244]:
+            - text: Caja
+            - combobox [ref=f4e245] [cursor=pointer]:
+              - option "Seleccionar..." [selected]
+              - option "Caja Menor MiraxionTech — Central MiraxionTech"
+          - generic [ref=f4e246]:
+            - button "Cancelar" [ref=f4e247] [cursor=pointer]
+            - button "Asignar" [disabled]

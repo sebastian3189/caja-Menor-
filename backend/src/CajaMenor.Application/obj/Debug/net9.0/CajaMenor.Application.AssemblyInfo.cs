@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CajaMenor.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2adff8aa5870d3887bf82c18de3914b56e26057b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CajaMenor.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CajaMenor.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

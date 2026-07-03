@@ -10,7 +10,8 @@ public interface ILegalizacionService
     Task<Result<LegalizacionDto>> CrearAsync(CrearLegalizacionDto dto);
     Task<Result<LegalizacionDto>> IniciarReembolsoAsync(int legalizacionId);
     Task<Result<ResumenLegalizacionesDto>> ObtenerResumenAsync(int cajaId);
-    Task<Result<ReciboDto>> SubirReciboAsync(int legalizacionId, string nombreOriginal, string rutaArchivo);
+    Task<Result<ReciboDto>> SubirReciboAsync(int legalizacionId, string nombreOriginal, string rutaArchivo, decimal? valorOcr, bool validadoOcr, string? notaOcr);
     Task<Result> EliminarReciboAsync(int reciboId);
     Task<Result<LegalizacionDto>> EditarAsync(int id, EditarLegalizacionDto dto);
+    Task<Result<string>> ObtenerSiguienteCodigoAsync(int cajaId);
 }

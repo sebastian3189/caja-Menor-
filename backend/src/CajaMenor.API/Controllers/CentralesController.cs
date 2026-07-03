@@ -1,5 +1,6 @@
 using CajaMenor.Application.DTOs;
 using CajaMenor.Application.Interfaces;
+using CajaMenor.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +19,9 @@ public class CentralesController(ICentralService service) : ControllerBase
         return Ok(result.Data);
     }
 
-    /// <summary>Crea una nueva central. Solo Director.</summary>
+    /// <summary>Crea una nueva central. Solo Maestro.</summary>
     [HttpPost]
-    [Authorize(Roles = "Director")]
+    [Authorize(Roles = RolUsuario.Maestro)]
     public async Task<IActionResult> Crear([FromBody] CrearCentralDto dto)
     {
         var result = await service.CrearAsync(dto);
@@ -28,9 +29,19 @@ public class CentralesController(ICentralService service) : ControllerBase
         return CreatedAtAction(nameof(Listar), result.Data);
     }
 
-    /// <summary>Elimina una central sin usuarios ni cajas. Solo Director.</summary>
+    /// <summary>Edita nombre/código de una central. Solo Maestro.</summary>
+    [HttpPut("{id}")]
+    [Authorize(Roles = RolUsuario.Maestro)]
+    public async Task<IActionResult> Editar(int id, [FromBody] EditarCentralDto dto)
+    {
+        var result = await service.EditarAsync(id, dto);
+        if (!result.Success) return BadRequest(new { message = result.Error });
+        return Ok(result.Data);
+    }
+
+    /// <summary>Elimina una central sin usuarios ni cajas. Solo Maestro.</summary>
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Director")]
+    [Authorize(Roles = RolUsuario.Maestro)]
     public async Task<IActionResult> Eliminar(int id)
     {
         var result = await service.EliminarAsync(id);

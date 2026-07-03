@@ -1,0 +1,63 @@
+- generic [ref=f1e78]:
+  - complementary [ref=f1e79]:
+    - generic [ref=f1e80]:
+      - generic [ref=f1e81]:
+        - img [ref=f1e83]
+        - generic [ref=f1e87]:
+          - paragraph [ref=f1e88]: Caja Menor
+          - paragraph [ref=f1e89]: MiraxionTech
+      - generic [ref=f1e90]:
+        - paragraph [ref=f1e93]: Caja activa
+        - paragraph [ref=f1e94]: Caja Menor MiraxionTech
+    - navigation [ref=f1e95]:
+      - paragraph [ref=f1e96]: Módulos
+      - link "Solicitar avance" [ref=f1e97] [cursor=pointer]:
+        - /url: /solicitante/solicitar
+        - img [ref=f1e99]
+        - generic [ref=f1e102]: Solicitar avance
+        - img [ref=f1e103]
+      - link "Mis solicitudes" [ref=f1e105] [cursor=pointer]:
+        - /url: /solicitante/mis-solicitudes
+        - img [ref=f1e107]
+        - generic [ref=f1e110]: Mis solicitudes
+    - generic [ref=f1e111]:
+      - generic [ref=f1e113]:
+        - generic [ref=f1e114]: AS
+        - generic [ref=f1e115]:
+          - generic [ref=f1e116]:
+            - paragraph [ref=f1e117]: Ana Solicitante
+            - generic [ref=f1e118]: Solicitante
+          - paragraph [ref=f1e119]: ana.sol@miraxiontech.com
+      - button "Cerrar sesión" [ref=f1e120]:
+        - img [ref=f1e121]
+        - text: Cerrar sesión
+  - main [ref=f1e125]:
+    - generic [ref=f1e127]:
+      - generic [ref=f1e128]:
+        - generic [ref=f1e129]:
+          - img [ref=f1e131]
+          - generic [ref=f1e134]:
+            - heading "Solicitar avance" [level=1] [ref=f1e135]
+            - paragraph [ref=f1e136]: Envía una solicitud de avance al administrador de tu caja
+        - button "Mis solicitudes" [ref=f1e138] [cursor=pointer]:
+          - img [ref=f1e139]
+          - text: Mis solicitudes
+      - generic [ref=f1e142]:
+        - img [ref=f1e143]
+        - generic [ref=f1e147]: "Caja: Caja Menor MiraxionTech"
+      - generic [ref=f1e148]:
+        - heading "Nueva solicitud" [level=3] [ref=f1e150]
+        - generic [ref=f1e152]:
+          - generic [ref=f1e153]:
+            - text: Valor solicitado
+            - generic [ref=f1e154]:
+              - img [ref=f1e155]
+              - spinbutton "0" [ref=f1e157]
+          - generic [ref=f1e158]:
+            - text: Descripción / concepto
+            - generic [ref=f1e159]:
+              - img [ref=f1e160]
+              - textbox "¿Para qué necesitas el avance?" [ref=f1e163]
+          - button "Enviar solicitud" [ref=f1e164] [cursor=pointer]:
+            - img [ref=f1e165]
+            - text: Enviar solicitud

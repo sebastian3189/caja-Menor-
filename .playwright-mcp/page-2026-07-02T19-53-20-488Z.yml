@@ -1,0 +1,32 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Caja Menor" [level=1] [ref=e6]
+      - paragraph [ref=e7]: MiraxionTech
+      - paragraph [ref=e8]: 📦 Caja Menor MiraxionTech
+    - navigation [ref=e9]:
+      - link "📊 Dashboard" [ref=e10] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e11]: 📊
+        - text: Dashboard
+      - link "💵 Avances" [ref=e12] [cursor=pointer]:
+        - /url: /avances
+        - generic [ref=e13]: 💵
+        - text: Avances
+      - link "📋 Legalizaciones" [ref=e14] [cursor=pointer]:
+        - /url: /legalizaciones
+        - generic [ref=e15]: 📋
+        - text: Legalizaciones
+      - link "📁 Arqueo" [ref=e16] [cursor=pointer]:
+        - /url: /arqueo
+        - generic [ref=e17]: 📁
+        - text: Arqueo
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Administrador MiraxionTech
+        - paragraph [ref=e21]: Administrador
+      - button "🚪 Cerrar sesión" [ref=e22]:
+        - generic [ref=e23]: 🚪
+        - text: Cerrar sesión
+  - main [ref=e24]:
+    - paragraph [ref=e27]: Cargando dashboard...

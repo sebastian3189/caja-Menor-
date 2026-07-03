@@ -1,0 +1,49 @@
+- generic [ref=e202]:
+  - generic [ref=e203]:
+    - generic [ref=e208]:
+      - img [ref=e210]
+      - generic [ref=e214]:
+        - paragraph [ref=e215]: Caja Menor
+        - paragraph [ref=e216]: MiraxionTech
+    - generic [ref=e217]:
+      - heading "Gestión de Caja Menor" [level=2] [ref=e218]
+      - paragraph [ref=e219]: Sistema integral para el control de avances, legalizaciones y reembolsos de caja menor.
+      - generic [ref=e220]:
+        - generic [ref=e221]:
+          - img [ref=e223]
+          - generic [ref=e225]: Dashboard en tiempo real
+        - generic [ref=e226]:
+          - img [ref=e228]
+          - generic [ref=e231]: Seguimiento de avances y legalizaciones
+        - generic [ref=e232]:
+          - img [ref=e234]
+          - generic [ref=e236]: Control de acceso por roles
+    - paragraph [ref=e238]: Acceso restringido a personal autorizado de MiraxionTech.
+  - generic [ref=e240]:
+    - generic [ref=e241]:
+      - heading "Bienvenido" [level=1] [ref=e242]
+      - paragraph [ref=e243]: Ingresa tus credenciales para continuar
+    - button "Continuar con Microsoft" [ref=e244]:
+      - img [ref=e245]
+      - text: Continuar con Microsoft
+    - generic [ref=e252]: o ingresa con tu correo
+    - generic [ref=e254]:
+      - generic [ref=e255]:
+        - text: Correo electrónico
+        - generic [ref=e256]:
+          - img [ref=e257]
+          - textbox "Correo electrónico" [ref=e260]:
+            - /placeholder: usuario@miraxiontech.com
+      - generic [ref=e261]:
+        - text: Contraseña
+        - generic [ref=e262]:
+          - img [ref=e263]
+          - textbox "Contraseña" [ref=e266]:
+            - /placeholder: ••••••••
+          - button [ref=e267]:
+            - img [ref=e268]
+        - button "¿Olvidaste tu contraseña?" [ref=e272]
+      - button "Ingresar al sistema" [ref=e273] [cursor=pointer]:
+        - text: Ingresar al sistema
+        - img [ref=e274]
+    - paragraph [ref=e276]: Sistema de Gestión de Caja Menor — MiraxionTech

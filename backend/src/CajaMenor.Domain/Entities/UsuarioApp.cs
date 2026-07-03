@@ -6,10 +6,13 @@ public class UsuarioApp
     public string IdentityUserId { get; set; } = string.Empty;
     public string Nombre { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
+    /// <summary>Cédula de la persona; es la contraseña inicial asignada por el Maestro.</summary>
+    public string Cedula { get; set; } = string.Empty;
     public string Rol { get; set; } = string.Empty;
     public int CentralId { get; set; }
 
     public Central Central { get; set; } = null!;
     public ICollection<CajaMenorEntity> CajasMenoresComoDirector { get; set; } = [];
     public ICollection<CajaMenorEntity> CajasMenoresComoAdmin { get; set; } = [];
+    public ICollection<CajaMenorEntity> CajasMenoresComoSolicitante { get; set; } = [];
 }

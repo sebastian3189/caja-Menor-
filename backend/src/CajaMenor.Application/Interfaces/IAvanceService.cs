@@ -11,4 +11,8 @@ public interface IAvanceService
     Task<Result<ResumenAvancesDto>> ObtenerResumenAsync(int cajaId);
     Task<Result<List<AvanceDto>>> ObtenerPendientesAsync(int cajaId);
     Task<Result<AvanceDto>> EditarAsync(int id, EditarAvanceDto dto);
+    Task<Result> EliminarAsync(int id);
+    Task<Result<string>> ObtenerSiguienteCodigoAsync(int cajaId);
+    /// <summary>Genera un PDF con la información del avance.</summary>
+    Task<Result<byte[]>> GenerarPdfAsync(int id);
 }

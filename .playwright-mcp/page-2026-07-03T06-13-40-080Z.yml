@@ -1,0 +1,87 @@
+- generic [ref=f3e3]:
+  - complementary [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - generic [ref=f3e6]:
+        - img [ref=f3e8]
+        - generic [ref=f3e12]:
+          - paragraph [ref=f3e13]: Caja Menor
+          - paragraph [ref=f3e14]: MiraxionTech
+      - generic [ref=f3e15]:
+        - paragraph [ref=f3e18]: Caja activa
+        - paragraph [ref=f3e19]: Caja Menor MiraxionTech
+    - navigation [ref=f3e20]:
+      - paragraph [ref=f3e21]: Módulos
+      - link "Dashboard" [ref=f3e22] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=f3e24]
+        - generic [ref=f3e29]: Dashboard
+      - link "Avances" [ref=f3e30] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=f3e32]
+        - generic [ref=f3e35]: Avances
+        - img [ref=f3e36]
+      - link "Legalizaciones" [ref=f3e38] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=f3e40]
+        - generic [ref=f3e43]: Legalizaciones
+      - link "Solicitudes" [ref=f3e44] [cursor=pointer]:
+        - /url: /solicitudes
+        - img [ref=f3e46]
+        - generic [ref=f3e49]: Solicitudes
+      - link "Reembolsos" [ref=f3e50] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=f3e52]
+        - generic [ref=f3e57]: Reembolsos
+      - link "Arqueo" [ref=f3e58] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=f3e60]
+        - generic [ref=f3e63]: Arqueo
+    - generic [ref=f3e64]:
+      - generic [ref=f3e66]:
+        - generic [ref=f3e67]: AM
+        - generic [ref=f3e68]:
+          - generic [ref=f3e69]:
+            - paragraph [ref=f3e70]: Administrador MiraxionTech
+            - generic [ref=f3e71]: Administrador
+          - paragraph [ref=f3e72]: admin@miraxiontech.com
+      - button "Cerrar sesión" [ref=f3e73]:
+        - img [ref=f3e74]
+        - text: Cerrar sesión
+  - main [ref=f3e78]:
+    - generic [ref=f3e80]:
+      - generic [ref=f3e81]:
+        - generic [ref=f3e82]:
+          - img [ref=f3e84]
+          - generic [ref=f3e87]:
+            - heading "Avances" [level=1] [ref=f3e88]
+            - paragraph [ref=f3e89]: Gestión de avances de caja menor
+        - generic [ref=f3e91]:
+          - button "Exportar" [disabled]:
+            - img
+            - text: Exportar
+          - button "Nuevo avance" [ref=f3e92] [cursor=pointer]:
+            - img [ref=f3e93]
+            - text: Nuevo avance
+      - generic [ref=f3e94]:
+        - img [ref=f3e95]
+        - textbox "Buscar por código, descripción o solicitante..." [ref=f3e98]
+      - generic [ref=f3e99]:
+        - generic [ref=f3e100]:
+          - img [ref=f3e101]
+          - text: Filtros
+        - generic [ref=f3e103]:
+          - generic [ref=f3e104]:
+            - generic [ref=f3e105]: "Estado:"
+            - generic [ref=f3e106]:
+              - button "Todos" [ref=f3e107]
+              - button "Pendiente" [ref=f3e108]
+              - button "Legalizado" [ref=f3e109]
+          - generic [ref=f3e110]:
+            - generic [ref=f3e111]: "Desde:"
+            - textbox [ref=f3e112]
+          - generic [ref=f3e113]:
+            - generic [ref=f3e114]: "Hasta:"
+            - textbox [ref=f3e115]
+      - generic [ref=f3e116]:
+        - heading "Listado de avances" [level=3] [ref=f3e118]
+        - generic [ref=f3e122]: Cargando avances...

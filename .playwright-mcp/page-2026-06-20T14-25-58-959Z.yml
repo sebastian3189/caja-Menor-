@@ -1,0 +1,148 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e8]
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: Caja Menor
+          - paragraph [ref=e14]: MiraxionTech
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Caja activa
+        - paragraph [ref=e17]: Caja Medellín
+    - navigation [ref=e18]:
+      - paragraph [ref=e19]: Módulos
+      - link "Dashboard" [ref=e20] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e22]
+        - generic [ref=e27]: Dashboard
+      - link "Avances" [ref=e28] [cursor=pointer]:
+        - /url: /avances
+        - img [ref=e30]
+        - generic [ref=e33]: Avances
+      - link "Legalizaciones" [ref=e34] [cursor=pointer]:
+        - /url: /legalizaciones
+        - img [ref=e36]
+        - generic [ref=e39]: Legalizaciones
+      - link "Reembolsos" [ref=e40] [cursor=pointer]:
+        - /url: /reembolsos
+        - img [ref=e42]
+        - generic [ref=e47]: Reembolsos
+        - img [ref=e48]
+      - link "Arqueo" [ref=e50] [cursor=pointer]:
+        - /url: /arqueo
+        - img [ref=e52]
+        - generic [ref=e55]: Arqueo
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Sebastian
+          - generic [ref=e60]: Administrador
+        - paragraph [ref=e61]: Sebas@miraxiontech.com.co
+      - button "Cerrar sesión" [ref=e62]:
+        - img [ref=e63]
+        - text: Cerrar sesión
+  - main [ref=e67]:
+    - generic [ref=e69]:
+      - generic [ref=e74]:
+        - img [ref=e76]
+        - generic [ref=e81]:
+          - heading "Sala de Reembolsos" [level=1] [ref=e82]
+          - paragraph [ref=e83]: Gestión del proceso de reembolsos a Tesorería
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - img [ref=e87]
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: Pendientes de iniciar
+            - paragraph [ref=e92]: "0"
+        - generic [ref=e93]:
+          - img [ref=e95]
+          - generic [ref=e100]:
+            - paragraph [ref=e101]: En proceso
+            - paragraph [ref=e102]: "3"
+        - generic [ref=e103]:
+          - img [ref=e105]
+          - generic [ref=e108]:
+            - paragraph [ref=e109]: Reembolsados
+            - paragraph [ref=e110]: "0"
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - img [ref=e113]
+          - text: Filtros
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e117]: "Desde:"
+            - textbox [ref=e118]
+          - generic [ref=e119]:
+            - generic [ref=e120]: "Hasta:"
+            - textbox [ref=e121]
+      - generic [ref=e122]:
+        - heading "Pendientes de iniciar(0)" [level=3] [ref=e129]:
+          - text: Pendientes de iniciar
+          - generic [ref=e130]: (0)
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e133]
+            - paragraph [ref=e136]: No hay reembolsos pendientes de iniciar
+          - generic [ref=e137]:
+            - paragraph [ref=e138]: Envío a Tesorería
+            - button "Adjuntar PDF del arqueo" [ref=e140]:
+              - img [ref=e141]
+              - text: Adjuntar PDF del arqueo
+            - paragraph [ref=e143]: Adjunta el PDF del arqueo firmado para habilitarlo envío.
+      - generic [ref=e144]:
+        - heading "En proceso(3)" [level=3] [ref=e151]:
+          - text: En proceso
+          - generic [ref=e152]: (3)
+        - table [ref=e155]:
+          - rowgroup [ref=e156]:
+            - row "Legalización Avance Central V. Avance V. Legalizado Ellos Deben Debemos Monto Estado" [ref=e157]:
+              - columnheader "Legalización" [ref=e158]
+              - columnheader "Avance" [ref=e159]
+              - columnheader "Central" [ref=e160]
+              - columnheader "V. Avance" [ref=e161]
+              - columnheader "V. Legalizado" [ref=e162]
+              - columnheader "Ellos Deben" [ref=e163]
+              - columnheader "Debemos" [ref=e164]
+              - columnheader "Monto" [ref=e165]
+              - columnheader "Estado" [ref=e166]
+          - rowgroup [ref=e167]:
+            - row "LG-2026-001 AV-2026-001 Caja Medellín $ 350.000 $ 340.000 $ 0 $ 340.000 $ 340.000 En proceso" [ref=e168]:
+              - cell "LG-2026-001" [ref=e169]
+              - cell "AV-2026-001" [ref=e170]
+              - cell "Caja Medellín" [ref=e171]
+              - cell "$ 350.000" [ref=e172]
+              - cell "$ 340.000" [ref=e173]
+              - cell "$ 0" [ref=e174]
+              - cell "$ 340.000" [ref=e175]
+              - cell "$ 340.000" [ref=e176]
+              - cell "En proceso" [ref=e177]:
+                - generic [ref=e182]: En proceso
+            - row "LG-2026-002 AV-2026-002 Caja Medellín $ 180.000 $ 180.000 $ 0 $ 180.000 $ 180.000 En proceso" [ref=e183]:
+              - cell "LG-2026-002" [ref=e184]
+              - cell "AV-2026-002" [ref=e185]
+              - cell "Caja Medellín" [ref=e186]
+              - cell "$ 180.000" [ref=e187]
+              - cell "$ 180.000" [ref=e188]
+              - cell "$ 0" [ref=e189]
+              - cell "$ 180.000" [ref=e190]
+              - cell "$ 180.000" [ref=e191]
+              - cell "En proceso" [ref=e192]:
+                - generic [ref=e197]: En proceso
+            - row "LG-2026-003 — Caja Medellín $ 0 $ 95.000 $ 0 $ 95.000 $ 95.000 En proceso" [ref=e198]:
+              - cell "LG-2026-003" [ref=e199]
+              - cell "—" [ref=e200]
+              - cell "Caja Medellín" [ref=e201]
+              - cell "$ 0" [ref=e202]
+              - cell "$ 95.000" [ref=e203]
+              - cell "$ 0" [ref=e204]
+              - cell "$ 95.000" [ref=e205]
+              - cell "$ 95.000" [ref=e206]
+              - cell "En proceso" [ref=e207]:
+                - generic [ref=e212]: En proceso
+      - generic [ref=e213]:
+        - heading "Histórico reembolsados(0)" [level=3] [ref=e218]:
+          - text: Histórico reembolsados
+          - generic [ref=e219]: (0)
+        - generic [ref=e221]:
+          - img [ref=e222]
+          - paragraph [ref=e227]: No hay reembolsos confirmados aún

@@ -1,0 +1,51 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e9]:
+      - img [ref=e11]
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Caja Menor
+        - paragraph [ref=e17]: MiraxionTech
+    - generic [ref=e18]:
+      - heading "Gestión de Caja Menor" [level=2] [ref=e19]
+      - paragraph [ref=e20]: Sistema integral para el control de avances, legalizaciones y reembolsos de caja menor.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - img [ref=e24]
+          - generic [ref=e26]: Dashboard en tiempo real
+        - generic [ref=e27]:
+          - img [ref=e29]
+          - generic [ref=e32]: Seguimiento de avances y legalizaciones
+        - generic [ref=e33]:
+          - img [ref=e35]
+          - generic [ref=e37]: Control de acceso por roles
+    - paragraph [ref=e39]: Acceso restringido a personal autorizado de MiraxionTech.
+  - generic [ref=e41]:
+    - generic [ref=e42]:
+      - heading "Bienvenido" [level=1] [ref=e43]
+      - paragraph [ref=e44]: Ingresa tus credenciales para continuar
+    - button "Continuar con Microsoft" [ref=e45]:
+      - img [ref=e46]
+      - text: Continuar con Microsoft
+    - generic [ref=e53]: o ingresa con tu correo
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - text: Correo electrónico
+        - generic [ref=e57]:
+          - img [ref=e58]
+          - textbox "Correo electrónico" [ref=e61]:
+            - /placeholder: usuario@miraxiontech.com
+            - text: admin@miraxiontech.com
+      - generic [ref=e62]:
+        - text: Contraseña
+        - generic [ref=e63]:
+          - img [ref=e64]
+          - textbox "Contraseña" [ref=e67]:
+            - /placeholder: ••••••••
+            - text: Admin123!
+          - button [ref=e68]:
+            - img [ref=e69]
+        - button "¿Olvidaste tu contraseña?" [ref=e73]
+      - button "Ingresar al sistema" [ref=e74] [cursor=pointer]:
+        - text: Ingresar al sistema
+        - img [ref=e75]
+    - paragraph [ref=e77]: Sistema de Gestión de Caja Menor — MiraxionTech

@@ -1,0 +1,66 @@
+- generic [ref=e78]:
+  - complementary [ref=e79]:
+    - generic [ref=e81]:
+      - img [ref=e83]
+      - generic [ref=e87]:
+        - paragraph [ref=e88]: Caja Menor
+        - paragraph [ref=e89]: MiraxionTech
+    - navigation [ref=e90]:
+      - paragraph [ref=e91]: Módulos
+      - link "Usuarios" [ref=e92] [cursor=pointer]:
+        - /url: /maestro/usuarios
+        - img [ref=e94]
+        - generic [ref=e99]: Usuarios
+        - img [ref=e100]
+      - link "Centrales" [ref=e102] [cursor=pointer]:
+        - /url: /maestro/centrales
+        - img [ref=e104]
+        - generic [ref=e106]: Centrales
+      - link "Cajas" [ref=e107] [cursor=pointer]:
+        - /url: /maestro/cajas
+        - img [ref=e109]
+        - generic [ref=e112]: Cajas
+    - generic [ref=e113]:
+      - generic [ref=e115]:
+        - generic [ref=e116]: UM
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: Usuario Maestro
+            - generic [ref=e120]: Maestro
+          - paragraph [ref=e121]: maestro@cajamenor.miraxiontech
+      - button "Cerrar sesión" [ref=e122]:
+        - img [ref=e123]
+        - text: Cerrar sesión
+  - main [ref=e127]:
+    - generic [ref=e129]:
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - img [ref=e133]
+          - generic [ref=e138]:
+            - heading "Usuarios" [level=1] [ref=e139]
+            - paragraph [ref=e140]: Directores y administradores del sistema
+        - button "Nuevo usuario" [ref=e142] [cursor=pointer]:
+          - img [ref=e143]
+          - text: Nuevo usuario
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - img [ref=e147]
+          - generic [ref=e152]:
+            - paragraph [ref=e153]: Total usuarios
+            - paragraph [ref=e154]: "0"
+        - generic [ref=e155]:
+          - img [ref=e157]
+          - generic [ref=e160]:
+            - paragraph [ref=e161]: Directores
+            - paragraph [ref=e162]: "0"
+        - generic [ref=e163]:
+          - img [ref=e165]
+          - generic [ref=e168]:
+            - paragraph [ref=e169]: Administradores
+            - paragraph [ref=e170]: "0"
+      - generic [ref=e171]:
+        - img [ref=e172]
+        - textbox "Buscar por nombre, correo o rol..." [ref=e175]
+      - generic [ref=e176]:
+        - heading "Listado de usuarios" [level=3] [ref=e178]
+        - generic [ref=e182]: Cargando usuarios...

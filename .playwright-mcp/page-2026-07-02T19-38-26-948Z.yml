@@ -1,0 +1,16 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - heading "Caja Menor" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Sistema de gestión MiraxionTech
+  - generic [ref=e8]:
+    - heading "Iniciar sesión" [level=3] [ref=e10]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - text: Correo electrónico
+        - textbox "Correo electrónico" [ref=e14]:
+          - /placeholder: usuario@miraxiontech.com
+      - generic [ref=e15]:
+        - text: Contraseña
+        - textbox "Contraseña" [ref=e16]:
+          - /placeholder: ••••••••
+      - button "Ingresar" [ref=e17]

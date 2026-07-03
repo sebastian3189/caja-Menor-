@@ -1,16 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Wallet, Plus, Hash, User, DollarSign, Calendar, FileText, Filter, X, Pencil } from 'lucide-react'
+import { Wallet, Plus, Hash, DollarSign, Calendar, FileText, Filter, X, Pencil, Trash2, Download, Search } from 'lucide-react'
+import { Pagination } from '@/components/ui/Pagination'
+import { StackedBar } from '@/components/ui/StackedBar'
 import { useAuthStore } from '@/store/authStore'
-import { getAvances, getResumenAvances, crearAvance, editarAvance } from '@/api/avances'
+import { getAvances, getResumenAvances, crearAvance, editarAvance, getSiguienteCodigoAvance, eliminarAvance, exportarAvances, descargarPdfAvance } from '@/api/avances'
+import { getSolicitantesDeCaja } from '@/api/solicitudes'
+import { getDashboard } from '@/api/cajaMenor'
+import { descargarBlob, nombreConFecha } from '@/lib/download'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { Input } from '@/components/ui/Input'
 import { Label } from '@/components/ui/Label'
+import { Select } from '@/components/ui/Select'
 import { StatCard } from '@/components/ui/StatCard'
 import { StatusCircle } from '@/components/ui/StatusCircle'
 import { Modal } from '@/components/ui/Modal'
@@ -59,6 +65,32 @@ export function AvancesPage() {
   const [filtroEstado, setFiltroEstado] = useState('')
   const [filtroFechaDesde, setFiltroFechaDesde] = useState('')
   const [filtroFechaHasta, setFiltroFechaHasta] = useState('')
+  const [busqueda, setBusqueda] = useState('')
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState(10)
+  const [crearError, setCrearError] = useState<string | null>(null)
+  const [exportando, setExportando] = useState(false)
+  const [pdfCargandoId, setPdfCargandoId] = useState<number | null>(null)
+
+  const handleExportar = async () => {
+    setExportando(true)
+    try {
+      const blob = await exportarAvances(cajaId)
+      descargarBlob(blob, nombreConFecha('Avances', 'xlsx'))
+    } finally {
+      setExportando(false)
+    }
+  }
+
+  const descargarPdf = async (avance: AvanceDto) => {
+    setPdfCargandoId(avance.id)
+    try {
+      const blob = await descargarPdfAvance(cajaId, avance.id)
+      descargarBlob(blob, `Avance_${avance.codigoAvance}.pdf`)
+    } finally {
+      setPdfCargandoId(null)
+    }
+  }
 
   const { data: avances = [], isLoading } = useQuery({
     queryKey: ['avances', cajaId],
@@ -70,6 +102,24 @@ export function AvancesPage() {
     queryFn: () => getResumenAvances(cajaId),
   })
 
+  const { data: dashboard } = useQuery({
+    queryKey: ['dashboard', cajaId],
+    queryFn: () => getDashboard(cajaId),
+  })
+
+  const { data: solicitantes = [] } = useQuery({
+    queryKey: ['solicitantes-caja', cajaId],
+    queryFn: () => getSolicitantesDeCaja(cajaId),
+    enabled: (showModal || !!editingAvance) && isAdmin,
+  })
+
+  const { data: siguienteCodigo } = useQuery({
+    queryKey: ['siguiente-codigo-avance', cajaId],
+    queryFn: () => getSiguienteCodigoAvance(cajaId),
+    enabled: showModal && isAdmin,
+    refetchOnMount: 'always',
+  })
+
   const crearMutation = useMutation({
     mutationFn: (data: AvanceForm) =>
       crearAvance(cajaId, { ...data, valorAvance: Number(data.valorAvance), cajaId }),
@@ -77,8 +127,22 @@ export function AvancesPage() {
       queryClient.invalidateQueries({ queryKey: ['avances', cajaId] })
       queryClient.invalidateQueries({ queryKey: ['resumen-avances', cajaId] })
       queryClient.invalidateQueries({ queryKey: ['dashboard', cajaId] })
+      queryClient.invalidateQueries({ queryKey: ['siguiente-codigo-avance', cajaId] })
       setShowModal(false)
       reset()
+      setCrearError(null)
+    },
+    onError: (error: any) => {
+      setCrearError(error?.response?.data?.message ?? 'Error al crear el avance.')
+    },
+  })
+
+  const eliminarMutation = useMutation({
+    mutationFn: (avanceId: number) => eliminarAvance(cajaId, avanceId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['avances', cajaId] })
+      queryClient.invalidateQueries({ queryKey: ['resumen-avances', cajaId] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard', cajaId] })
     },
   })
 
@@ -100,8 +164,24 @@ export function AvancesPage() {
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<AvanceForm>({ resolver: zodResolver(avanceSchema) })
+
+  useEffect(() => {
+    if (siguienteCodigo) setValue('codigoAvance', siguienteCodigo.codigo)
+  }, [siguienteCodigo, setValue])
+
+  useEffect(() => {
+    setPage(1)
+  }, [busqueda, filtroEstado, filtroFechaDesde, filtroFechaHasta, pageSize])
+
+  const valorAvanceStr = watch('valorAvance')
+  const valorAvance = Number(valorAvanceStr) || 0
+  const disponible = dashboard?.caja.disponible ?? 0
+  const quedaria = disponible - valorAvance
+  const excedeTope = valorAvance > 0 && valorAvance > disponible
 
   const {
     register: registerEdit,
@@ -125,9 +205,21 @@ export function AvancesPage() {
     if (filtroEstado && a.estado !== filtroEstado) return false
     if (filtroFechaDesde && new Date(a.fechaEnvio) < new Date(filtroFechaDesde)) return false
     if (filtroFechaHasta && new Date(a.fechaEnvio) > new Date(filtroFechaHasta + 'T23:59:59')) return false
+    if (busqueda) {
+      const q = busqueda.toLowerCase()
+      const match = a.codigoAvance.toLowerCase().includes(q)
+        || a.descripcion.toLowerCase().includes(q)
+        || a.solicitante.toLowerCase().includes(q)
+      if (!match) return false
+    }
     return true
   })
-  const hayFiltros = filtroEstado || filtroFechaDesde || filtroFechaHasta
+  const hayFiltros = filtroEstado || filtroFechaDesde || filtroFechaHasta || busqueda
+
+  // Paginación cliente
+  const totalPaginas = Math.max(1, Math.ceil(avancesFiltrados.length / pageSize))
+  const paginaActual = Math.min(page, totalPaginas)
+  const avancesPagina = avancesFiltrados.slice((paginaActual - 1) * pageSize, paginaActual * pageSize)
 
   const pct = resumen && resumen.total > 0 ? resumen.porcentajeLegalizados : 0
 
@@ -140,11 +232,16 @@ export function AvancesPage() {
         iconColor="text-amber-600"
         iconBg="bg-amber-100"
         actions={
-          isAdmin ? (
-            <Button onClick={() => setShowModal(true)}>
-              <Plus size={15} /> Nuevo avance
+          <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={handleExportar} loading={exportando} disabled={avances.length === 0}>
+              <Download size={15} /> Exportar
             </Button>
-          ) : undefined
+            {isAdmin && (
+              <Button onClick={() => setShowModal(true)}>
+                <Plus size={15} /> Nuevo avance
+              </Button>
+            )}
+          </div>
         }
       />
 
@@ -175,29 +272,48 @@ export function AvancesPage() {
         </div>
       )}
 
-      {/* Progress bar */}
+      {/* Progreso de legalización — barra apilada como en Dashboard */}
       {resumen && resumen.total > 0 && (
-        <Card>
+        <Card accent="amber">
           <CardContent className="py-4">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-2.5">
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
                 Progreso de legalización
               </p>
-              <span className="text-sm font-bold text-slate-700">{pct.toFixed(0)}%</span>
+              <span className="text-sm font-bold" style={{ color: '#0d9488' }}>{pct.toFixed(0)}%</span>
             </div>
-            <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-amber-400 to-emerald-500 rounded-full transition-all duration-700"
-                style={{ width: `${pct}%` }}
-              />
-            </div>
-            <div className="flex justify-between mt-1.5">
-              <span className="text-xs text-slate-400">{resumen.pendientes} pendientes</span>
-              <span className="text-xs text-slate-400">{resumen.legalizados} legalizados</span>
-            </div>
+            <StackedBar
+              height={24}
+              formatValue={(v) => `${v}`}
+              segments={[
+                { label: 'Legalizados', value: resumen.legalizados, color: '#0d9488' },
+                { label: 'Pendientes', value: resumen.pendientes, color: '#d97706' },
+              ]}
+            />
           </CardContent>
         </Card>
       )}
+
+      {/* Búsqueda */}
+      <div className="relative">
+        <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+        <input
+          type="text"
+          value={busqueda}
+          onChange={e => setBusqueda(e.target.value)}
+          placeholder="Buscar por código, descripción o solicitante..."
+          className="w-full pl-9 pr-9 py-2.5 text-sm border border-slate-200 rounded-xl bg-white text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100"
+        />
+        {busqueda && (
+          <button
+            onClick={() => setBusqueda('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            aria-label="Limpiar búsqueda"
+          >
+            <X size={15} />
+          </button>
+        )}
+      </div>
 
       {/* Filtros */}
       <div className="flex flex-wrap items-center gap-3 px-4 py-3 bg-slate-50 rounded-xl border border-slate-200">
@@ -304,18 +420,41 @@ export function AvancesPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {avancesFiltrados.map((avance) => (
+                  {avancesPagina.map((avance) => (
                     <tr key={avance.id}>
                       {isAdmin && (
                         <td>
-                          <button
-                            onClick={() => avance.estado === 'Pendiente' && abrirEditar(avance)}
-                            disabled={avance.estado === 'Legalizado'}
-                            className="w-7 h-7 flex items-center justify-center rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 disabled:hover:text-slate-400 disabled:hover:bg-transparent"
-                            title={avance.estado === 'Legalizado' ? 'No editable: avance ya legalizado' : 'Editar avance'}
-                          >
-                            <Pencil size={13} />
-                          </button>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => avance.estado === 'Pendiente' && abrirEditar(avance)}
+                              disabled={avance.estado === 'Legalizado'}
+                              className="w-7 h-7 flex items-center justify-center rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 disabled:hover:text-slate-400 disabled:hover:bg-transparent"
+                              title={avance.estado === 'Legalizado' ? 'No editable: avance ya legalizado' : 'Editar avance'}
+                            >
+                              <Pencil size={13} />
+                            </button>
+                            {avance.estado === 'Pendiente' && (
+                              <button
+                                onClick={() => {
+                                  if (confirm(`¿Eliminar ${avance.codigoAvance}? Se devolverá el monto a la caja.`))
+                                    eliminarMutation.mutate(avance.id)
+                                }}
+                                disabled={eliminarMutation.isPending && eliminarMutation.variables === avance.id}
+                                className="w-7 h-7 flex items-center justify-center rounded-lg transition-colors text-slate-400 hover:text-red-500 hover:bg-red-50 disabled:opacity-40"
+                                title="Eliminar avance pendiente"
+                              >
+                                <Trash2 size={13} />
+                              </button>
+                            )}
+                            <button
+                              onClick={() => descargarPdf(avance)}
+                              disabled={pdfCargandoId === avance.id}
+                              className="w-7 h-7 flex items-center justify-center rounded-lg transition-colors text-slate-400 hover:text-teal-600 hover:bg-teal-50 disabled:opacity-40"
+                              title="Descargar PDF del avance"
+                            >
+                              <Download size={13} />
+                            </button>
+                          </div>
                         </td>
                       )}
                       <td>
@@ -343,17 +482,32 @@ export function AvancesPage() {
               </table>
             </div>
           )}
+          {avancesFiltrados.length > 0 && (
+            <Pagination
+              page={paginaActual}
+              pageSize={pageSize}
+              totalItems={avancesFiltrados.length}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
+          )}
         </CardContent>
       </Card>
 
       {/* Modal crear */}
       <Modal
         open={showModal}
-        onClose={() => { setShowModal(false); reset() }}
+        onClose={() => { setShowModal(false); reset(); setCrearError(null) }}
         title="Nuevo Avance"
         size="md"
       >
-        <form onSubmit={handleSubmit((d) => crearMutation.mutate(d))} className="space-y-4">
+        <form onSubmit={handleSubmit((d) => { if (excedeTope) return; setCrearError(null); crearMutation.mutate(d) })} className="space-y-4">
+          {dashboard && (
+            <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-teal-50 border border-teal-200 text-sm">
+              <span className="text-teal-600 font-medium">Disponible en caja</span>
+              <span className="font-bold text-teal-700">{new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(dashboard.caja.disponible)}</span>
+            </div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Código avance</Label>
@@ -377,18 +531,30 @@ export function AvancesPage() {
             <Label>Valor del avance</Label>
             <div className="relative">
               <DollarSign size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <Input type="number" step="0.01" placeholder="0" className="pl-8" {...register('valorAvance')} error={!!errors.valorAvance} />
+              <Input type="number" step="0.01" placeholder="0" className="pl-8" {...register('valorAvance')} error={!!errors.valorAvance || excedeTope} />
             </div>
             {errors.valorAvance && <p className="text-xs text-red-500">{errors.valorAvance.message}</p>}
+            {!errors.valorAvance && valorAvance > 0 && (
+              <p className={`text-xs font-medium ${excedeTope ? 'text-red-500' : 'text-slate-400'}`}>
+                {excedeTope
+                  ? `Excede el disponible (${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(disponible)})`
+                  : `Quedaría disponible: ${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(quedaria)}`}
+              </p>
+            )}
           </div>
 
           <div className="space-y-1.5">
             <Label>Solicitante</Label>
-            <div className="relative">
-              <User size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <Input placeholder="Nombre del solicitante" className="pl-8" {...register('solicitante')} error={!!errors.solicitante} />
-            </div>
+            <Select {...register('solicitante')}>
+              <option value="">Seleccionar solicitante...</option>
+              {solicitantes.map(s => (
+                <option key={s.id} value={s.nombreCompleto}>{s.nombreCompleto}</option>
+              ))}
+            </Select>
             {errors.solicitante && <p className="text-xs text-red-500">{errors.solicitante.message}</p>}
+            {solicitantes.length === 0 && (
+              <p className="text-xs text-amber-600">No hay solicitantes asignados a esta caja. El Maestro puede asignarlos.</p>
+            )}
           </div>
 
           <div className="space-y-1.5">
@@ -400,17 +566,17 @@ export function AvancesPage() {
             {errors.descripcion && <p className="text-xs text-red-500">{errors.descripcion.message}</p>}
           </div>
 
-          {crearMutation.isError && (
+          {crearError && (
             <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
-              Error al crear el avance. Verifique los datos.
+              {crearError}
             </div>
           )}
 
           <div className="flex gap-3 pt-2">
-            <Button type="button" variant="outline" className="flex-1" onClick={() => { setShowModal(false); reset() }}>
+            <Button type="button" variant="outline" className="flex-1" onClick={() => { setShowModal(false); reset(); setCrearError(null) }}>
               Cancelar
             </Button>
-            <Button type="submit" className="flex-1" loading={isSubmitting || crearMutation.isPending}>
+            <Button type="submit" className="flex-1" disabled={excedeTope} loading={isSubmitting || crearMutation.isPending}>
               Guardar avance
             </Button>
           </div>
@@ -470,10 +636,15 @@ export function AvancesPage() {
 
             <div className="space-y-1.5">
               <Label>Solicitante</Label>
-              <div className="relative">
-                <User size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                <Input placeholder="Nombre del solicitante" className="pl-8" {...registerEdit('solicitante')} error={!!errorsEdit.solicitante} />
-              </div>
+              <Select {...registerEdit('solicitante')}>
+                <option value="">Seleccionar solicitante...</option>
+                {editingAvance && !solicitantes.some(s => s.nombreCompleto === editingAvance.solicitante) && editingAvance.solicitante && (
+                  <option value={editingAvance.solicitante}>{editingAvance.solicitante}</option>
+                )}
+                {solicitantes.map(s => (
+                  <option key={s.id} value={s.nombreCompleto}>{s.nombreCompleto}</option>
+                ))}
+              </Select>
               {errorsEdit.solicitante && <p className="text-xs text-red-500">{errorsEdit.solicitante.message}</p>}
             </div>
 

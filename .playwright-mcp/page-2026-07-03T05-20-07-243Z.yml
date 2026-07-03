@@ -1,0 +1,162 @@
+- generic [ref=f5e3]:
+  - complementary [ref=f5e4]:
+    - generic [ref=f5e6]:
+      - img [ref=f5e8]
+      - generic [ref=f5e12]:
+        - paragraph [ref=f5e13]: Caja Menor
+        - paragraph [ref=f5e14]: MiraxionTech
+    - navigation [ref=f5e15]:
+      - paragraph [ref=f5e16]: Módulos
+      - link "Usuarios" [ref=f5e17] [cursor=pointer]:
+        - /url: /maestro/usuarios
+        - img [ref=f5e19]
+        - generic [ref=f5e24]: Usuarios
+      - link "Centrales" [ref=f5e25] [cursor=pointer]:
+        - /url: /maestro/centrales
+        - img [ref=f5e27]
+        - generic [ref=f5e29]: Centrales
+      - link "Cajas" [ref=f5e30] [cursor=pointer]:
+        - /url: /maestro/cajas
+        - img [ref=f5e32]
+        - generic [ref=f5e35]: Cajas
+        - img [ref=f5e36]
+    - generic [ref=f5e38]:
+      - generic [ref=f5e40]:
+        - generic [ref=f5e41]: UM
+        - generic [ref=f5e42]:
+          - generic [ref=f5e43]:
+            - paragraph [ref=f5e44]: Usuario Maestro
+            - generic [ref=f5e45]: Maestro
+          - paragraph [ref=f5e46]: maestro@cajamenor.miraxiontech
+      - button "Cerrar sesión" [ref=f5e47]:
+        - img [ref=f5e48]
+        - text: Cerrar sesión
+  - main [ref=f5e52]:
+    - generic [ref=f5e54]:
+      - generic [ref=f5e55]:
+        - generic [ref=f5e56]:
+          - img [ref=f5e58]
+          - generic [ref=f5e61]:
+            - heading "Cajas Menores" [level=1] [ref=f5e62]
+            - paragraph [ref=f5e63]: Estructura, apertura y estado de todas las cajas del sistema
+        - button "Nueva caja" [ref=f5e65] [cursor=pointer]:
+          - img [ref=f5e66]
+          - text: Nueva caja
+      - generic [ref=f5e67]:
+        - generic [ref=f5e68]:
+          - img [ref=f5e70]
+          - generic [ref=f5e73]:
+            - paragraph [ref=f5e74]: Total cajas
+            - paragraph [ref=f5e75]: "2"
+        - generic [ref=f5e76]:
+          - img [ref=f5e78]
+          - generic [ref=f5e81]:
+            - paragraph [ref=f5e82]: Abiertas
+            - paragraph [ref=f5e83]: "2"
+        - generic [ref=f5e84]:
+          - img [ref=f5e86]
+          - generic [ref=f5e89]:
+            - paragraph [ref=f5e90]: Disponible total
+            - paragraph [ref=f5e91]: $ 10.000.000
+      - generic [ref=f5e92]:
+        - img [ref=f5e93]
+        - textbox "Buscar por nombre, central o director..." [ref=f5e96]
+      - generic [ref=f5e97]:
+        - heading "Listado de cajas" [level=3] [ref=f5e99]
+        - generic [ref=f5e100]:
+          - table [ref=f5e102]:
+            - rowgroup [ref=f5e103]:
+              - row "Nombre Central Director Administradores Apertura Disponible Estado" [ref=f5e104]:
+                - columnheader [ref=f5e105]
+                - columnheader "Nombre" [ref=f5e106]
+                - columnheader "Central" [ref=f5e107]
+                - columnheader "Director" [ref=f5e108]
+                - columnheader "Administradores" [ref=f5e109]
+                - columnheader "Apertura" [ref=f5e110]
+                - columnheader "Disponible" [ref=f5e111]
+                - columnheader "Estado" [ref=f5e112]
+                - columnheader [ref=f5e113]
+            - rowgroup [ref=f5e114]:
+              - row "caja menor central medellin CENTRAL MEDELLIN Sebastian Uribe Cristian Cano $ 5.000.000 $ 5.000.000 Abierta" [ref=f5e115]:
+                - cell [ref=f5e116]:
+                  - button "Editar caja" [ref=f5e117]:
+                    - img [ref=f5e118]
+                - cell "caja menor central medellin" [ref=f5e121]
+                - cell "CENTRAL MEDELLIN" [ref=f5e122]
+                - cell "Sebastian Uribe" [ref=f5e123]
+                - cell "Cristian Cano" [ref=f5e124]
+                - cell "$ 5.000.000" [ref=f5e125]
+                - cell "$ 5.000.000" [ref=f5e126]
+                - cell "Abierta" [ref=f5e127]:
+                  - generic [ref=f5e128]: Abierta
+                - cell [ref=f5e129]:
+                  - generic [ref=f5e130]:
+                    - button "Cerrar caja" [ref=f5e131]:
+                      - img [ref=f5e132]
+                    - 'button "No se puede eliminar: tiene movimientos registrados" [disabled] [ref=f5e135]':
+                      - img [ref=f5e136]
+              - row "Caja Menor MiraxionTech Central MiraxionTech Director MiraxionTech Administrador MiraxionTech $ 5.000.000 $ 5.000.000 Abierta" [ref=f5e139]:
+                - cell [ref=f5e140]:
+                  - button "Editar caja" [active] [ref=f5e141]:
+                    - img [ref=f5e142]
+                - cell "Caja Menor MiraxionTech" [ref=f5e145]
+                - cell "Central MiraxionTech" [ref=f5e146]
+                - cell "Director MiraxionTech" [ref=f5e147]
+                - cell "Administrador MiraxionTech" [ref=f5e148]
+                - cell "$ 5.000.000" [ref=f5e149]
+                - cell "$ 5.000.000" [ref=f5e150]
+                - cell "Abierta" [ref=f5e151]:
+                  - generic [ref=f5e152]: Abierta
+                - cell [ref=f5e153]:
+                  - generic [ref=f5e154]:
+                    - button "Cerrar caja" [ref=f5e155]:
+                      - img [ref=f5e156]
+                    - 'button "No se puede eliminar: tiene movimientos registrados" [disabled] [ref=f5e159]':
+                      - img [ref=f5e160]
+          - generic [ref=f5e163]:
+            - generic [ref=f5e164]:
+              - generic [ref=f5e165]:
+                - text: Mostrando
+                - generic [ref=f5e166]: 1–2
+                - text: de 2
+              - generic [ref=f5e167]: ·
+              - generic [ref=f5e168]:
+                - generic [ref=f5e169]: "Por página:"
+                - combobox "Por página:" [ref=f5e170]:
+                  - option "10" [selected]
+                  - option "25"
+                  - option "50"
+            - generic [ref=f5e171]:
+              - button "Página anterior" [disabled] [ref=f5e172]:
+                - img [ref=f5e173]
+              - generic [ref=f5e175]: 1 / 1
+              - button "Página siguiente" [disabled] [ref=f5e176]:
+                - img [ref=f5e177]
+      - generic [ref=f5e181]:
+        - generic [ref=f5e182]:
+          - heading "Editar — Caja Menor MiraxionTech" [level=3] [ref=f5e183]
+          - button [ref=f5e184]:
+            - img [ref=f5e185]
+        - generic [ref=f5e189]:
+          - generic [ref=f5e190]:
+            - generic [ref=f5e191]:
+              - text: Nombre
+              - textbox [ref=f5e192]: Caja Menor MiraxionTech
+            - generic [ref=f5e193]:
+              - text: Central
+              - combobox [ref=f5e194] [cursor=pointer]:
+                - option "Seleccionar..."
+                - option "CENTRAL MEDELLIN"
+                - option "Central MiraxionTech" [selected]
+          - generic [ref=f5e195]:
+            - text: Valor de apertura
+            - spinbutton [ref=f5e196]: "5000000"
+          - generic [ref=f5e197]:
+            - text: Director
+            - combobox [ref=f5e198] [cursor=pointer]:
+              - option "Sin director asignado"
+              - option "Sebastian Uribe"
+              - option "Director MiraxionTech" [selected]
+          - generic [ref=f5e199]:
+            - button "Cancelar" [ref=f5e200] [cursor=pointer]
+            - button "Guardar cambios" [ref=f5e201] [cursor=pointer]
